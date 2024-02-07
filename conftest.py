@@ -26,8 +26,8 @@ def performance_metrics() -> dict:
 
     ui_config = get_ui_config()
 
-    if not os.path.exists(ui_config.logging.screenshots_dir):
-        os.mkdir(ui_config.logging.screenshots_dir)
+    if not os.path.exists(ui_config.logging.performance_results_dir):
+        os.mkdir(ui_config.logging.performance_results_dir)
 
     target_output = f'performance-results/metrics_{datetime.now().strftime("%Y-%m-%dT%H%M")}.json'
     with open(target_output, 'a', encoding='utf8') as json_file:
