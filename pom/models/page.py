@@ -1,8 +1,11 @@
 from datetime import datetime
+from time import sleep
+
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver, WebElement
 from selenium.webdriver.support.wait import WebDriverWait
+from urllib3.exceptions import MaxRetryError
 
 from config import UIConfig
 from constants.js_scripts import JS
@@ -110,11 +113,11 @@ class Page(PageInterface):
         """Waits until webdriver will be stable"""
         logger.info("Page.wait_until_stable() - Page wait until driver stable")
 
-        #try:
-        return self.webdriver
-        #except MaxRetryError:
-        #    sleep(0.5)
-        #    self.wait_until_stable()
+        try:
+            return self.webdriver
+        except MaxRetryError:
+            sleep(1)
+            self.wait_until_stable()
 
     def get_xpath(self, xpath: str, timeout: int = None) -> Element:
         """
