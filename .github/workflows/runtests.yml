@@ -1,4 +1,4 @@
-name: Test
+name: Run Selenium Automated Tests
 
 on: 
   workflow_dispatch
@@ -7,14 +7,24 @@ jobs:
   docker:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-
+    name: Run Tests with Docker
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-
     - name: Start containers
       run: docker-compose -f "docker-compose.yml" up --build --exit-code-from tests
-
     - name: Stop containers
       if: always()
       run: docker-compose -f "docker-compose.yml" down
+    - name: Upload Allure results
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-results
+        path: ./allure-results
+        retention-days: 3
+    - name: Upload Performance results
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-results
+          path: ./performance-results
+          retention-days: 3
