@@ -23,8 +23,8 @@ jobs:
         path: ./allure-results
         retention-days: 3
     - name: Upload Performance results
-        uses: actions/upload-artifact@v4
-        with:
-          name: performance-results
-          path: ./performance-results
-          retention-days: 3
+      uses: actions/upload-artifact@v4
+      with:
+        name: performance-results
+        path: ./performance-results
+        retention-days: 3
