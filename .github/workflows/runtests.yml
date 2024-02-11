@@ -60,25 +60,21 @@ jobs:
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
 
-  commit_results:
-    runs-on: ubuntu-latest
-    name: Save Performance Results
-    needs: [docker]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v3
-        with:
-          name: performance-results
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-          ref: perf-results
-          path: peft-results
-      - uses: fregante/setup-git-user@v2
-      - run: |
-          git config user.name github-actions
-          git config user.email ${{ github.event.sender.email }}
-          git pull
-          git add ./performance-results/*
-          git commit -m "Automated commit"
-          git push
+    - name: Save Performance Results
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GH_TOKEN }}
+        ref: perf-results
+        path: peft-results
+
+    - name: Save Performance Results
+      uses: fregante/setup-git-user@v2
+
+    - name: Test
+      run: |
+        git config user.name github-actions
+        git config user.email ${{ github.event.sender.email }}
+        git pull
+        git add ./performance-results/*
+        git commit -m "Automated commit"
+        git push
