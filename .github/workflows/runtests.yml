@@ -54,10 +54,10 @@ jobs:
 
     - name: Performance Reports
       uses: planetoftheweb/copy-to-branches@v1
-        env:
-          key: main
-          branches: perf-results
-          files: ./performance-results
+      env:
+        key: main
+        branches: perf-results
+        files: ./performance-results
 
     - name: Deploy Allure Report to Github Pages
       if: always()
