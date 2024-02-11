@@ -33,6 +33,27 @@ jobs:
         path: ./performance-results
         retention-days: 3
 
+    - name: Get Performance History
+      uses: actions/checkout@v4
+      if: always()
+      continue-on-error: true
+      with:
+        token: ${{ secrets.GH_TOKEN }}
+        ref: perf-results
+        path: perf-results
+
+    - name: Save Performance Results
+      uses: fregante/setup-git-user@v2
+
+    - name: Test
+      run: |
+        git config user.name github-actions
+        git config user.email ${{ github.event.sender.email }}
+        git pull
+        git add ./performance-results/*
+        git commit -m "Automated commit"
+        git push
+
     - name: Get Allure History
       uses: actions/checkout@v4
       if: always()
@@ -59,27 +80,3 @@ jobs:
         PERSONAL_TOKEN: ${{ secrets.GH_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
-
-    - name: Checkout again
-      uses: actions/checkout@v4
-
-    - name: Get Performance History
-      uses: actions/checkout@v4
-      if: always()
-      continue-on-error: true
-      with:
-        token: ${{ secrets.GH_TOKEN }}
-        ref: perf-results
-        path: perf-results
-
-    - name: Save Performance Results
-      uses: fregante/setup-git-user@v2
-
-    - name: Test
-      run: |
-        git config user.name github-actions
-        git config user.email ${{ github.event.sender.email }}
-        git pull
-        git add ./performance-results/*
-        git commit -m "Automated commit"
-        git push
