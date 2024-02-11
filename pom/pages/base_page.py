@@ -13,7 +13,7 @@ class BasePage:
     def visit(self, url: str = '') -> None:
         with allure.step(f'Opening the url "{url}" and close cookies'):
             self.page.get(url)
-            self.cookies_modal.close()
+            self.cookies_modal.close() # TODO : remove for next
 
     def get_performance_metrics(self, run: int, performance_metrics: dict, url: str = '') -> None:
         with allure.step(f'Performance test run №{run}'):

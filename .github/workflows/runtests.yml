@@ -52,12 +52,24 @@ jobs:
         allure_history: allure-history
         keep_reports: 30
 
+    - name: Get Performance History
+      uses: actions/checkout@v4
+      if: always()
+      continue-on-error: true
+      with:
+        ref: perf-results
+        path: peft-results
+        token: ${{ secrets.GH_TOKEN }}
+
     - name: Performance Reports
-      uses: planetoftheweb/copy-to-branches@v1
-      env:
-        key: main
-        branches: perf-results
-        files: ./performance-results
+      uses: fregante/setup-git-user@v2
+      run: |
+        git config user.name github-actions
+        git config user.email ${{ github.event.sender.email }}
+        git pull
+        git add ./performance-results/*
+        git commit -m "Automated commit"
+        git push
 
     - name: Deploy Allure Report to Github Pages
       if: always()
