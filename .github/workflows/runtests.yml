@@ -60,12 +60,14 @@ jobs:
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
 
-    - name: Save Performance Results
+    - name: Get Performance History
       uses: actions/checkout@v4
+      if: always()
+      continue-on-error: true
       with:
         token: ${{ secrets.GH_TOKEN }}
         ref: perf-results
-        path: peft-results
+        path: perf-results
 
     - name: Save Performance Results
       uses: fregante/setup-git-user@v2
