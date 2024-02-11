@@ -45,7 +45,7 @@ jobs:
     - name: Download Performance Results
       uses: actions/download-artifact@v3
       with:
-        name: performance-results
+        name: Upload Performance Results
 
     - name: Save Performance Results
       uses: fregante/setup-git-user@v2
