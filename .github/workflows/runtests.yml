@@ -60,7 +60,7 @@ jobs:
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
 
-commit_results:
+  commit_results:
     runs-on: ubuntu-latest
     name: Save Performance Results
     needs: [docker]
