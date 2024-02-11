@@ -7,7 +7,7 @@ from webdriver.factory.browser import Browser
 class DriverConfig(BaseSettings):
     browser: Browser = Field(default=Browser.CHROME, env="BROWSER")
     remote_url: str = Field(default="", env="REMOTE_URL")
-    wait_time: int = 10
+    wait_time: int = 5
     page_load_wait_time: int = 0
     options: list[str] = [
         "ignore-certificate-errors",

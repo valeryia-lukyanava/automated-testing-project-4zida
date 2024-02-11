@@ -60,6 +60,9 @@ jobs:
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
 
+    - name: Checkout
+        uses: actions/checkout@v4
+
     - name: Get Performance History
       uses: actions/checkout@v4
       if: always()

@@ -62,7 +62,7 @@ screenshots/
 allure-report/
 allure-results/
 
-# Pefrormance test results
+# Performance test results
 performance-results/
 
 # Chrome driver for local run
