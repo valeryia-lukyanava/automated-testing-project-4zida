@@ -63,7 +63,7 @@ allure-report/
 allure-results/
 
 # Performance test results
-performance-results/
+# performance-results/
 
 # Chrome driver for local run
 chromedriver-win64/
