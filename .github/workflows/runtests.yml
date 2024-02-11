@@ -12,28 +12,28 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Start containers
+    - name: Start Containers
       run: docker-compose -f "docker-compose.yml" up --build --exit-code-from tests
 
-    - name: Stop containers
+    - name: Stop Containers
       if: always()
       run: docker-compose -f "docker-compose.yml" down
 
-    - name: Upload Allure results
+    - name: Upload Allure Results
       uses: actions/upload-artifact@v4
       with:
         name: allure-results
         path: ./allure-results
         retention-days: 3
 
-    - name: Upload Performance results
+    - name: Upload Performance Results
       uses: actions/upload-artifact@v4
       with:
         name: performance-results
         path: ./performance-results
         retention-days: 3
 
-    - name: Get Allure history
+    - name: Get Allure History
       uses: actions/checkout@v4
       if: always()
       continue-on-error: true
@@ -41,7 +41,7 @@ jobs:
         ref: gh-pages
         path: gh-pages
 
-    - name: Allure Reports
+    - name: Save History and Generate Allure Report
       uses: simple-elf/allure-report-action@master
       if: always()
       id: allure-report
@@ -53,16 +53,13 @@ jobs:
         keep_reports: 30
 
     - name: Performance Reports
-      uses: simple-elf/allure-report-action@master
-      if: always()
-      id: performance-report
-      with:
-        allure_results: performance-results
-        gh_pages: performance-results
-        allure_history: 
-        keep_reports: 30
+      uses: planetoftheweb/copy-to-branches@v1
+        env:
+          key: main
+          branches: perf-results
+          files: ./performance-results
 
-    - name: Deploy report to Github Pages
+    - name: Deploy Allure Report to Github Pages
       if: always()
       uses: peaceiris/actions-gh-pages@v2
       env:
