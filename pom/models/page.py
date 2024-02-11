@@ -257,7 +257,7 @@ class Page(PageInterface):
         """Check the web element is located"""
         by = By.XPATH
         elements: list[WebElement] = []
-        logger.info("Page.find_xpath() - Get the elements with xpath: `%s`", xpath)
+        logger.info(f"Page.find_xpath() - Get the elements with xpath: {xpath}")
 
         try:
             if timeout == 0:
