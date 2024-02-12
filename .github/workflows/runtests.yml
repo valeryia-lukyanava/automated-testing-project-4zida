@@ -63,16 +63,16 @@ jobs:
           name: performance-results
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.ACTIONS_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
           path: performance-metrics/
-#      - uses: fregante/setup-git-user@v2
-#      - run: |
-#          git config user.name github-actions
-#          git config user.email ${{ github.event.sender.email }}
-#          git pull
-#          git add ./statistics.json
-#          git commit -m "Added statistics.json"
-#          git push
+      - uses: fregante/setup-git-user@v2
+      - run: |
+          git config user.name github-actions
+          git config user.email ${{ github.event.sender.email }}
+          git pull
+          git add ./performance-results/*.json
+          git commit -m "Automated commit"
+          git push
 #      - uses: actions/checkout@v3
 #        with:
 #          token: ${{ secrets.ACTIONS_TOKEN }}
