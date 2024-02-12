@@ -57,11 +57,11 @@ jobs:
     name: Save Results
     needs: [docker]
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
         with:
           name: performance-results
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.ACTIONS_TOKEN }}
           path: performance-metrics/
