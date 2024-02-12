@@ -33,40 +33,6 @@ jobs:
         path: ./performance-results
         retention-days: 3
 
-    - name: Get Performance History
-      uses: actions/checkout@v4
-      if: always()
-      continue-on-error: true
-      with:
-        token: ${{ secrets.GH_TOKEN }}
-        ref: perf-results
-        path: perf-results
-
-    - name: Download Performance Results
-      uses: actions/download-artifact@v3
-      with:
-        name: Upload Performance Results
-
-    - name: Save Performance Results
-      uses: fregante/setup-git-user@v2
-
-    - name: Test
-      run: |
-        git config user.name github-actions
-        git config user.email ${{ github.event.sender.email }}
-        git pull
-        git add ./performance-results/*
-        git commit -m "Automated commit"
-        git push
-
-    - name: Get Allure History
-      uses: actions/checkout@v4
-      if: always()
-      continue-on-error: true
-      with:
-        ref: gh-pages
-        path: gh-pages
-
     - name: Save History and Generate Allure Report
       uses: simple-elf/allure-report-action@master
       if: always()
@@ -85,3 +51,77 @@ jobs:
         PERSONAL_TOKEN: ${{ secrets.GH_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
+
+  commit_results:
+    runs-on: ubuntu-latest
+    name: Save Results
+    needs: [docker]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: performance-results
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACTIONS_TOKEN }}
+          ref: perf-results
+          path: perf-results/
+#      - uses: fregante/setup-git-user@v2
+#      - run: |
+#          git config user.name github-actions
+#          git config user.email ${{ github.event.sender.email }}
+#          git pull
+#          git add ./statistics.json
+#          git commit -m "Added statistics.json"
+#          git push
+#      - uses: actions/checkout@v3
+#        with:
+#          token: ${{ secrets.ACTIONS_TOKEN }}
+#          path: results/amenities/amenities-uat/
+#      - uses: fregante/setup-git-user@v2
+#      - run: |
+#          git config user.name github-actions
+#          git config user.email ${{ github.event.sender.email }}
+#          git pull
+#          git mv ./statistics.json results/amenities/amenities-uat/statistics_$(date +'%Y-%m-%dT%H%M').json
+#          git commit -m "Saved statistics.json in results/amenities/amenities-uat"
+#          git push
+#  compare_results:
+#    runs-on: ubuntu-latest
+#    name: Analyze Results
+#    needs: [commit_results]
+#    steps:
+#      - run: echo "NOW=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+#      - run: echo $NOW
+#      - uses: actions/checkout@v3
+#      - uses: actions/setup-python@v4
+#        with:
+#          python-version: '3.10'
+#      - name: Install dependencies
+#        run: |
+#          python -m pip install --upgrade pip
+#          pip install -r scripts/results-analyzer/requirements.txt
+#      - name: Run Comparative Analysis Script
+#        run: >
+#          python scripts/results-analyzer/results_analyzer.py
+#          results/amenities/amenities-uat
+#          Amenities
+#          uat
+#          ${{ vars.BASE_URL }}
+#          ${{ vars.THREADS_NUMBER }}
+#          ${{ vars.RAMP_UP_PERIOD }}
+#          ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+#          ${{ vars.SERVICE_REPO }}
+#          ${{ vars.NEW_RELIC_LINK }}
+#        shell: sh
+#      - uses: adrey/slack-file-upload-action@master
+#        with:
+#          filename: "Amenities - Performance Results Analysis ${{ env.NOW }}.pdf"
+#          title: "Amenities - Performance Results Analysis ${{ env.NOW }}.pdf"
+#          token: ${{ secrets.SLACK_TOKEN }}
+#          channel: testing-alerts
+#          path: './Amenities - Performance Results Analysis ${{ env.NOW }}.pdf'
+#      - uses: actions/upload-artifact@v3
+#        with:
+#          name: jmeter-test-results-comparative-analysis
+#          path: './Amenities - Performance Results Analysis ${{ env.NOW }}.pdf'
