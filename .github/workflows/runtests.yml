@@ -61,7 +61,7 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN }}
           ref: main
-          path: performance-metrics/
+          #path: performance-metrics/
 #      - uses: actions/checkout@v4
 #        with:
 #          ref: main
