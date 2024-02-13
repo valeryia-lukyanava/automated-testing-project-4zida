@@ -59,7 +59,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: performance-results
+          ref: main
       - uses: actions/download-artifact@v4
         with:
           name: performance-results
@@ -67,7 +67,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_TOKEN }}
-          ref: performance-results
+          ref: main
           path: performance-metrics/
       - uses: fregante/setup-git-user@v2
       - run: |
