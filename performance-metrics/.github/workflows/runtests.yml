@@ -1,0 +1,130 @@
+name: Run Selenium Automated Tests
+
+on: 
+  workflow_dispatch
+
+jobs:
+  docker:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    name: Run Tests with Docker
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Start Containers
+      run: docker-compose -f "docker-compose.yml" up --build --exit-code-from tests
+
+    - name: Stop Containers
+      if: always()
+      run: docker-compose -f "docker-compose.yml" down
+
+    - name: Upload Allure Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-results
+        path: ./allure-results
+        retention-days: 3
+
+    - name: Upload Performance Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: performance-results
+        path: ./performance-results
+        retention-days: 3
+
+    - name: Save History and Generate Allure Report
+      uses: simple-elf/allure-report-action@master
+      if: always()
+      id: allure-report
+      with:
+        allure_results: allure-results
+        gh_pages: gh-pages
+        allure_report: allure-report
+        allure_history: allure-history
+        keep_reports: 30
+
+    - name: Deploy Allure Report to Github Pages
+      if: always()
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        PERSONAL_TOKEN: ${{ secrets.GH_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: allure-history
+
+  commit_results:
+    runs-on: ubuntu-latest
+    name: Save Results
+    needs: [docker]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/download-artifact@v4
+        with:
+          name: performance-results
+          path: performance-metrics/
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          ref: main
+          path: performance-metrics/
+      - uses: fregante/setup-git-user@v2
+      - run: |
+          git config user.name github-actions
+          git config user.email ${{ github.event.sender.email }}
+          git pull
+          git add .
+          git commit -m "Automated commit"
+          git push
+#      - uses: actions/checkout@v3
+#        with:
+#          token: ${{ secrets.ACTIONS_TOKEN }}
+#          path: results/amenities/amenities-uat/
+#      - uses: fregante/setup-git-user@v2
+#      - run: |
+#          git config user.name github-actions
+#          git config user.email ${{ github.event.sender.email }}
+#          git pull
+#          git mv ./statistics.json results/amenities/amenities-uat/statistics_$(date +'%Y-%m-%dT%H%M').json
+#          git commit -m "Saved statistics.json in results/amenities/amenities-uat"
+#          git push
+#  compare_results:
+#    runs-on: ubuntu-latest
+#    name: Analyze Results
+#    needs: [commit_results]
+#    steps:
+#      - run: echo "NOW=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+#      - run: echo $NOW
+#      - uses: actions/checkout@v3
+#      - uses: actions/setup-python@v4
+#        with:
+#          python-version: '3.10'
+#      - name: Install dependencies
+#        run: |
+#          python -m pip install --upgrade pip
+#          pip install -r scripts/results-analyzer/requirements.txt
+#      - name: Run Comparative Analysis Script
+#        run: >
+#          python scripts/results-analyzer/results_analyzer.py
+#          results/amenities/amenities-uat
+#          Amenities
+#          uat
+#          ${{ vars.BASE_URL }}
+#          ${{ vars.THREADS_NUMBER }}
+#          ${{ vars.RAMP_UP_PERIOD }}
+#          ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+#          ${{ vars.SERVICE_REPO }}
+#          ${{ vars.NEW_RELIC_LINK }}
+#        shell: sh
+#      - uses: adrey/slack-file-upload-action@master
+#        with:
+#          filename: "Amenities - Performance Results Analysis ${{ env.NOW }}.pdf"
+#          title: "Amenities - Performance Results Analysis ${{ env.NOW }}.pdf"
+#          token: ${{ secrets.SLACK_TOKEN }}
+#          channel: testing-alerts
+#          path: './Amenities - Performance Results Analysis ${{ env.NOW }}.pdf'
+#      - uses: actions/upload-artifact@v3
+#        with:
+#          name: jmeter-test-results-comparative-analysis
+#          path: './Amenities - Performance Results Analysis ${{ env.NOW }}.pdf'
