@@ -54,17 +54,13 @@ jobs:
 
   commit_results:
     runs-on: ubuntu-latest
-    name: Save Results
+    name: Save Performance Metrics
     needs: [docker]
     steps:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_TOKEN }}
           ref: main
-          #path: performance-metrics/
-#      - uses: actions/checkout@v4
-#        with:
-#          ref: main
       - uses: actions/download-artifact@v4
         with:
           name: performance-results
@@ -77,54 +73,30 @@ jobs:
           git add "**/metrics_*.json"
           git commit -m "Automated commit"
           git push
-#      - uses: actions/checkout@v3
-#        with:
-#          token: ${{ secrets.ACTIONS_TOKEN }}
-#          path: results/amenities/amenities-uat/
-#      - uses: fregante/setup-git-user@v2
-#      - run: |
-#          git config user.name github-actions
-#          git config user.email ${{ github.event.sender.email }}
-#          git pull
-#          git mv ./statistics.json results/amenities/amenities-uat/statistics_$(date +'%Y-%m-%dT%H%M').json
-#          git commit -m "Saved statistics.json in results/amenities/amenities-uat"
-#          git push
-#  compare_results:
-#    runs-on: ubuntu-latest
-#    name: Analyze Results
-#    needs: [commit_results]
-#    steps:
-#      - run: echo "NOW=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-#      - run: echo $NOW
-#      - uses: actions/checkout@v3
-#      - uses: actions/setup-python@v4
-#        with:
-#          python-version: '3.10'
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install -r scripts/results-analyzer/requirements.txt
-#      - name: Run Comparative Analysis Script
-#        run: >
-#          python scripts/results-analyzer/results_analyzer.py
-#          results/amenities/amenities-uat
-#          Amenities
-#          uat
-#          ${{ vars.BASE_URL }}
-#          ${{ vars.THREADS_NUMBER }}
-#          ${{ vars.RAMP_UP_PERIOD }}
-#          ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-#          ${{ vars.SERVICE_REPO }}
-#          ${{ vars.NEW_RELIC_LINK }}
-#        shell: sh
-#      - uses: adrey/slack-file-upload-action@master
-#        with:
-#          filename: "Amenities - Performance Results Analysis ${{ env.NOW }}.pdf"
-#          title: "Amenities - Performance Results Analysis ${{ env.NOW }}.pdf"
-#          token: ${{ secrets.SLACK_TOKEN }}
-#          channel: testing-alerts
-#          path: './Amenities - Performance Results Analysis ${{ env.NOW }}.pdf'
-#      - uses: actions/upload-artifact@v3
-#        with:
-#          name: jmeter-test-results-comparative-analysis
-#          path: './Amenities - Performance Results Analysis ${{ env.NOW }}.pdf'
+
+  analyze_results:
+    runs-on: ubuntu-latest
+    name: Analyze Results
+    needs: [commit_results]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/results-analyzer/requirements.txt
+      - name: Run Comparative Analysis Script
+        run: >
+          python performance-analysis/performance-analysis.py
+          performance-metrics
+          'next.4zida.rs'
+          'https://next.4zida.rs'
+          5
+          'https://github.com/...'
+        shell: sh
+      - uses: actions/upload-artifact@v3
+        with:
+          name: performance-results-analysis
+          path: './next.4zida.rs - Performance Results ${{ env.NOW }}.pdf'
