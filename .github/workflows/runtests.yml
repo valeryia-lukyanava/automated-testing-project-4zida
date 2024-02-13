@@ -68,13 +68,12 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN }}
           ref: main
-          path: performance-metrics/
       - uses: fregante/setup-git-user@v2
       - run: |
           git config user.name github-actions
           git config user.email ${{ github.event.sender.email }}
           git pull
-          git add *.json
+          git add performance-metrics/*.json
           git commit -m "Automated commit"
           git push
 #      - uses: actions/checkout@v3
