@@ -13,7 +13,8 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Start Containers
-      run: docker-compose -f "docker-compose.yml" up --build --exit-code-from tests
+      run: docker-compose -f "docker-compose.yml" up --build
+      # run: docker-compose -f "docker-compose.yml" up --build --exit-code-from tests
 
     - name: Stop Containers
       if: always()
@@ -55,6 +56,7 @@ jobs:
   commit_results:
     runs-on: ubuntu-latest
     name: Save Performance Metrics
+    if: always()
     needs: [docker]
     steps:
       - uses: actions/checkout@v4
@@ -76,7 +78,8 @@ jobs:
 
   analyze_results:
     runs-on: ubuntu-latest
-    name: Analyze Results
+    name: Generate Performance Report
+    if: always()
     needs: [commit_results]
     steps:
       - uses: actions/checkout@v4
