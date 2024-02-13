@@ -7,7 +7,7 @@ jobs:
   docker:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    name: Run Tests with Docker
+    name: Run Tests
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -101,5 +101,5 @@ jobs:
         shell: sh
       - uses: actions/upload-artifact@v4
         with:
-          name: performance-results-analysis
+          name: performance-report
           path: './next.4zida.rs - Performance Results ${{ env.NOW }}.pdf'
