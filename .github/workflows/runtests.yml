@@ -81,6 +81,7 @@ jobs:
     if: always()
     needs: [commit_results]
     steps:
+      - run: echo "NOW=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:

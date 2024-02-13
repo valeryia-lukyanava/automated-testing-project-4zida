@@ -105,7 +105,7 @@ def main():
         pdf.add_chart('./trend_page_load_time.png')
         pdf.add_chart('./trend_end_to_end_response_time.png')
 
-        report_file_name = f'./{site} - Performance Results Analysis {datetime.now().strftime("%Y-%m-%d")}.pdf'
+        report_file_name = f'./{site} - Performance Results {datetime.now().strftime("%Y-%m-%d")}.pdf'
         pdf.output(report_file_name, 'F')
 
         print(f'Report {report_file_name} is prepared')
