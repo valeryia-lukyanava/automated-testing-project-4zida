@@ -60,15 +60,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-          path: performance-metrics/
       - uses: actions/download-artifact@v4
         with:
           name: performance-results
+          path: performance-metrics/
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_TOKEN }}
           ref: main
-          # path: performance-metrics/
+          path: performance-metrics/
       - uses: fregante/setup-git-user@v2
       - run: |
           git config user.name github-actions
