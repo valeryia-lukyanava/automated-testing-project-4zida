@@ -63,7 +63,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: performance-results
-          # path: performance-metrics/
+          path: performance-metrics/
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_TOKEN }}
@@ -74,7 +74,7 @@ jobs:
           git config user.name github-actions
           git config user.email ${{ github.event.sender.email }}
           git pull
-          git add *.json
+          git add .
           git commit -m "Automated commit"
           git push
 #      - uses: actions/checkout@v3
