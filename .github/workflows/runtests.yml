@@ -68,7 +68,7 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN }}
           ref: main
-          path: performance-metrics/
+          # path: performance-metrics/
       - uses: fregante/setup-git-user@v2
       - run: |
           git config user.name github-actions
