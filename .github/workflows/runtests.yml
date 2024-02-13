@@ -91,7 +91,7 @@ jobs:
           pip install -r performance-analysis/requirements.txt
       - name: Run Comparative Analysis Script
         run: >
-          python performance-analysis/performance-analysis.py
+          python performance-analysis/performance_analysis.py
           performance-metrics
           'next.4zida.rs'
           'https://next.4zida.rs'
