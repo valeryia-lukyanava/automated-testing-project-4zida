@@ -58,12 +58,15 @@ jobs:
     needs: [docker]
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/download-artifact@v4
         with:
           name: performance-results
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_TOKEN }}
+          ref: main
           path: performance-metrics/
       - uses: fregante/setup-git-user@v2
       - run: |
