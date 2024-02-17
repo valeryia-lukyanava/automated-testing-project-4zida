@@ -1,4 +1,5 @@
 import time
+from datetime import datetime
 
 import allure
 from selenium.common.exceptions import TimeoutException, StaleElementReferenceException
@@ -115,7 +116,7 @@ class Page(PageInterface):
         try:
             return self.webdriver
         except MaxRetryError:
-            sleep(1)
+            time.sleep(1)
             self.wait_until_stable()
 
     def get_xpath(self, xpath: str, timeout: int = None) -> Element:
