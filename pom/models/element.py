@@ -50,7 +50,7 @@ class Element(ElementInterface):
     def type(self, *args) -> "Element":
         """Simulate a user typing keys into the input"""
         logger.info(
-            "Element.type() - Type keys `%s` into this element", (args,)
+            "Element.type() - Type keys '%s' into this element", (args,)
         )
 
         ActionChains(self._page.webdriver) \
@@ -63,7 +63,7 @@ class Element(ElementInterface):
     def fill(self, *args) -> "Element":
         """Fill input element with value"""
         logger.info(
-            "Element.fill() - Fill value `%s` into this element", (args,)
+            "Element.fill() - Fill value '%s' into this element", (args,)
         )
 
         self.web_element.send_keys(args)

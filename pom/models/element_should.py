@@ -75,7 +75,7 @@ class ElementShould(ElementShouldInterface):
             return self._element
 
         raise AssertionError(
-            f"Expected text: `{text}` - Actual text: `{self._element.text()}`"
+            f"Expected text: '{text}' - Actual text: '{self._element.web_element.text}'"
         )
 
     def have_attribute_value(self, attribute: str, value: str, case_sensitive=True) -> "ElementInterface":
@@ -95,5 +95,5 @@ class ElementShould(ElementShouldInterface):
             return self._element
 
         raise AssertionError(
-            f"Expected text: `{value}` - Actual text: `{self._element.web_element.get_attribute(attribute)}`"
+            f"Expected text: '{value}' - Actual text: '{self._element.web_element.get_attribute(attribute)}'"
         )
