@@ -16,14 +16,14 @@ class Elements(ElementsInterface):
     ):
         from pom.models.element import Element
 
-        self._list: list[ElementInterface] = [
+        self._page = page
+        self.list: list[ElementInterface] = [
             Element(page, element, None) for element in web_elements
         ]
-        self._page = page
         self.locator = locator
 
     def length(self) -> int:
-        return len(self._list)
+        return len(self.list)
 
     def is_empty(self) -> bool:
         """Checks if there are zero elements in the list."""

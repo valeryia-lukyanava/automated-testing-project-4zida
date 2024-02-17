@@ -1,7 +1,7 @@
-from datetime import datetime
-from time import sleep
+import time
 
-from selenium.common.exceptions import TimeoutException
+import allure
+from selenium.common.exceptions import TimeoutException, StaleElementReferenceException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver, WebElement
 from selenium.webdriver.support.wait import WebDriverWait
@@ -20,8 +20,7 @@ from webdriver.factory.factory import build_from_config
 
 class Page(PageInterface):
     """
-    Page interface that representing interactions with page 
-    like finding locators, opening url etc.
+    Page interface that representing interactions with page like finding locators, opening url etc.
     """
 
     def __init__(self, config: UIConfig):
@@ -52,7 +51,7 @@ class Page(PageInterface):
 
     @property
     def webdriver(self) -> WebDriver:
-        """The current instance of Selenium's `WebDriver` API."""
+        """The current instance of Selenium's 'WebDriver' API."""
         return self.init_webdriver() if self._webdriver is None else self._webdriver
 
     def url(self) -> str:
@@ -99,7 +98,7 @@ class Page(PageInterface):
     def get_page_by_url(self, url):
         """Navigate to the given URL"""
         normalized_url = url if url.startswith('http') else (self.config.base_url + url)
-        logger.info("Page.visit() - Get URL: `%s`", normalized_url)
+        logger.info("Page.visit() - Get URL: '%s'", normalized_url)
         self.webdriver.get(normalized_url)
 
     def reload(self) -> "Page":
@@ -123,12 +122,12 @@ class Page(PageInterface):
         """
         Finds the DOM element that match the XPATH selector.
 
-        * If `timeout=None` (default), use the default wait_time.
-        * If `timeout > 0`, override the default wait_time.
-        * If `timeout=0`, poll the DOM immediately without any waiting.
+        * If 'timeout=None' (default), use the default wait_time.
+        * If 'timeout > 0', override the default wait_time.
+        * If 'timeout=0', poll the DOM immediately without any waiting.
         """
         logger.info(
-            "Page.get_xpath() - Get the element with xpath: `%s`", xpath
+            "Page.get_xpath() - Get the element with xpath: '%s'", xpath
         )
 
         by = By.XPATH
@@ -138,7 +137,7 @@ class Page(PageInterface):
         else:
             element = self.wait(timeout).until(
                 lambda x: x.find_element(by, xpath),
-                f"Could not find an element with xpath: `{xpath}`"
+                f"Could not find an element with xpath: '{xpath}'"
             )
 
         return Element(self, element, locator=(by, xpath))
@@ -147,15 +146,15 @@ class Page(PageInterface):
         """
         Finds the DOM elements that match the XPATH selector.
 
-        * If `timeout=None` (default), use the default wait_time.
-        * If `timeout > 0`, override the default wait_time.
-        * If `timeout=0`, poll the DOM immediately without any waiting.
+        * If 'timeout=None' (default), use the default wait_time.
+        * If 'timeout > 0', override the default wait_time.
+        * If 'timeout=0', poll the DOM immediately without any waiting.
         """
         by = By.XPATH
         elements: list[WebElement] = []
 
         logger.info(
-            "Page.find_xpath() - Get the elements with xpath: `%s`", xpath
+            "Page.find_xpath() - Get the elements with xpath: '%s'", xpath
         )
 
         try:
@@ -164,7 +163,7 @@ class Page(PageInterface):
             else:
                 elements = self.wait(timeout).until(
                     lambda x: x.find_elements(by, xpath),
-                    f"Could not find an element with xpath: `{xpath}`"
+                    f"Could not find an element with xpath: '{xpath}'"
                 )
         except TimeoutException:
             pass
@@ -190,7 +189,7 @@ class Page(PageInterface):
 
     def screenshot(self, filename: str) -> str:
         """Take a screenshot of the current Window"""
-        logger.info("Page.screenshot() - Save screenshot to: `%s`", filename)
+        logger.info("Page.screenshot() - Save screenshot to: '%s'", filename)
 
         self.webdriver.save_screenshot(filename)
         return filename
@@ -205,7 +204,7 @@ class Page(PageInterface):
     def execute_script(self, script: str, *args) -> "Page":
         """Executes javascript in the current window or frame"""
         logger.info(
-            "Page.execute_script() - Execute javascript `%s` into the Browser", script
+            "Page.execute_script() - Execute javascript '%s' into the Browser", script
         )
 
         self.webdriver.execute_script(script, *args)
@@ -214,7 +213,7 @@ class Page(PageInterface):
     def set_page_load_timeout(self, timeout: int) -> "Page":
         """Set the amount of time to wait for a page load to complete before throwing an error"""
         logger.info(
-            "Page.set_page_load_timeout() - Set page load timeout: `%s`", timeout
+            "Page.set_page_load_timeout() - Set page load timeout: '%s'", timeout
         )
 
         self.webdriver.set_page_load_timeout(timeout)
@@ -223,7 +222,7 @@ class Page(PageInterface):
     def viewport(self, width: int, height: int, orientation: str = "portrait") -> "Page":
         """Control the size and orientation of the current context's browser window"""
         logger.info(
-            "Page.viewport() - Set viewport width: `%s`, height: `%s`, orientation: `%s`",
+            "Page.viewport() - Set viewport width: '%s', height: '%s', orientation: '%s'",
             width, height, orientation
         )
 
@@ -232,7 +231,7 @@ class Page(PageInterface):
         elif orientation == "landscape":
             self.webdriver.set_window_size(height, width)
         else:
-            raise ValueError("Orientation must be `portrait` or `landscape`.")
+            raise ValueError("Orientation must be 'portrait' or 'landscape'.")
         return self
 
     def check_browser_title(self, title_name):
@@ -240,7 +239,7 @@ class Page(PageInterface):
         value = None
         try:
             actual_title = self.title()
-            logger.info("The title of the page is `%s`", actual_title)
+            logger.info("The title of the page is '%s'", actual_title)
             if actual_title == title_name:
                 value = True
         except TimeoutException:
@@ -250,8 +249,43 @@ class Page(PageInterface):
             return self.title()
 
         raise AssertionError(
-            f"Expected title: `{title_name}` - Actual text: `{self.title()}`"
+            f"Expected title: '{title_name}' - Actual text: '{self.title()}'"
         )
+
+    def check_page_title(self, title_name):
+        """Check the title of the page"""
+        value = None
+        try:
+            actual_title = self.title()
+            logger.info("The title of the page is '%s'", actual_title)
+            if actual_title == title_name:
+                value = True
+        except TimeoutException:
+            value = False
+
+        if value:
+            return self.title()
+
+        raise AssertionError(
+            f"Expected title: '{title_name}' - Actual text: '{self.title()}'"
+        )
+
+    def check_page_url(self, url, errors):
+        """Check the URL of the page"""
+        try:
+            value = self._wait.until(lambda e: e.current_url == url)
+            actual_url = self.url()
+            logger.info("The URL of the page is '%s'", actual_url)
+            if actual_url == url:
+                value = True
+        except TimeoutException:
+            value = False
+
+        if value:
+            return self.url()
+        else:
+            errors.append(AssertionError(f"Expected URL: '{url}' - Actual URL: '{self.url()}'"))
+            logger.error(f"Expected URL: '{url}' - Actual URL: '{self.url()}'")
 
     def check_web_element_located(self, xpath: str, timeout: int = None) -> bool:
         """Check the web element is located"""
@@ -265,7 +299,7 @@ class Page(PageInterface):
             else:
                 elements = self.wait(timeout).until(
                     lambda x: x.find_elements(by, xpath),
-                    f"Could not find an element with xpath: `{xpath}`"
+                    f"Could not find an element with xpath: '{xpath}'"
                 )
         except TimeoutException:
             pass
@@ -274,5 +308,23 @@ class Page(PageInterface):
             return True
 
         raise AssertionError(
-            f"Expected result: the element with XPath = `{xpath}` is located, Actual result: the element is not found"
+            f"Expected result: the element with XPath = '{xpath}' is located, Actual result: the element is not found"
         )
+
+    def check_footer_link(self, index, locator, errors):
+
+        href = self.find_xpath(locator).list[index].web_element.get_attribute('href')
+        text = self.find_xpath(locator).list[index].web_element.text
+
+        with allure.step(f"Checking Footer link #{index} '{text}' (href = '{href}')"):
+            try:
+                self.find_xpath(locator).list[index].click()
+            except StaleElementReferenceException:
+                self.find_xpath(locator).list[index].click()
+            logger.info(f"Clicked Footer link #{index} '{text}', 'href'={href}")
+            if len(self.webdriver.window_handles) > 1:
+                self.webdriver.switch_to.window(len(self.webdriver.window_handles) - 1)
+            self.check_page_url(url=href, errors=errors)
+
+        self.get(self.config.base_url)
+        time.sleep(2)

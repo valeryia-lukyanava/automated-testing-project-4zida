@@ -8,12 +8,13 @@ from pom.models.page import Page
 class BasePage:
     def __init__(self, page: Page) -> None:
         self.page = page
+        self.errors = []
         self.cookies_modal = CookiesModal(page)
 
     def visit(self, url: str = '') -> None:
         with allure.step(f'Opening the url "{url}" and close cookies'):
             self.page.get(url)
-            self.cookies_modal.close() # TODO : remove for next
+            # self.cookies_modal.close() # TODO : remove for next env ?
 
     def get_performance_metrics(self, run: int, performance_metrics: dict, url: str = '') -> None:
         with allure.step(f'Performance test run №{run}'):
