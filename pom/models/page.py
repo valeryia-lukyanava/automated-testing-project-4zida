@@ -332,4 +332,5 @@ class Page(PageInterface):
                 self.check_page_url(url=href, errors=errors)
 
         self.get(self.config.base_url)
-        time.sleep(2)
+        # To avoid Error 429 
+        time.sleep(3)
