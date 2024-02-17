@@ -10,6 +10,7 @@ from urllib3.exceptions import MaxRetryError
 
 from config import UIConfig
 from constants.js_scripts import JS
+from constants.routes import UIRoutes
 from utils.bowser_log_parser import get_lcp_from_logs
 from utils.logger import logger
 from pom.interfaces.page import PageInterface
@@ -314,18 +315,21 @@ class Page(PageInterface):
 
     def check_footer_link(self, index, locator, errors):
 
-        href = self.find_xpath(locator).list[index].web_element.get_attribute('href')
-        text = self.find_xpath(locator).list[index].web_element.text
+        link = self.find_xpath(locator).list[index]
+        href = link.web_element.get_attribute('href')
+        text = link.web_element.text
+        if href != UIRoutes.MAILTO:
+            with allure.step(f"Checking Footer link #{index} '{text}' (href = '{href}')"):
+                try:
+                    link.click()
+                except StaleElementReferenceException:
+                    link.click()
+                logger.info(f"Clicked Footer link #{index} '{text}', 'href'={href}")
 
-        with allure.step(f"Checking Footer link #{index} '{text}' (href = '{href}')"):
-            try:
-                self.find_xpath(locator).list[index].click()
-            except StaleElementReferenceException:
-                self.find_xpath(locator).list[index].click()
-            logger.info(f"Clicked Footer link #{index} '{text}', 'href'={href}")
-            if len(self.webdriver.window_handles) > 1:
-                self.webdriver.switch_to.window(len(self.webdriver.window_handles) - 1)
-            self.check_page_url(url=href, errors=errors)
+                window_handlers = self.webdriver.window_handles
+                if len(window_handlers) > 1:
+                    self.webdriver.switch_to.window(window_handlers[len(window_handlers)-1])
+                self.check_page_url(url=href, errors=errors)
 
         self.get(self.config.base_url)
         time.sleep(2)

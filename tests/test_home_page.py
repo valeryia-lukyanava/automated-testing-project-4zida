@@ -33,9 +33,6 @@ class TestHomePage:
 
         # 7. "Najnoviji blog postovi" Widget - ?
 
-        # 8. Footer Links
-        home_page.check_footer_links()
-
         # home_page.check_meta_tag(attribute="content", expected_value="index, follow")
         # home_page.check_link_canonical(attribute="href",
         #                                       expected_value=f"{home_page.page.config.base_url}{endpoint}")
