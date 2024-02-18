@@ -32,6 +32,7 @@ class ElementShould(ElementShouldInterface):
         except TimeoutException:
             value = False
         if value:
+            logger.info("Element is displayed and enabled (clickable)")
             return self._element
 
         raise AssertionError("Element was not clickable")

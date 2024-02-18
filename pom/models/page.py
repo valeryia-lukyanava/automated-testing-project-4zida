@@ -2,6 +2,7 @@ import time
 from datetime import datetime
 
 import allure
+import requests
 from selenium.common.exceptions import TimeoutException, StaleElementReferenceException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver, WebElement
@@ -9,6 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from urllib3.exceptions import MaxRetryError
 
 from config import UIConfig
+from constants.attributes import Attributes
 from constants.js_scripts import JS
 from constants.routes import UIRoutes
 from utils.bowser_log_parser import get_lcp_from_logs
@@ -316,21 +318,46 @@ class Page(PageInterface):
     def check_footer_link(self, index, locator, errors):
 
         link = self.find_xpath(locator).list[index]
-        href = link.web_element.get_attribute('href')
+        url = link.web_element.get_attribute(Attributes.HREF)
         text = link.web_element.text
-        if href != UIRoutes.MAILTO:
-            with allure.step(f"Checking Footer link #{index} '{text}' (href = '{href}')"):
-                try:
-                    link.click()
-                except StaleElementReferenceException:
-                    link.click()
-                logger.info(f"Clicked Footer link #{index} '{text}', 'href'={href}")
+        if text == '':
+            image = self.webdriver.find_elements(By.XPATH, f"({locator})[{index+1}]//img")
+            if len(image) > 0:
+                text = image[0].get_attribute('alt')
 
-                window_handlers = self.webdriver.window_handles
-                if len(window_handlers) > 1:
-                    self.webdriver.switch_to.window(window_handlers[len(window_handlers)-1])
-                self.check_page_url(url=href, errors=errors)
+        if url != UIRoutes.MAILTO:
+            with allure.step(f"Checking Footer link #{index} '{text}' (href = '{url}')"):
 
-        self.get(self.config.base_url)
-        # To avoid Error 429
-        time.sleep(3)
+                logger.info(f"Link #{index} '{text}' (href = '{url}')")
+                link.should().be_clickable()
+
+                if self.config.api_check_links:
+                    response = requests.get(url)
+                    response_status_code = response.status_code
+                    response_ulr = response.url
+                    logger.info(f"GET '{url}'. Response status code: {response_status_code}")
+
+                    if int(response_status_code) >= 400:
+                        errors.append(AssertionError(f"Link #{index} '{text}', GET '{url}'. "
+                                                     f"Expected status code should be < 400. "
+                                                     f"Actual status code: '{response_status_code}'"))
+
+                    if response_ulr != url:
+                        errors.append(AssertionError(f"Link #{index} '{text}'. "
+                                                     f"Footer link attribute 'href': {url}"
+                                                     f"Response URL: '{response_ulr}'"))
+                else:
+                    try:
+                        link.click()
+                    except StaleElementReferenceException:
+                        link.click()
+                    logger.info(f"Clicked Footer link #{index} '{text}', 'href'={url}")
+
+                    window_handlers = self.webdriver.window_handles
+                    if len(window_handlers) > 1:
+                        self.webdriver.switch_to.window(window_handlers[len(window_handlers)-1])
+                    self.check_page_url(url=url, errors=errors)
+
+                    self.get(self.config.base_url)
+                    # To avoid Error 429
+                    time.sleep(3)

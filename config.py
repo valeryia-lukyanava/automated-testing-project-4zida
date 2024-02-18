@@ -57,6 +57,7 @@ class ViewportConfig(BaseModel):
 
 class UIConfig(BaseSettings):
     base_url: str = Field(env="BASE_URL")
+    api_check_links: bool = Field(env="API_CHECK_LINKS")
     driver: DriverConfig = DriverConfig()
     logging: LoggingConfig = LoggingConfig()
     viewport: ViewportConfig = ViewportConfig()

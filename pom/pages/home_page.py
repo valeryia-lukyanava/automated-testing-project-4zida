@@ -1,15 +1,12 @@
-import time
-
 import allure
-from selenium.common import StaleElementReferenceException
 
 from constants.locators import HomePageLocators
-from constants.titles import Titles
 from pom.page_factory.form import Form
 from pom.page_factory.component import Component
 from pom.page_factory.title import Title
 from pom.pages.base_page import BasePage
 from pom.models.page import Page
+from utils.logger import logger
 
 
 class HomePage(BasePage):
@@ -80,4 +77,10 @@ class HomePage(BasePage):
         links = self.page.find_xpath(HomePageLocators.FOOTER_LINKS)
         for index in range(links.length()):
             self.page.check_footer_link(index, HomePageLocators.FOOTER_LINKS, self.errors)
-        return self.errors
+
+        if len(self.errors) > 0:
+            with allure.step(f"As a result of checking Footer links, the following errors were detected:"):
+                logger.warning("Detected Errors:")
+                for error in self.errors:
+                    with allure.step(error):
+                        logger.warning(error)

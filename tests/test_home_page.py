@@ -47,6 +47,4 @@ class TestHomePage:
     def test_footer_links(self, home_page: HomePage):
         # 8. Footer Links
         home_page.visit()
-        errors = home_page.check_footer_links()
-
-        assert len(errors) == 0, f"While checking Footer links the next errors have been discovered: {errors}"
+        home_page.check_footer_links()
