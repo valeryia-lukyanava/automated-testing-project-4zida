@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Generate Performance Report
     if: always()
-    needs: [commit_results]
     steps:
       - run: echo "NOW=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
       - uses: actions/checkout@v4
