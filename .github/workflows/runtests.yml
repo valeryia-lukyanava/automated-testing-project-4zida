@@ -76,32 +76,3 @@ jobs:
           git add "**/metrics_*.json"
           git commit -m "Automated commit"
           git push
-
-  analyze_results:
-    runs-on: ubuntu-latest
-    name: Generate Performance Report
-    if: always()
-    needs: [commit_results]
-    steps:
-      - run: echo "NOW=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r performance-analysis/requirements.txt
-      - name: Run Comparative Analysis Script
-        run: >
-          python performance-analysis/performance_analysis.py
-          performance-metrics
-          'next.4zida.rs'
-          'https://next.4zida.rs'
-          5
-          'https://github.com/...'
-        shell: sh
-      - uses: actions/upload-artifact@v4
-        with:
-          name: performance-report
-          path: './next.4zida.rs - Performance Results ${{ env.NOW }}.pdf'
