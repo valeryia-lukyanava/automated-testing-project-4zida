@@ -332,20 +332,20 @@ class Page(PageInterface):
                 link.should().be_clickable()
 
                 if self.config.api_check_links:
-                    response = requests.get(url)
+                    response = requests.get(url=url, timeout=30)
                     response_status_code = response.status_code
                     response_ulr = response.url
                     logger.info(f"GET '{url}'. Response status code: {response_status_code}")
 
                     if int(response_status_code) >= 400:
-                        errors.append(AssertionError(f"Link #{index} '{text}', GET '{url}'. "
+                        errors.append(str(AssertionError(f"Link #{index} '{text}', GET '{url}'. "
                                                      f"Expected status code should be < 400. "
-                                                     f"Actual status code: '{response_status_code}'"))
+                                                     f"Actual status code: '{response_status_code}'")))
 
                     if response_ulr != url:
-                        errors.append(AssertionError(f"Link #{index} '{text}'. "
+                        errors.append(str(AssertionError(f"Link #{index} '{text}'. "
                                                      f"Footer link attribute 'href': {url}"
-                                                     f"Response URL: '{response_ulr}'"))
+                                                     f"Response URL: '{response_ulr}'")))
                 else:
                     try:
                         link.click()
