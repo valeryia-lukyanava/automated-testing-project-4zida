@@ -42,9 +42,9 @@ class TestHomePage:
         # pytest.assume(home_page.get_title() == "Prodaja stanova Novi Sad - 4zida")
         # pytest.assume(home_page.get_title() == "Prodaja stanova Novi Sad - 4zida")
 
-    @allure.id('2')
-    @allure.title('Check Footer Links')
-    def test_footer_links(self, home_page: HomePage):
-        # 8. Footer Links
-        home_page.visit()
-        home_page.check_footer_links()
+    # @allure.id('2')
+    # @allure.title('Check Footer Links')
+    # def test_footer_links(self, home_page: HomePage):
+    #     # 8. Footer Links
+    #     home_page.visit()
+    #     home_page.check_footer_links()

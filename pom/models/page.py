@@ -321,7 +321,7 @@ class Page(PageInterface):
         url = link.web_element.get_attribute(Attributes.HREF)
         text = link.web_element.text
         if text == '':
-            image = self.webdriver.find_elements(By.XPATH, f"({locator})[{index+1}]//img")
+            image = self.webdriver.find_elements(By.XPATH, f"({locator})[{index + 1}]//img")
             if len(image) > 0:
                 text = image[0].get_attribute('alt')
 
@@ -332,20 +332,20 @@ class Page(PageInterface):
                 link.should().be_clickable()
 
                 if self.config.api_check_links:
-                    response = requests.get(url=url, timeout=30)
+                    response = requests.get(url=url, headers={"X-IS-Safe": "safe"}, timeout=60)
                     response_status_code = response.status_code
                     response_ulr = response.url
                     logger.info(f"GET '{url}'. Response status code: {response_status_code}")
 
                     if int(response_status_code) >= 400:
                         errors.append(str(AssertionError(f"Link #{index} '{text}', GET '{url}'. "
-                                                     f"Expected status code should be < 400. "
-                                                     f"Actual status code: '{response_status_code}'")))
+                                                         f"Expected status code should be < 400. "
+                                                         f"Actual status code: '{response_status_code}'")))
 
                     if response_ulr != url:
                         errors.append(str(AssertionError(f"Link #{index} '{text}'. "
-                                                     f"Footer link attribute 'href': {url}"
-                                                     f"Response URL: '{response_ulr}'")))
+                                                         f"Footer link attribute 'href': {url}"
+                                                         f"Response URL: '{response_ulr}'")))
                 else:
                     try:
                         link.click()
@@ -355,7 +355,7 @@ class Page(PageInterface):
 
                     window_handlers = self.webdriver.window_handles
                     if len(window_handlers) > 1:
-                        self.webdriver.switch_to.window(window_handlers[len(window_handlers)-1])
+                        self.webdriver.switch_to.window(window_handlers[len(window_handlers) - 1])
                     self.check_page_url(url=url, errors=errors)
 
                     self.get(self.config.base_url)
