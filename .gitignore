@@ -29,7 +29,7 @@ pip-delete-this-directory.txt
 .python-version
 
 # dotenv
-.env
+# .env
 
 # virtualenv
 venv/
