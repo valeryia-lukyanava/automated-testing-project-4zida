@@ -1,0 +1,44 @@
+{
+      "2024-02-21 17:57:25.931501": {
+            "URL": "https://next.4zida.rs/",
+            "TTFB": 317,
+            "LCP": 405,
+            "PageLoadTime": 515,
+            "EndToEndResponseTime": 832
+      },
+      "2024-02-21 17:57:28.416055": {
+            "URL": "https://next.4zida.rs/",
+            "TTFB": 348,
+            "LCP": 444,
+            "PageLoadTime": 461,
+            "EndToEndResponseTime": 809
+      },
+      "2024-02-21 17:57:30.780079": {
+            "URL": "https://next.4zida.rs/",
+            "TTFB": 379,
+            "LCP": 462,
+            "PageLoadTime": 376,
+            "EndToEndResponseTime": 755
+      },
+      "2024-02-21 17:57:33.071924": {
+            "URL": "https://next.4zida.rs/",
+            "TTFB": 363,
+            "LCP": 443,
+            "PageLoadTime": 379,
+            "EndToEndResponseTime": 742
+      },
+      "2024-02-21 17:57:35.512179": {
+            "URL": "https://next.4zida.rs/",
+            "TTFB": 380,
+            "LCP": 471,
+            "PageLoadTime": 416,
+            "EndToEndResponseTime": 796
+      },
+      "Median Values": {
+            "URL": "https://next.4zida.rs",
+            "TTFB": 363,
+            "LCP": 444,
+            "PageLoadTime": 416,
+            "EndToEndResponseTime": 796
+      }
+}
