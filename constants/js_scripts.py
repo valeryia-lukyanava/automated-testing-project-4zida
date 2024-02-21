@@ -14,6 +14,6 @@ class JS(str, Enum):
                 console.warn(lastEntry);
                 });
                 observer.observe({ type: "largest-contentful-paint", buffered: true });"""
-
-
-
+    USER_AGENT = "return navigator.userAgent;"
+    CLIENT_WINDOW_WIDTH = "return document.documentElement.clientWidth;"
+    CLIENT_WINDOW_HEIGHT = "return document.documentElement.clientHeight;"

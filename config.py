@@ -1,7 +1,18 @@
 from functools import lru_cache
 
-from pydantic import BaseModel, Field, BaseSettings
+from pydantic import Field, BaseSettings
 from webdriver.factory.browser import Browser
+
+
+class ViewportConfig(BaseSettings):
+    width: int = Field(default=393, env="CLIENT_WINDOW_WIDTH")
+    height: int = Field(default=873, env="CLIENT_WINDOW_HEIGHT")
+    maximize: bool = True
+    orientation: str = "portrait"
+
+    class Config:
+        env_file = '.env'
+        env_file_encoding = 'utf-8'
 
 
 class DriverConfig(BaseSettings):
@@ -20,7 +31,8 @@ class DriverConfig(BaseSettings):
     ]
     capabilities: dict[str, str] = {}
     # experimental_options: list[dict] | None = None
-    experimental_options: list[dict] = [{"mobileEmulation": {"deviceMetrics": {"width": 393, "height": 873}}}]
+    experimental_options: list[dict] = [{"mobileEmulation": {
+        "deviceMetrics": {"width": ViewportConfig().width, "height": ViewportConfig().height}}}]
     seleniumwire_options: dict = {}
     extension_paths: list[str] | None = None
     webdriver_kwargs: dict | None = None
@@ -48,19 +60,12 @@ class LoggingConfig(BaseSettings):
         env_file_encoding = 'utf-8'
 
 
-class ViewportConfig(BaseModel):
-    maximize: bool = True
-    width: int = 393
-    height: int = 873
-    orientation: str = "portrait"
-
-
 class UIConfig(BaseSettings):
     base_url: str = Field(env="BASE_URL")
     api_check_links: bool = Field(env="API_CHECK_LINKS")
+    viewport: ViewportConfig = ViewportConfig()
     driver: DriverConfig = DriverConfig()
     logging: LoggingConfig = LoggingConfig()
-    viewport: ViewportConfig = ViewportConfig()
     custom: dict = {}
 
     class Config:

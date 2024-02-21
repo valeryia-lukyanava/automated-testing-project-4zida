@@ -51,6 +51,7 @@ class Page(PageInterface):
                 self.config.viewport.height,
                 self.config.viewport.orientation
             )
+        logger.info(f"User Agent: {self._webdriver.execute_script(JS.USER_AGENT)}")
         return self._webdriver
 
     @property
@@ -104,6 +105,8 @@ class Page(PageInterface):
         normalized_url = url if url.startswith('http') else (self.config.base_url + url)
         logger.info("Page.visit() - Get URL: '%s'", normalized_url)
         self.webdriver.get(normalized_url)
+        logger.info(f"Client window width: {self._webdriver.execute_script(JS.CLIENT_WINDOW_WIDTH)}, window height: "
+                    f"{self._webdriver.execute_script(JS.CLIENT_WINDOW_HEIGHT)}")
 
     def reload(self) -> "Page":
         """Reload (aka refresh) the current window"""
