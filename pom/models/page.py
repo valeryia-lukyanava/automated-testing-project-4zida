@@ -335,7 +335,9 @@ class Page(PageInterface):
                 link.should().be_clickable()
 
                 if self.config.api_check_links:
-                    response = requests.get(url=url, headers={"X-IS-Safe": "safe"}, timeout=60)
+                    response = requests.get(url=url,
+                                            headers={"IC-Bypass-Throttling": "8f190c31363e1d3a08ec0ccd0eed4be4"},
+                                            timeout=60)
                     response_status_code = response.status_code
                     response_ulr = response.url
                     logger.info(f"GET '{url}'. Response status code: {response_status_code}")
