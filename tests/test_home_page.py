@@ -1,6 +1,8 @@
 import allure
 import pytest
 
+from constants.headers import Headers
+from constants.tags import Tags
 from pom.pages.home_page import HomePage
 from constants.titles import Titles
 from constants.suites import Suite
@@ -13,12 +15,10 @@ class TestHomePage:
     @allure.id('1')
     @allure.title('Check the Home page is loading')
     def test_home_page(self, home_page: HomePage):
-        # 1. Page next.4zida.rs is loading,
-        #    SEO tests: page title, meta tags, h1
+        # 1. Page next.4zida.rs is loading
         home_page.visit()
         home_page.check_browser_title(expected_title_text=Titles.HOME_PAGE_BROWSER_TITLE)
-        home_page.check_page_headers(expected_title_text=Titles.HOME_PAGE_TITLE)
-        # home_page.check_meta_tag(attribute="content", expected_value="index, follow") # TODO: clarify attributes ?
+        home_page.check_page_headers(header_tag=Tags.H1, expected_values=Headers.H1)
 
         # 2. Search form - NOT READY
         home_page.check_search_form_is_visible()
