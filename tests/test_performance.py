@@ -8,7 +8,6 @@ from constants.suites import Suite
 from utils.attach_screenshot import attach_screenshot
 from utils.calculate_median_values import get_median_values_for_metrics
 
-
 @pytest.mark.ui
 @pytest.mark.performance
 @allure.severity(allure.severity_level.CRITICAL)

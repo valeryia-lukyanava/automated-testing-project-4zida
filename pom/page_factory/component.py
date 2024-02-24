@@ -56,8 +56,8 @@ class Component:
     def should_have_values(self, values: tuple, limits: int = 0, **kwargs) -> None:
         elements = self.get_elements(**kwargs)
         actual_text_values = [element.web_element.text for element in elements.list]
-        logger.info(f"Actual headers text: {actual_text_values}")
         n = limits if limits > 0 else len(elements.list)
+        logger.info(f"Actual headers text: {actual_text_values[0:n]}")
         for i in range(0, n):
             with allure.step(f'Checking that header tag "{elements.list[i].web_element.tag_name}" has text: '
                              f'"{values[i]}"'):

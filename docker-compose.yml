@@ -2,7 +2,7 @@ version: "3"
 services:
   tests:
     build: .
-    command: python -m pytest -m ui --reruns 1 --alluredir=./allure-results
+    command: python -m pytest -m ui --alluredir=./allure-results
     volumes:
       - .:/code
     env_file:

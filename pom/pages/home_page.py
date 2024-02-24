@@ -114,6 +114,19 @@ class HomePage(BasePage):
                     with allure.step(error):
                         logger.warning(error)
 
+    @allure.step('Check if external links have an attribute rel="nofollow">')
+    def check_external_links(self, expected_external_links: list, attribute: str, expected_value: str) -> list:
+        external_links = self.page.find_xpath(HomePageLocators.FOOTER_LINKS)
+        expected_external_links_list = expected_external_links.copy()
+        for index in range(external_links.length()):
+            self.page.check_external_link(index, HomePageLocators.FOOTER_LINKS, expected_external_links_list, attribute,
+                                          expected_value, self.errors)
+        if len(expected_external_links_list) > 0:
+            self.errors.append(f"The next external links have not been found on the page: "
+                               f"{expected_external_links_list}")
+            logger.info(self.errors[-1])
+        return self.errors
+
     @allure.step('Checking Meta tag "description"')
     def check_meta_tag_description(self, attribute: str, expected_value: str):
         self.meta_description.should_have_attribute_value(attribute, expected_value)

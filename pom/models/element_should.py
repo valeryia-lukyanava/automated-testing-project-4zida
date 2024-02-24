@@ -79,15 +79,16 @@ class ElementShould(ElementShouldInterface):
             f"Expected text: '{text}' - Actual text: '{self._element.web_element.text}'"
         )
 
-    def have_attribute_value(self, attribute: str, value: str, case_sensitive=True) -> "ElementInterface":
+    def have_attribute_value(self, attribute: str, value: str, case_sensitive=True, raise_error=True,
+                             errors=None) -> "ElementInterface":
         """An expectation that the element has the given value for the attribute"""
         logger.info("Element should have an attribute '%s' with a value '%s'", attribute, value)
         try:
             if case_sensitive:
-                result = self._wait.until(lambda e: e.get_attribute(attribute) == value)
+                result = self._wait.until(lambda e: value in e.get_attribute(attribute))
             else:
                 result = self._wait.until(
-                    lambda e: e.get_attribute(attribute).strip().lower() == value.lower()
+                    lambda e: value.lower() in e.get_attribute(attribute).strip().lower()
                 )
         except TimeoutException:
             result = False
@@ -95,6 +96,11 @@ class ElementShould(ElementShouldInterface):
         if result:
             return self._element
 
-        raise AssertionError(
-            f"Expected text: '{value}' - Actual text: '{self._element.web_element.get_attribute(attribute)}'"
+        error = AssertionError(
+            f"Expected attribute value: '{value}' - "
+            f"Actual attribute value: '{self._element.web_element.get_attribute(attribute)}'"
         )
+        if raise_error:
+            raise error
+        else:
+            errors.append(str(error))

@@ -1,5 +1,3 @@
-from enum import Enum
-
-
-class Attributes(str, Enum):
+class Attributes(str):
     HREF = "href"
+    REL = "rel"

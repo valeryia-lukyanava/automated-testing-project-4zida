@@ -366,3 +366,17 @@ class Page(PageInterface):
                     self.get(self.config.base_url)
                     # To avoid Error 429
                     time.sleep(3)
+
+    def check_external_link(self, index: int, locator: str, expected_external_links: list, attribute: str,
+                            expected_value: str, errors: list):
+        link = self.find_xpath(locator).list[index]
+        url = link.web_element.get_attribute(Attributes.HREF)
+        if url in expected_external_links:
+            with allure.step(f"Checking Footer link #{index} href = '{url}'"):
+                logger.info(f"Link #{index} href = '{url}'")
+                errors_len = len(errors)
+                link.should().have_attribute_value(attribute, expected_value, raise_error=False, errors=errors)
+                if len(errors) > errors_len:
+                    errors[-1] = f"Link #{index} href = '{url}' {errors[-1]}"
+                    logger.info(errors[-1])
+                expected_external_links.remove(url)
