@@ -1,6 +1,7 @@
 import allure
 
 from constants.locators import HomePageLocators
+from constants.tags import Tags
 from pom.page_factory.form import Form
 from pom.page_factory.component import Component
 from pom.page_factory.title import Title
@@ -12,6 +13,10 @@ from utils.logger import logger
 class HomePage(BasePage):
     def __init__(self, page: Page) -> None:
         super().__init__(page)
+
+        self.meta_description = Component(
+            page, locator=HomePageLocators.META_DESCRIPTION, name="Meta tag"
+        )
 
         self.meta_robots = Component(
             page, locator=HomePageLocators.META_ROBOTS, name="Meta tag"
@@ -26,14 +31,29 @@ class HomePage(BasePage):
             page, locator=HomePageLocators.SEARCH_FORM, name='Search form'
         )
         self.page_title = Title(
-            page, locator=HomePageLocators.TITLE, name='Title'
+            page, locator=HomePageLocators.HEADER_H1, name='Title'
+        )
+        self.page_header_h1 = Title(
+            page, locator=HomePageLocators.HEADER_H1, name='Tag h1'
+        )
+        self.page_header_h2 = Title(
+            page, locator=HomePageLocators.HEADER_H2, name='Tag h2'
+        )
+        self.page_header_h3 = Title(
+            page, locator=HomePageLocators.HEADER_H3, name='Tag h3'
+        )
+        self.page_header_h3_quick_link = Title(
+            page, locator=HomePageLocators.HEADER_H3_QUICK_LINK, name='Tag h3 Quick Link'
+        )
+        self.page_header_h3_widget = Title(
+            page, locator=HomePageLocators.HEADER_H3_WIDGET, name='Tag h3 Widget'
         )
         self.footer_links = Component(
-            page, locator=HomePageLocators.FOOTER_LINKS, name="Footer links" # TODO - need we?
+            page, locator=HomePageLocators.FOOTER_LINKS, name="Footer links"
         )
 
     @allure.step('Checking Meta tag')
-    def check_meta_tag(self, attribute: str, expected_value: str):
+    def check_meta_tag_robots(self, attribute: str, expected_value: str):
         self.meta_robots.should_have_attribute_value(attribute, expected_value)
 
     @allure.step('Checking Link canonical')
@@ -52,9 +72,18 @@ class HomePage(BasePage):
     def check_browser_title(self, expected_title_text: str):
         self.page.check_browser_title(expected_title_text)
 
-    @allure.step('Checking that the title of the page is "{expected_title_text}"')
-    def check_page_title(self, expected_title_text: str):
-        self.page_title.should_have_text(expected_title_text)
+    @allure.step('Checking that the header tag/tags <{header_tag}> has/have text {expected_values}')
+    def check_page_headers(self, header_tag: str, expected_values: tuple):
+        if header_tag == Tags.H1:
+            self.page_header_h1.should_have_values(expected_values)
+        elif header_tag == Tags.H2:
+            self.page_header_h2.should_have_values(expected_values)
+        elif header_tag == Tags.H3:
+            self.page_header_h3.should_have_values(expected_values, limits=4)
+            self.page_header_h3_quick_link.get_elements().should().have_length(20)
+            self.page_header_h3_widget.get_elements().should().have_length(3)
+        else:
+            logger.warning(f"No verification of the header {header_tag} is provided")
 
     @allure.step('Checking that the URL of the page is "{expected_url}"')
     def check_page_url(self, expected_url: str, errors: list):
@@ -69,7 +98,7 @@ class HomePage(BasePage):
         self.search_form.should_be_visible()
 
     # @allure.step('Checking that the title of the page if "{expected_title_text}"')
-    # def check_page_title(self, expected_title_text: str):
+    # def check_page_headers(self, expected_title_text: str):
     #     self.page_title.should_have_text(expected_title_text)
 
     @allure.step('Checking Footer links')
@@ -84,3 +113,7 @@ class HomePage(BasePage):
                 for error in self.errors:
                     with allure.step(error):
                         logger.warning(error)
+
+    @allure.step('Checking Meta tag "description"')
+    def check_meta_tag_description(self, attribute: str, expected_value: str):
+        self.meta_description.should_have_attribute_value(attribute, expected_value)

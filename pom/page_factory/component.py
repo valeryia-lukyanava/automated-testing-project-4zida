@@ -1,8 +1,11 @@
+import logging
+
 import allure
 from selenium.common.exceptions import StaleElementReferenceException
 from pom.models.element import Element
 from pom.models.elements import Elements
 from pom.models.page import Page
+from utils.logger import logger
 
 
 class Component:
@@ -49,6 +52,19 @@ class Component:
                 element.should().have_text(text)
             except StaleElementReferenceException:
                 self.should_have_text(text, **kwargs)
+
+    def should_have_values(self, values: tuple, limits: int = 0, **kwargs) -> None:
+        elements = self.get_elements(**kwargs)
+        actual_text_values = [element.web_element.text for element in elements.list]
+        logger.info(f"Actual headers text: {actual_text_values}")
+        n = limits if limits > 0 else len(elements.list)
+        for i in range(0, n):
+            with allure.step(f'Checking that header tag "{elements.list[i].web_element.tag_name}" has text: '
+                             f'"{values[i]}"'):
+                try:
+                    elements.list[i].should().have_text(values[i])
+                except StaleElementReferenceException:
+                    elements.list[i].should().have_text(values[i])
 
     def is_displayed(self, **kwargs) -> bool:
         with allure.step(f'Checking if {self.type_of} "{self.name}" is visible'):

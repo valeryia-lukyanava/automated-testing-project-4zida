@@ -1,6 +1,6 @@
 from selenium.common.exceptions import TimeoutException
 
-from utils import logger
+from utils.logger import logger
 from pom.interfaces.elements import ElementsInterface
 from pom.interfaces.elements_should import ElementsShouldInterface
 from pom.interfaces.page import PageInterface

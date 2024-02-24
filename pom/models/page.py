@@ -259,7 +259,7 @@ class Page(PageInterface):
             f"Expected title: '{title_name}' - Actual text: '{self.title()}'"
         )
 
-    def check_page_title(self, title_name):
+    def check_page_headers(self, title_name):
         """Check the title of the page"""
         value = None
         try:

@@ -12,7 +12,7 @@ from utils.calculate_median_values import get_median_values_for_metrics
 @pytest.mark.ui
 @pytest.mark.performance
 @allure.severity(allure.severity_level.CRITICAL)
-@allure.suite(Suite.SMOKE)
+@allure.suite(Suite.PERFORMANCE)
 class TestPerformance:
     @allure.id('1')
     @allure.title('Performance tests for Home page')

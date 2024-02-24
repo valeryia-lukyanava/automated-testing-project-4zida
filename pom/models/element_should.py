@@ -81,7 +81,7 @@ class ElementShould(ElementShouldInterface):
 
     def have_attribute_value(self, attribute: str, value: str, case_sensitive=True) -> "ElementInterface":
         """An expectation that the element has the given value for the attribute"""
-        logger.info("Element should have an attribute %s with a value %s", attribute, value)
+        logger.info("Element should have an attribute '%s' with a value '%s'", attribute, value)
         try:
             if case_sensitive:
                 result = self._wait.until(lambda e: e.get_attribute(attribute) == value)
