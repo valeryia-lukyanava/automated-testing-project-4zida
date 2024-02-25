@@ -23,47 +23,21 @@ def main():
         current_results_date, previous_results_date, results_files = read_all_results(results_path)
         generate_comparative_analysis_median_values_table(current_results_date, previous_results_date)
         metrics = ["Median Values"]
-        trend_header_csv = collect_metric_values(results_files,
-                                                 metrics,
-                                                 TTFB,
-                                                 'statistics_trend_ttfb.csv')
-        generate_trend_chart(trend_header_csv,
-                             'statistics_trend_ttfb.csv',
-                             './trend_ttfb.png',
-                             'Trend of TTFB, ms',
-                             'blue')
-
-        trend_header_csv = collect_metric_values(results_files,
-                                                 metrics,
-                                                 LCP,
-                                                 'statistics_trend_lcp.csv')
-        generate_trend_chart(trend_header_csv,
-                             'statistics_trend_lcp.csv',
-                             './trend_lcp.png',
-                             'Trend of LCP, ms',
-                             'orange'
-                             )
-
-        trend_header_csv = collect_metric_values(results_files,
-                                                 metrics,
-                                                 END_TO_END_RESPONSE_TIME,
-                                                 'statistics_trend_end_to_end_response_time.csv')
+        target_metrics = [TTFB, LCP, PAGE_LOAD_TIME, END_TO_END_RESPONSE_TIME]
+        need_header = True
+        for target_metric in target_metrics:
+            trend_header_csv = collect_metric_values(results_files,
+                                                    metrics,
+                                                    target_metric,
+                                                    'statistics_trend.csv',
+                                                    need_header)
+            if need_header:
+                need_header = False
 
         generate_trend_chart(trend_header_csv,
-                             'statistics_trend_end_to_end_response_time.csv',
-                             './trend_end_to_end_response_time.png',
-                             'Trend of End-to-End Response Time, ms',
-                             'purple')
-        #
-        trend_header_csv = collect_metric_values(results_files,
-                                                 metrics,
-                                                 PAGE_LOAD_TIME,
-                                                 'statistics_trend_page_load_time.csv')
-        generate_trend_chart(trend_header_csv,
-                             'statistics_trend_page_load_time.csv',
-                             './trend_page_load_time.png',
-                             'Trend of Page Load Time, ms',
-                             'green')
+                             'statistics_trend.csv',
+                             './trend.png',
+                             'Trend of Median Metrics, ms')
 
         # Generate PDF
         pdf = PDF()
@@ -100,11 +74,8 @@ def main():
 
         pdf.ln(CELL_HEIGHT)
 
-        pdf.add_chart('./trend_ttfb.png')
-        pdf.add_chart('./trend_lcp.png')
-        pdf.add_chart('./trend_page_load_time.png')
-        pdf.add_chart('./trend_end_to_end_response_time.png')
-
+        pdf.add_chart('./trend.png')
+        
         report_file_name = f'./{site} - Performance Results {datetime.now().strftime("%Y-%m-%d")}.pdf'
         pdf.output(report_file_name, 'F')
 
