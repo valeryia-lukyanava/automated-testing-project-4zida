@@ -27,10 +27,10 @@ METRICS_MAPPER = {
 }
 
 TABLE_STYLE = [
-    ('text-align', 'center'), 
-    ('border-style', 'solid'), 
-    ('border-width', '1px'), 
-    ('border-color', 'grey'), 
+    ('text-align', 'center'),
+    ('border-style', 'solid'),
+    ('border-width', '1px'),
+    ('border-color', 'grey'),
     ('background-color', '#87CEFA'),
     ('text-transform', 'uppercase'),
     ('line-height', '17pt')

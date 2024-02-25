@@ -10,13 +10,13 @@ def generate_comparative_analysis_median_values_table(current_results_date, prev
         .set_table_styles([dict(selector='th', props=TABLE_STYLE)]) \
         .format(precision=2, thousands=" ", decimal=".") \
         .format({
-            current_results_date: "{:.2f}",
-            previous_results_date: "{:.2f}",
-            CHANGE_TITLE: "{:.2f}%"
-        }) \
+        current_results_date: "{:.2f}",
+        previous_results_date: "{:.2f}",
+        CHANGE_TITLE: "{:.2f}%"
+    }) \
         .set_properties(
-            subset=[METRIC_TITLE, CHANGE_TITLE],
-            **{'font-weight': 'bold'}
-        )
+        subset=[METRIC_TITLE, CHANGE_TITLE],
+        **{'font-weight': 'bold'}
+    )
 
     dfi.export(df_total_styled, 'ComparativeAnalisysMedianValues.png')

@@ -12,7 +12,8 @@ def generate_trend_chart(trend_header_csv, input_file, output_file, chart_title)
         ax.xaxis_date()
         if len(trend_header_csv) > 9:
             fig.autofmt_xdate()
-        sns.lineplot(data=df_trend.T, linewidth=2.5, palette=["royalblue","limegreen","darkturquoise","darkviolet"], dashes=False)
+        sns.lineplot(data=df_trend.T, linewidth=2.5, palette=["royalblue", "limegreen", "darkturquoise", "darkviolet"],
+                     dashes=False)
         plt.title(f"{chart_title}", fontsize=20, fontweight='bold')
         plt.savefig(output_file, transparent=False, facecolor='white', bbox_inches="tight")
         plt.close()

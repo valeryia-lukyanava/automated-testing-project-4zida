@@ -27,10 +27,10 @@ def main():
         need_header = True
         for target_metric in target_metrics:
             trend_header_csv = collect_metric_values(results_files,
-                                                    metrics,
-                                                    target_metric,
-                                                    'statistics_trend.csv',
-                                                    need_header)
+                                                     metrics,
+                                                     target_metric,
+                                                     'statistics_trend.csv',
+                                                     need_header)
             if need_header:
                 need_header = False
 
@@ -75,7 +75,7 @@ def main():
         pdf.ln(CELL_HEIGHT)
 
         pdf.add_chart('./trend.png')
-        
+
         report_file_name = f'./{site} - Performance Results {datetime.now().strftime("%Y-%m-%d")}.pdf'
         pdf.output(report_file_name, 'F')
 
