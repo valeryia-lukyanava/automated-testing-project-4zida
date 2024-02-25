@@ -22,6 +22,10 @@ from pom.models.page_wait import PageWait
 from webdriver.factory.factory import build_from_config
 
 
+def interceptor(request):
+    request.headers['IC-Bypass-Throttling'] = '8f190c31363e1d3a08ec0ccd0eed4be4'
+
+
 class Page(PageInterface):
     """
     Page interface that representing interactions with page like finding locators, opening url etc.
@@ -104,7 +108,8 @@ class Page(PageInterface):
         """Navigate to the given URL"""
         normalized_url = url if url.startswith('http') else (self.config.base_url + url)
         logger.info("Page.visit() - Get URL: '%s'", normalized_url)
-        time.sleep(0.5)
+        # time.sleep(0.5)
+        self.webdriver.request_interceptor = interceptor
         self.webdriver.get(normalized_url)
         logger.info(f"Client window width: {self._webdriver.execute_script(JS.CLIENT_WINDOW_WIDTH)}, window height: "
                     f"{self._webdriver.execute_script(JS.CLIENT_WINDOW_HEIGHT)}")
