@@ -57,7 +57,7 @@ class TestSEO:
                                      expected_values=Headers.H3)
 
     @allure.id('6')
-    @allure.title('Check if external links have a tag rel="nofollow"')
+    @allure.title('Check if external links have an attribute rel="nofollow"')
     def test_external_links(self, home_page: HomePage):
         home_page.visit()
         # Check if external links have a tag rel="nofollow">
