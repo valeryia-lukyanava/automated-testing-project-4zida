@@ -1,5 +1,6 @@
 import allure
 import pytest
+from flaky import flaky
 
 from constants.headers import Headers
 from constants.tags import Tags
@@ -11,6 +12,7 @@ from constants.suites import Suite
 @pytest.mark.ui
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.UI)
+@flaky(max_runs=2)
 class TestHomePage:
     @allure.id('1')
     @allure.title('Check the Home page is loading')

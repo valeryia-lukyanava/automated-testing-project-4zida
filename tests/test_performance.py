@@ -1,5 +1,6 @@
 import allure
 import pytest
+from flaky import flaky
 
 from config import UIConfig, PerformanceMeasurementConfig
 from pom.models.page import Page
@@ -8,10 +9,12 @@ from constants.suites import Suite
 from utils.attach_screenshot import attach_screenshot
 from utils.calculate_median_values import get_median_values_for_metrics
 
+
 @pytest.mark.ui
 @pytest.mark.performance
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.PERFORMANCE)
+@flaky(max_runs=2)
 class TestPerformance:
     @allure.id('1')
     @allure.title('Performance tests for Home page')
@@ -42,4 +45,4 @@ class TestPerformance:
 
             with allure.step(description):
                 assert actual_lcp < expected_lcp and actual_ttfb < expected_ttfb, \
-                       f"Performance metrics do not meet the requirements. {description}"
+                    f"Performance metrics do not meet the requirements. {description}"

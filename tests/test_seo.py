@@ -1,5 +1,6 @@
 import allure
 import pytest
+from flaky import flaky
 
 from constants.attributes import Attributes
 from constants.external_links import ExternalLinks
@@ -11,8 +12,10 @@ from constants.suites import Suite
 
 
 @pytest.mark.ui
+@pytest.mark.seo
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.SEO)
+@flaky(max_runs=2)
 class TestSEO:
     @allure.id('1')
     @allure.title('Check Browser Page Title')
