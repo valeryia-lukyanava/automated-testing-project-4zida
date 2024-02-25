@@ -15,7 +15,7 @@ from constants.suites import Suite
 @pytest.mark.seo
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.SEO)
-@flaky(max_runs=2)
+# @flaky(max_runs=2)
 class TestSEO:
     @allure.id('1')
     @allure.title('Check Browser Page Title')
