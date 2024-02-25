@@ -44,8 +44,7 @@ def page(request: pytest.FixtureRequest, ui_config: UIConfig) -> Page:
     if ui_config.logging.screenshots_on:
         attach_screenshot(page_client, request.node.name)
 
-    logger.warning(
-        f"Browser console logs: "
-        f"{[entry for entry in page_client.webdriver.get_log('browser') if entry['level'] != 'INFO']}"
-    )
+    browser_console_logs = [entry for entry in page_client.webdriver.get_log('browser') if entry['level'] != 'INFO']
+    if browser_console_logs:
+        logger.info(f"Browser console logs: {browser_console_logs}")
     page_client.quit()
