@@ -15,10 +15,10 @@ from constants.suites import Suite
 @pytest.mark.seo
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.SEO)
-# @flaky(max_runs=2)
 class TestSEO:
     @allure.id('1')
     @allure.title('Check Browser Page Title')
+    @flaky(max_runs=2)
     def test_browser_title(self, home_page: HomePage):
         home_page.visit()
         # Assert page title
@@ -26,6 +26,7 @@ class TestSEO:
 
     @allure.id('2')
     @allure.title('Check Meta Tags')
+    @flaky(max_runs=2)
     def test_meta_tags(self, home_page: HomePage):
         home_page.visit()
         # Assert meta tags
