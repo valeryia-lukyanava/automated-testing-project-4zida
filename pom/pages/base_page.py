@@ -12,7 +12,8 @@ class BasePage:
         self.cookies_modal = CookiesModal(page)
 
     def visit(self, url: str = '') -> None:
-        with allure.step(f'Opening the url "{self.page.config.base_url}{url}" and close cookies'):
+        # with allure.step(f'Opening the url "{self.page.config.base_url}{url}" and close cookies'):
+        with allure.step(f'Opening the url "{self.page.config.base_url}{url}"'):
             self.page.get(url)
             # self.cookies_modal.close() # TODO : remove for next env ?
 
