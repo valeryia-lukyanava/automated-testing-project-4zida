@@ -7,6 +7,7 @@ from datetime import datetime
 from config import UIConfig, PerformanceMeasurementConfig, get_ui_config
 from pom.models.page import Page
 from utils.attach_screenshot import attach_screenshot
+from utils.logger import logger
 
 
 @pytest.fixture(scope='session')
@@ -43,4 +44,8 @@ def page(request: pytest.FixtureRequest, ui_config: UIConfig) -> Page:
     if ui_config.logging.screenshots_on:
         attach_screenshot(page_client, request.node.name)
 
+    logger.warning(
+        f"Browser console logs: "
+        f"{[entry for entry in page_client.webdriver.get_log('browser') if entry['level'] != 'INFO']}"
+    )
     page_client.quit()
