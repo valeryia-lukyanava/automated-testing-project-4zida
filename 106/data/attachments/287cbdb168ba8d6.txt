@@ -1,0 +1,154 @@
+INFO     Logger:test_performance.py:30 Request #0
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:207 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:54 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #1
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #2
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #3
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #4
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #5
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #6
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #7
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #8
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #9
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #10
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #11
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #12
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #13
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #14
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #15
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #16
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #17
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #18
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #19
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #20
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #21
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #22
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #23
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #24
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #25
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #26
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #27
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #28
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #29
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #30
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #31
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #32
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #33
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #34
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #35
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #36
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #37
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #38
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #39
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #40
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #41
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #42
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #43
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #44
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #45
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #46
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #47
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #48
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:test_performance.py:30 Request #49
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:page.py:200 Page.screenshot() - Save screenshot to: 'screenshots/test_home_page_performance_measurement_502024-02-28T090018.png'
+INFO     Logger:page.py:192 Page.quit() - Quit page and close all windows from the browser session

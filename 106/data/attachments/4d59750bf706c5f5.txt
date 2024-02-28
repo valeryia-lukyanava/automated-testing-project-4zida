@@ -1,0 +1,28 @@
+INFO     Logger:page.py:121 Page.wait_until_stable() - Page wait until driver stable
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9a29bf8070>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9a29bfa0e0>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9a29bf8160>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+INFO     Logger:page.py:121 Page.wait_until_stable() - Page wait until driver stable
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9a29bfa9b0>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9a29bfabf0>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9a29bf8c10>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+INFO     Logger:page.py:121 Page.wait_until_stable() - Page wait until driver stable
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9a29bf8ca0>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9a29bf8ee0>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9a29bf8f70>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+INFO     Logger:page.py:121 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:207 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:54 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:page.py:250 The title of the page is 'Pretraga Nekretnina za Prodaju i Izdavanje - 4zida'
+INFO     Logger:page.py:200 Page.screenshot() - Save screenshot to: 'screenshots/test_home_page2024-02-28T085800.png'
+INFO     Logger:page.py:192 Page.quit() - Quit page and close all windows from the browser session
+INFO     Logger:page.py:121 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:207 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:54 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:page.py:250 The title of the page is 'Pretraga Nekretnina za Prodaju i Izdavanje - 4zida'
+INFO     Logger:page.py:200 Page.screenshot() - Save screenshot to: 'screenshots/test_home_page2024-02-28T085803.png'
+INFO     Logger:page.py:192 Page.quit() - Quit page and close all windows from the browser session
