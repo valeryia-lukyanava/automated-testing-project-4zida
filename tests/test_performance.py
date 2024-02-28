@@ -26,7 +26,7 @@ class TestPerformance:
 
 
         page_client = Page(ui_config)
-        for n in range(50):
+        for n in range(150):
             logger.info(f"Request #{n}")
             home_page = HomePage(page_client)
             home_page.visit()
