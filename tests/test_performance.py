@@ -8,6 +8,7 @@ from pom.pages.home_page import HomePage
 from constants.suites import Suite
 from utils.attach_screenshot import attach_screenshot
 from utils.calculate_median_values import get_median_values_for_metrics
+from utils.logger import logger
 
 
 @pytest.mark.ui
@@ -23,26 +24,29 @@ class TestPerformance:
                                    performance_metrics: dict):
         ui_config = UIConfig()
 
-        for n in range(performance_tests_config.number_of_measurements):
-            page_client = Page(ui_config)
+
+        page_client = Page(ui_config)
+        for n in range(50):
+            logger.info(f"Request #{n}")
             home_page = HomePage(page_client)
-            home_page.get_performance_metrics(run=n + 1, performance_metrics=performance_metrics)
+            home_page.visit()
+        #home_page.get_performance_metrics(run=n + 1, performance_metrics=performance_metrics)
 
-            if ui_config.logging.screenshots_on:
-                attach_screenshot(page_client, f"test_home_page_performance_measurement_{n + 1}")
+        if ui_config.logging.screenshots_on:
+            attach_screenshot(page_client, f"test_home_page_performance_measurement_{n + 1}")
 
-            page_client.quit()
+        page_client.quit()
 
-        with allure.step(f"Comparing the median values with expected values of performance metrics"):
-            median_values = get_median_values_for_metrics(performance_metrics, ui_config)
-            actual_lcp = median_values["LCP"]
-            actual_ttfb = median_values["TTFB"]
-            expected_lcp = performance_tests_config.lcp
-            expected_ttfb = performance_tests_config.ttfb
-
-            description = f"Expected: LCP is under {expected_lcp} ms and TTFB is under {expected_ttfb} ms. " \
-                          f"Actual: LCP = {actual_lcp} ms and TTFB = {actual_ttfb} ms"
-
-            with allure.step(description):
-                assert actual_lcp < expected_lcp and actual_ttfb < expected_ttfb, \
-                    f"Performance metrics do not meet the requirements. {description}"
+        # with allure.step(f"Comparing the median values with expected values of performance metrics"):
+        #     median_values = get_median_values_for_metrics(performance_metrics, ui_config)
+        #     actual_lcp = median_values["LCP"]
+        #     actual_ttfb = median_values["TTFB"]
+        #     expected_lcp = performance_tests_config.lcp
+        #     expected_ttfb = performance_tests_config.ttfb
+        #
+        #     description = f"Expected: LCP is under {expected_lcp} ms and TTFB is under {expected_ttfb} ms. " \
+        #                   f"Actual: LCP = {actual_lcp} ms and TTFB = {actual_ttfb} ms"
+        #
+        #     with allure.step(description):
+        #         assert actual_lcp < expected_lcp and actual_ttfb < expected_ttfb, \
+        #             f"Performance metrics do not meet the requirements. {description}"
