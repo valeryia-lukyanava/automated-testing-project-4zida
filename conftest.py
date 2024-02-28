@@ -11,6 +11,11 @@ from utils.logger import logger
 
 
 @pytest.fixture(scope='session')
+def url_suffix() -> str:
+    yield os.environ["URL_SUFFIX"]
+
+
+@pytest.fixture(scope='session')
 def ui_config() -> UIConfig:
     return UIConfig()
 

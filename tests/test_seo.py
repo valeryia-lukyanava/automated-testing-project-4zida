@@ -19,7 +19,7 @@ class TestSEO:
     @allure.id('1')
     @allure.title('Check Browser Page Title')
     @flaky(max_runs=2)
-    def test_browser_title(self, home_page: HomePage):
+    def test_browser_title(self, home_page: HomePage, url_suffix: str):
         home_page.visit()
         # Assert page title
         home_page.check_browser_title(expected_title_text=Titles.HOME_PAGE_BROWSER_TITLE)
@@ -27,8 +27,8 @@ class TestSEO:
     @allure.id('2')
     @allure.title('Check Meta Tags')
     @flaky(max_runs=2)
-    def test_meta_tags(self, home_page: HomePage):
-        home_page.visit()
+    def test_meta_tags(self, home_page: HomePage, url_suffix: str):
+        home_page.visit(url_suffix)
         # Assert meta tags
         home_page.check_meta_tag_description(attribute="content",
                                              expected_value=Titles.META_DESCRIPTION)

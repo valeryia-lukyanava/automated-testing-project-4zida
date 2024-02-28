@@ -67,9 +67,9 @@ class Page(PageInterface):
         """Get the current page's title"""
         return self.webdriver.title
 
-    def get(self, url: str) -> "Page":
+    def get(self, url: str, url_suffix: str) -> "Page":
         """Navigate to the given URL"""
-        self.get_page_by_url(url)
+        self.get_page_by_url(url, url_suffix)
         return self
 
     def get_performance_metrics(self, run: int, performance_metrics: dict) -> "Page":
@@ -100,12 +100,12 @@ class Page(PageInterface):
 
         return self
 
-    def get_page_by_url(self, url):
+    def get_page_by_url(self, url, url_suffix):
         """Navigate to the given URL"""
         normalized_url = url if url.startswith('http') else (self.config.base_url + url)
         logger.info("Page.visit() - Get URL: '%s'", normalized_url)
         # time.sleep(0.5)
-        self.webdriver.get(normalized_url)
+        self.webdriver.get(f"{normalized_url+url_suffix}{url_suffix}")
         logger.info(f"Client window width: {self._webdriver.execute_script(JS.CLIENT_WINDOW_WIDTH)}, window height: "
                     f"{self._webdriver.execute_script(JS.CLIENT_WINDOW_HEIGHT)}")
 
