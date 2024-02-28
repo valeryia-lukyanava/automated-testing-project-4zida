@@ -1,0 +1,69 @@
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:207 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:54 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:page.py:302 Page.find_xpath() - Get the elements with xpath: //div[@test-data="search-form"]
+INFO     Logger:page.py:77 Measuring performance metrics: run №1
+INFO     Logger:page.py:78 Document Ready State: complete
+INFO     Logger:page.py:81 Page Load Time: 2403
+INFO     Logger:page.py:84 TTFB: 577
+INFO     Logger:page.py:87 End-to-End Response Time: 2980
+INFO     Logger:page.py:92 Largest Contentful Paint: 678
+INFO     Logger:page.py:200 Page.screenshot() - Save screenshot to: 'screenshots/test_home_page_performance_measurement_12024-02-28T094141.png'
+INFO     Logger:page.py:192 Page.quit() - Quit page and close all windows from the browser session
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:207 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:54 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:page.py:302 Page.find_xpath() - Get the elements with xpath: //div[@test-data="search-form"]
+INFO     Logger:page.py:77 Measuring performance metrics: run №2
+INFO     Logger:page.py:78 Document Ready State: complete
+INFO     Logger:page.py:81 Page Load Time: 941
+INFO     Logger:page.py:84 TTFB: 524
+INFO     Logger:page.py:87 End-to-End Response Time: 1465
+INFO     Logger:page.py:92 Largest Contentful Paint: 632
+INFO     Logger:page.py:200 Page.screenshot() - Save screenshot to: 'screenshots/test_home_page_performance_measurement_22024-02-28T094144.png'
+INFO     Logger:page.py:192 Page.quit() - Quit page and close all windows from the browser session
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:207 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:54 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:page.py:302 Page.find_xpath() - Get the elements with xpath: //div[@test-data="search-form"]
+INFO     Logger:page.py:77 Measuring performance metrics: run №3
+INFO     Logger:page.py:78 Document Ready State: complete
+INFO     Logger:page.py:81 Page Load Time: 951
+INFO     Logger:page.py:84 TTFB: 523
+INFO     Logger:page.py:87 End-to-End Response Time: 1474
+INFO     Logger:page.py:92 Largest Contentful Paint: 639
+INFO     Logger:page.py:200 Page.screenshot() - Save screenshot to: 'screenshots/test_home_page_performance_measurement_32024-02-28T094148.png'
+INFO     Logger:page.py:192 Page.quit() - Quit page and close all windows from the browser session
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:207 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:54 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:page.py:302 Page.find_xpath() - Get the elements with xpath: //div[@test-data="search-form"]
+INFO     Logger:page.py:77 Measuring performance metrics: run №4
+INFO     Logger:page.py:78 Document Ready State: complete
+INFO     Logger:page.py:81 Page Load Time: 615
+INFO     Logger:page.py:84 TTFB: 532
+INFO     Logger:page.py:87 End-to-End Response Time: 1147
+INFO     Logger:page.py:92 Largest Contentful Paint: 644
+INFO     Logger:page.py:200 Page.screenshot() - Save screenshot to: 'screenshots/test_home_page_performance_measurement_42024-02-28T094151.png'
+INFO     Logger:page.py:192 Page.quit() - Quit page and close all windows from the browser session
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:207 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:54 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:page.py:302 Page.find_xpath() - Get the elements with xpath: //div[@test-data="search-form"]
+INFO     Logger:page.py:77 Measuring performance metrics: run №5
+INFO     Logger:page.py:78 Document Ready State: complete
+INFO     Logger:page.py:81 Page Load Time: 2362
+INFO     Logger:page.py:84 TTFB: 455
+INFO     Logger:page.py:87 End-to-End Response Time: 2817
+INFO     Logger:page.py:92 Largest Contentful Paint: 562
+INFO     Logger:page.py:200 Page.screenshot() - Save screenshot to: 'screenshots/test_home_page_performance_measurement_52024-02-28T094156.png'
+INFO     Logger:page.py:192 Page.quit() - Quit page and close all windows from the browser session
+INFO     Logger:calculate_median_values.py:9 Median value for the metric 'TTFB': 524
+INFO     Logger:calculate_median_values.py:9 Median value for the metric 'LCP': 639
+INFO     Logger:calculate_median_values.py:9 Median value for the metric 'PageLoadTime': 951
+INFO     Logger:calculate_median_values.py:9 Median value for the metric 'EndToEndResponseTime': 1474
