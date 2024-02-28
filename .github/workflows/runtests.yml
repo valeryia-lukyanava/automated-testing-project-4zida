@@ -8,6 +8,8 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     name: Run Tests
+    env:
+      URL_SUFFIX: ${{ secrets.URL_SUFFIX }}
     steps:
     - name: Checkout
       uses: actions/checkout@v4

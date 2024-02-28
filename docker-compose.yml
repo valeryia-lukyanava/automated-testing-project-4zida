@@ -5,6 +5,8 @@ services:
     command: python -m pytest -m ui --alluredir=./allure-results
     volumes:
       - .:/code
+    environment:
+      - URL_SUFFIX=$URL_SUFFIX
     env_file:
       - .env
     networks:
