@@ -1,0 +1,9 @@
+INFO     Logger:page.py:121 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:207 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:54 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://www.4zida.rs'
+INFO     Logger:page.py:109 Client window width: 393, window height: 873
+INFO     Logger:page.py:137 Page.get_xpath() - Get the element with xpath: '//meta[@name="description"]'
+INFO     Logger:element_should.py:85 Element should have an attribute 'content' with a value 'Specijalizovani sajt za oglašavanje nekretnina 4zida.rs! Najveća ponuda aktuelnih oglasa za prodaju i izdavanje svih tipova nekretnina u celoj Srbiji.'
+INFO     Logger:page.py:200 Page.screenshot() - Save screenshot to: 'screenshots/test_meta_tags2024-02-28T073453.png'
+INFO     Logger:page.py:192 Page.quit() - Quit page and close all windows from the browser session
