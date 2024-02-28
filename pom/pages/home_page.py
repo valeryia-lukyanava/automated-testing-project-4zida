@@ -27,9 +27,9 @@ class HomePage(BasePage):
         # self.logo = Component(
         #     page, locator='//a[@title="Logo 4zida.rs"]', name="Logo 4zida.rs"
         # )
-        # self.search_form = Form(
-        #     page, locator=HomePageLocators.SEARCH_FORM, name='Search form'
-        # )
+        self.search_form = Form(
+            page, locator=HomePageLocators.SEARCH_FORM, name='Search form'
+        )
         self.page_title = Title(
             page, locator=HomePageLocators.HEADER_H1, name='Title'
         )
