@@ -1,0 +1,9 @@
+INFO     Logger:page.py:122 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:216 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:55 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:107 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:110 Client window width: 393, window height: 873
+INFO     Logger:page.py:173 Page.find_xpath() - Get the elements with xpath: '//h3'
+INFO     Logger:component.py:60 Actual headers text: ['Kako se krecu cene nekretnina?', '', '', '']
+INFO     Logger:page.py:209 Page.screenshot() - Save screenshot to: 'screenshots/test_h3_tags2024-02-29T090739.png'
+INFO     Logger:page.py:201 Page.quit() - Quit page and close all windows from the browser session
