@@ -3,6 +3,8 @@ import pytest
 from flaky import flaky
 
 from constants.headers import Headers
+from constants.navigation_menu import NavigationMenu
+from constants.navigation_sub_menu import NavigationSubMenu
 from constants.tags import Tags
 from pom.pages.home_page import HomePage
 from constants.titles import Titles
@@ -12,8 +14,7 @@ from constants.suites import Suite
 @pytest.mark.ui
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.UI)
-@flaky(max_runs=2)
-class TestHomePage:
+class TestUIHomePage:
     @allure.id('1')
     @allure.title('Check the Home page is loading')
     def test_home_page(self, home_page: HomePage):
@@ -44,7 +45,14 @@ class TestHomePage:
         # pytest.assume(home_page.get_title() == "Prodaja stanova Novi Sad - 4zida")
         # pytest.assume(home_page.get_title() == "Prodaja stanova Novi Sad - 4zida")
 
-    @allure.id('2')
+    @allure.id('3')
+    @allure.title('Check Menu "Prodaja" Navigation')
+    @pytest.mark.parametrize("sub_menu,expected_url", NavigationSubMenu.SUB_MENU_SALE)
+    def test_navigation_menu_sale(self, home_page: HomePage, sub_menu: str, expected_url: str):
+        home_page.visit()
+        home_page.check_menu_navigation(menu=NavigationMenu.MENU_SALE, sub_menu=sub_menu, expected_url=expected_url)
+
+    @allure.id('4')
     @allure.title('Check Footer Links')
     def test_footer_links(self, home_page: HomePage):
         # 8. Footer Links
