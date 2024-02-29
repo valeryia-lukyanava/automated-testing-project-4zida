@@ -12,6 +12,7 @@ from urllib3.exceptions import MaxRetryError
 from config import UIConfig
 from constants.attributes import Attributes
 from constants.js_scripts import JS
+from constants.locators import HomePageLocators
 from constants.routes import UIRoutes
 from utils.bowser_log_parser import get_lcp_from_logs
 from utils.logger import logger
@@ -105,7 +106,7 @@ class Page(PageInterface):
         normalized_url = url if url.startswith('http') else (self.config.base_url + url)
         logger.info("Page.visit() - Get URL: '%s'", normalized_url)
         # time.sleep(0.5)
-        self.webdriver.get(f"{normalized_url+url_suffix}{url_suffix}")
+        self.webdriver.get(f"{normalized_url + url_suffix}{url_suffix}")
         logger.info(f"Client window width: {self._webdriver.execute_script(JS.CLIENT_WINDOW_WIDTH)}, window height: "
                     f"{self._webdriver.execute_script(JS.CLIENT_WINDOW_HEIGHT)}")
 
@@ -137,18 +138,26 @@ class Page(PageInterface):
         logger.info(
             "Page.get_xpath() - Get the element with xpath: '%s'", xpath
         )
-
+        value = True
+        element = None
         by = By.XPATH
 
-        if timeout == 0:
-            element = self.webdriver.find_element(by, xpath)
-        else:
-            element = self.wait(timeout).until(
-                lambda x: x.find_element(by, xpath),
-                f"Could not find an element with xpath: '{xpath}'"
-            )
+        try:
+            if timeout == 0:
+                element = self.webdriver.find_element(by, xpath)
+            else:
+                element = self.wait(timeout).until(
+                    lambda x: x.find_element(by, xpath),
+                    f"Could not find an element with xpath: '{xpath}'"
+                )
+        except TimeoutException:
+            value = False
 
-        return Element(self, element, locator=(by, xpath))
+        if value:
+            return Element(self, element, locator=(by, xpath))
+        raise AssertionError(
+            f"Could not find an element with xpath: '{xpath}'"
+        )
 
     def find_xpath(self, xpath: str, timeout: int = None) -> Elements:
         """
@@ -292,8 +301,12 @@ class Page(PageInterface):
         if value:
             return self.url()
         else:
-            errors.append(AssertionError(f"Expected URL: '{url}' - Actual URL: '{self.url()}'"))
-            logger.error(f"Expected URL: '{url}' - Actual URL: '{self.url()}'")
+            assertion_error = AssertionError(f"Expected URL: '{url}' - Actual URL: '{self.url()}'")
+            if errors is None:
+                raise assertion_error
+            else:
+                errors.append()
+            logger.error(str(assertion_error))
 
     def check_web_element_located(self, xpath: str, timeout: int = None) -> bool:
         """Check the web element is located"""
@@ -366,7 +379,7 @@ class Page(PageInterface):
 
                     self.get(self.config.base_url)
                     # To avoid Error 429
-                    time.sleep(3)
+                    time.sleep(2)
 
     def check_external_link(self, index: int, locator: str, expected_external_links: list, attribute: str,
                             expected_value: str, errors: list):
@@ -381,3 +394,10 @@ class Page(PageInterface):
                     errors[-1] = f"Link #{index} href = '{url}' {errors[-1]}"
                     logger.info(errors[-1])
                 expected_external_links.remove(url)
+
+    def sub_menu_navigate(self, sub_menu: str):
+        sub_menu_element = self.get_xpath(f'{HomePageLocators.SUB_MENU}"{sub_menu}"]')
+        with allure.step(f'Checking Sub Menu navigation: "{sub_menu}"'):
+            sub_menu_element.should().be_clickable()
+            sub_menu_element.click()
+        return self
