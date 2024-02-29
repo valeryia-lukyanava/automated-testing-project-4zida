@@ -14,7 +14,7 @@ from utils.calculate_median_values import get_median_values_for_metrics
 @pytest.mark.performance
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.PERFORMANCE)
-@flaky(max_runs=5)
+@flaky(max_runs=2)
 class TestPerformance:
     @allure.id('1')
     @allure.title('Performance tests for Home page')
@@ -25,6 +25,7 @@ class TestPerformance:
 
         for n in range(performance_tests_config.number_of_measurements):
             page_client = Page(ui_config)
+            page_client.wait_until_stable()
             home_page = HomePage(page_client)
             home_page.get_performance_metrics(run=n + 1, performance_metrics=performance_metrics)
 
