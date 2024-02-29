@@ -46,10 +46,12 @@ def page(request: pytest.FixtureRequest, ui_config: UIConfig) -> Page:
     page_client.wait_until_stable()
     yield page_client
 
-    if ui_config.logging.screenshots_on:
-        attach_screenshot(page_client, request.node.name)
+    try:
+        if ui_config.logging.screenshots_on:
+            attach_screenshot(page_client, request.node.name)
 
-    browser_console_logs = [entry for entry in page_client.webdriver.get_log('browser') if entry['level'] != 'INFO']
-    if browser_console_logs:
-        logger.info(f"Browser console logs: {browser_console_logs}")
-    page_client.quit()
+        browser_console_logs = [entry for entry in page_client.webdriver.get_log('browser') if entry['level'] != 'INFO']
+        if browser_console_logs:
+            logger.info(f"Browser console logs: {browser_console_logs}")
+    finally:
+        page_client.quit()
