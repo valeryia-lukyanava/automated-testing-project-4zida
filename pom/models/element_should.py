@@ -56,6 +56,7 @@ class ElementShould(ElementShouldInterface):
             value = False
 
         if value:
+            logger.info("Element is visible")
             return self._element
 
         raise AssertionError("Element was not visible")
