@@ -104,8 +104,8 @@ class Page(PageInterface):
     def get_page_by_url(self, url, url_suffix):
         """Navigate to the given URL"""
         normalized_url = url if url.startswith('http') else (self.config.base_url + url)
-        logger.info("Page.visit() - Get URL: '%s'", normalized_url)
-        time.sleep(0.5)
+        logger.info("Page.visit() - Get URL: '%s'", normalized_url+url_suffix)
+        time.sleep(0.75)
         self.webdriver.get(f"{normalized_url}{url_suffix}")
         logger.info(f"Client window width: {self._webdriver.execute_script(JS.CLIENT_WINDOW_WIDTH)}, window height: "
                     f"{self._webdriver.execute_script(JS.CLIENT_WINDOW_HEIGHT)}")

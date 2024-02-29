@@ -23,7 +23,7 @@ class NavigationSubMenu(list):
         (17, "Prodaja zemljišta", f"{ui_config.base_url}/prodaja-placeva"),
         (18, "Prodaja poslovnih prostora", f"{ui_config.base_url}/prodaja-poslovnih-prostora"),
         (19, "Prodaja garaža i parkinga", f"{ui_config.base_url}/prodaja-garaza-i-parkinga"),
-        (20, "Vodič za kupovinu", f"{ui_config.base_url}/blog/vodic-za-kupovinu-nekretnine/"),
+        (20, "Vodič za kupovinu", f"{ui_config.base_url}/blog/vodic-za-kupovinu-nekretnine"),
         (21, "Lista agencija", f"{ui_config.base_url}/agencije"),
         (22, "Lista investitora", f"{ui_config.base_url}/investitori")
     ]
