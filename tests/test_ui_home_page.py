@@ -47,8 +47,8 @@ class TestUIHomePage:
 
     @allure.id('3')
     @allure.title('Check Menu "Prodaja" Navigation')
-    @pytest.mark.parametrize("sub_menu,expected_url", NavigationSubMenu.SUB_MENU_SALE)
-    def test_navigation_menu_sale(self, home_page: HomePage, sub_menu: str, expected_url: str):
+    @pytest.mark.parametrize("number, sub_menu,expected_url", NavigationSubMenu.SUB_MENU_SALE)
+    def test_navigation_menu_sale(self, home_page: HomePage, number: int, sub_menu: str, expected_url: str):
         home_page.visit()
         home_page.check_menu_navigation(menu=NavigationMenu.MENU_SALE, sub_menu=sub_menu, expected_url=expected_url)
 
