@@ -28,7 +28,7 @@ class TestSEO:
     @allure.title('Check Meta Tags')
     @flaky(max_runs=2)
     def test_meta_tags(self, home_page: HomePage, url_suffix: str):
-        home_page.visit(url_suffix)
+        home_page.visit(url_suffix=url_suffix)
         # Assert meta tags
         home_page.check_meta_tag_description(attribute="content",
                                              expected_value=Titles.META_DESCRIPTION)
