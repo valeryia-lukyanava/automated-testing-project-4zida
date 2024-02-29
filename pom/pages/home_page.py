@@ -1,7 +1,9 @@
 import allure
 
 from constants.locators import HomePageLocators
+from constants.navigation_menu import NavigationMenu
 from constants.tags import Tags
+from pom.page_factory.button import Button
 from pom.page_factory.form import Form
 from pom.page_factory.component import Component
 from pom.page_factory.title import Title
@@ -24,11 +26,11 @@ class HomePage(BasePage):
         self.link_canonical = Component(
             page, locator=HomePageLocators.LINK_CANONICAL, name="Link canonical"
         )
-        # self.logo = Component(
-        #     page, locator='//a[@title="Logo 4zida.rs"]', name="Logo 4zida.rs"
-        # )
+        self.logo = Component(
+            page, locator=HomePageLocators.LOGO, name="Logo"
+        )
         self.search_form = Form(
-            page, locator=HomePageLocators.SEARCH_FORM, name='Search form'
+            page, locator=HomePageLocators.SEARCH_FORM, name='Search Form'
         )
         self.page_title = Title(
             page, locator=HomePageLocators.HEADER_H1, name='Title'
@@ -49,8 +51,30 @@ class HomePage(BasePage):
             page, locator=HomePageLocators.HEADER_H3_WIDGET, name='Tag h3 Widget'
         )
         self.footer_links = Component(
-            page, locator=HomePageLocators.FOOTER_LINKS, name="Footer links"
+            page, locator=HomePageLocators.FOOTER_LINKS, name="Footer Links"
         )
+        self.main_menu_button = Button(
+            page, locator=HomePageLocators.MAIN_MENU_BUTTON, name="Main Menu Button"
+        )
+        self.menu_sale = Button(
+            page, locator=HomePageLocators.MENU_SALE, name="Menu Button"
+        )
+        self.menu_rent = Button(
+            page, locator=HomePageLocators.MENU_RENT, name="Menu Button"
+        )
+        self.menu_new = Button(
+            page, locator=HomePageLocators.MENU_NEW, name="Menu Button"
+        )
+        self.menu_advertisement = Button(
+            page, locator=HomePageLocators.MENU_ADVERTISEMENT, name="Menu Button"
+        )
+
+        self.menu_elements = {
+            NavigationMenu.MENU_SALE: self.menu_sale,
+            NavigationMenu.MENU_RENT: self.menu_rent,
+            NavigationMenu.MENU_NEW: self.menu_new,
+            NavigationMenu.MENU_ADVERTISEMENT: self.menu_advertisement
+        }
 
     @allure.step('Checking Meta tag')
     def check_meta_tag_robots(self, attribute: str, expected_value: str):
@@ -59,10 +83,6 @@ class HomePage(BasePage):
     @allure.step('Checking Link canonical')
     def check_link_canonical(self, attribute: str, expected_value: str):
         self.link_canonical.should_have_attribute_value(attribute, expected_value)
-
-    # @allure.step('Checking the Logo is visible')
-    # def check_logo_is_visible(self):
-    #     self.logo.should_be_visible()
 
     @allure.step('Checking the Search Form is visible')
     def check_search_form_is_visible(self):
@@ -86,8 +106,8 @@ class HomePage(BasePage):
             logger.warning(f"No verification of the header {header_tag} is provided")
 
     @allure.step('Checking that the URL of the page is "{expected_url}"')
-    def check_page_url(self, expected_url: str, errors: list):
-        self.page.check_page_url(expected_url, self.errors)
+    def check_page_url(self, expected_url: str, errors: list = None):
+        self.page.check_page_url(expected_url, errors)
 
     # @allure.step('Checking that Type in the Search form has a value "{expected_type_name}"')
     # def check_search_type(self, expected_type_name: str):
@@ -96,10 +116,6 @@ class HomePage(BasePage):
     @allure.step('Checking that Search form is visible')
     def check_search_form_is_visible(self):
         self.search_form.should_be_visible()
-
-    # @allure.step('Checking that the title of the page if "{expected_title_text}"')
-    # def check_page_headers(self, expected_title_text: str):
-    #     self.page_title.should_have_text(expected_title_text)
 
     @allure.step('Checking Footer links')
     def check_footer_links(self):
@@ -130,3 +146,14 @@ class HomePage(BasePage):
     @allure.step('Checking Meta tag "description"')
     def check_meta_tag_description(self, attribute: str, expected_value: str):
         self.meta_description.should_have_attribute_value(attribute, expected_value)
+
+    @allure.step('Checking Menu navigation: "{menu}" > "{sub_menu}"')
+    def check_menu_navigation(self, menu: str, sub_menu: str, expected_url: str):
+        self.main_menu_button.should_be_visible()
+        self.main_menu_button.click()
+        menu_element = self.menu_elements[menu]
+        menu_element.should_be_visible()
+        menu_element.click()
+        self.page.sub_menu_navigate(sub_menu)
+        self.check_page_url(expected_url)
+        self.logo.should_be_visible()
