@@ -124,7 +124,7 @@ class Page(PageInterface):
         try:
             return self.webdriver
         except MaxRetryError:
-            time.sleep(1)
+            time.sleep(0.5)
             self.wait_until_stable()
 
     def get_xpath(self, xpath: str, timeout: int = None) -> Element:

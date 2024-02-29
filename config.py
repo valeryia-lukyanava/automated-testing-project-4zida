@@ -30,14 +30,12 @@ class DriverConfig(BaseSettings):
         '--disable-gpu'
     ]
     capabilities: dict[str, str] = {}
-    # experimental_options: list[dict] | None = None
     experimental_options: list[dict] = [{"mobileEmulation": {
         "deviceMetrics": {"width": ViewportConfig().width, "height": ViewportConfig().height}}}]
     seleniumwire_options: dict = {}
     extension_paths: list[str] | None = None
     webdriver_kwargs: dict | None = None
     version: str | None
-    # for local running only
     local_path: str = "D:/Python/Project4zida/chromedriver-win64/chromedriver.exe"
 
     class Config:
