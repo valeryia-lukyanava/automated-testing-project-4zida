@@ -1,4 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Wed Feb 21 18:36:12 GMT 2024","Wed Feb 21 18:36:24 GMT 2024","12276","tests","Smoke","TestPerformance","","","Performance tests for Home page",""
-"passed","Wed Feb 21 18:34:59 GMT 2024","Wed Feb 21 18:36:11 GMT 2024","72005","tests","Smoke","TestHomePage","","","Check Footer Links",""
-"passed","Wed Feb 21 18:34:56 GMT 2024","Wed Feb 21 18:34:59 GMT 2024","2609","tests","Smoke","TestHomePage","","","Check the Home page is loading",""

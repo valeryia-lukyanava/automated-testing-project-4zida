@@ -1,0 +1,22 @@
+INFO     Logger:page.py:122 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:216 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:55 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:107 Page.visit() - Get URL: 'https://next.4zida.rs?IC-Bypass-Throttling=xxxxxxxxx'
+INFO     Logger:page.py:110 Client window width: 393, window height: 873
+INFO     Logger:page.py:138 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:138 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:138 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Prodaja"]'
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:138 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Prodaja"]'
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:138 Page.get_xpath() - Get the element with xpath: '//header//nav/a[text()="Prodaja poslovnih prostora"]'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:295 The URL of the page is 'https://next.4zida.rs/prodaja-poslovnih-prostora'
+INFO     Logger:page.py:138 Page.get_xpath() - Get the element with xpath: '//header/a/img'
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:209 Page.screenshot() - Save screenshot to: 'screenshots/test_navigation_menu_sale[18]2024-02-29T144808.png'
+INFO     Logger:conftest.py:55 Browser console logs: [{'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/image?url=https%3A%2F%2Fresizer2.4zida.rs%2F-lHZJOkOk3iF5g3LDSouwtCdhIYODEcphwyRjpuOOGQ%2Frs%3Afill%3A380%3A0%3A0%2FbG9jYWw6Ly8vNjVkYzUyM2E4ZmFkM2FhZWNkMDI0ZGQ2Lzc4ZjJiMTk4NGE.webp&w=128&q=75 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709218088658}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/prodaja-poslovnih-prostora?modal=prijava&_rsc=5vlp3#sacuvaj-oglas - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709218088661}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/favicon.ico - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709218088661}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/prodaja-poslovnih-prostora/centar-1-gradske-lokacije-subotica/lokal/65d3bea2ae02ac3c680aa709?_rsc=5vlp3 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709218088662}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/prodaja-poslovnih-prostora/pravni-fakultet-vracar-vracar-beograd/lokal/65dc523a8fad3aaecd024dd6?_rsc=5vlp3 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709218088671}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/prodaja-poslovnih-prostora/progar-surcin-opstina-beograd/poslovna-zgrada/65df7cb7af2c545664021d4a?_rsc=5vlp3 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709218088672}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/prodaja-poslovnih-prostora?modal=filteri&_rsc=5vlp3 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709218088673}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/image?url=https%3A%2F%2Fresizer2.4zida.rs%2Funsigned%2Frs%3Afit%3A75%3A75%2Fplain%2Flocal%3A%2F%2F%2Fagencies%2F062a9e2c6f.png%40webp&w=96&q=75 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709218088674}]
+INFO     Logger:page.py:201 Page.quit() - Quit page and close all windows from the browser session
