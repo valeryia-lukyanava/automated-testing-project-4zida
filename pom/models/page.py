@@ -68,7 +68,7 @@ class Page(PageInterface):
         """Get the current page's title"""
         return self.webdriver.title
 
-    def get(self, url: str, url_suffix: str) -> "Page":
+    def get(self, url: str, url_suffix: str = "") -> "Page":
         """Navigate to the given URL"""
         self.get_page_by_url(url, url_suffix)
         return self

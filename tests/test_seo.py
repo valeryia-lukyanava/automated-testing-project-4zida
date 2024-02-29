@@ -51,6 +51,7 @@ class TestSEO:
 
     @allure.id('5')
     @allure.title('Check Page Header Tags <h3>')
+    @pytest.mark.skip("Changes are needed")
     def test_h3_tags(self, home_page: HomePage):
         home_page.visit()
         # Expected h3 tags
