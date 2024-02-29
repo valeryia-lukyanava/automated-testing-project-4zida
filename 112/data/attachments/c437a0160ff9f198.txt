@@ -1,0 +1,1 @@
+INFO     Logger:page.py:122 Page.wait_until_stable() - Page wait until driver stable
