@@ -18,7 +18,7 @@ class ViewportConfig(BaseSettings):
 class DriverConfig(BaseSettings):
     browser: Browser = Field(default=Browser.CHROME, env="BROWSER")
     remote_url: str = Field(default="", env="REMOTE_URL")
-    wait_time: int = 5
+    wait_time: int = Field(default=5, env="MAX_WAIT_TIME")
     page_load_wait_time: int = 0
     options: list[str] = [
         "ignore-certificate-errors",

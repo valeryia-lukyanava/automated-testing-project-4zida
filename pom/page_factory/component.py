@@ -1,5 +1,3 @@
-import logging
-
 import allure
 from selenium.common.exceptions import StaleElementReferenceException
 from pom.models.element import Element
@@ -35,7 +33,7 @@ class Component:
     def click(self, **kwargs) -> None:
         with allure.step(f'Clicking {self.type_of} with name "{self.name}"'):
             element = self.get_element(**kwargs)
-            element.click()
+            element.scroll_to_element().click()
 
     def should_be_visible(self, **kwargs) -> None:
         with allure.step(f'Checking that {self.type_of} "{self.name}" is visible'):

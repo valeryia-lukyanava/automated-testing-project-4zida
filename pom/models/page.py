@@ -104,7 +104,7 @@ class Page(PageInterface):
     def get_page_by_url(self, url, url_suffix):
         """Navigate to the given URL"""
         normalized_url = url if url.startswith('http') else (self.config.base_url + url)
-        logger.info("Page.visit() - Get URL: '%s'", normalized_url+url_suffix)
+        logger.info("Page.visit() - Get URL: '%s'", normalized_url)
         time.sleep(0.75)
         self.webdriver.get(f"{normalized_url}{url_suffix}")
         logger.info(f"Client window width: {self._webdriver.execute_script(JS.CLIENT_WINDOW_WIDTH)}, window height: "
@@ -308,6 +308,25 @@ class Page(PageInterface):
                 errors.append()
             logger.error(str(assertion_error))
 
+    def check_response_status_code(self):
+        """Check response status code when GET current url"""
+        response_status_code = ""
+        value = False
+        try:
+            actual_url = self.url()
+            response = requests.get(url=actual_url, timeout=10)
+            response_status_code = response.status_code
+            logger.info(f"GET '{actual_url}'. Response status code: {response_status_code}")
+            if int(response_status_code) < 400:
+                value = True
+        except TimeoutException:
+            value = False
+
+        if value:
+            return self.url()
+        else:
+            raise AssertionError(f"Expected status code should be < 400. Actual status code: '{response_status_code}'")
+
     def check_web_element_located(self, xpath: str, timeout: int = None) -> bool:
         """Check the web element is located"""
         by = By.XPATH
@@ -398,6 +417,7 @@ class Page(PageInterface):
     def sub_menu_navigate(self, sub_menu: str):
         sub_menu_element = self.get_xpath(f'{HomePageLocators.SUB_MENU}"{sub_menu}"]')
         with allure.step(f'Checking Sub Menu navigation: "{sub_menu}"'):
+            sub_menu_element.scroll_to_element()
             sub_menu_element.should().be_clickable()
             sub_menu_element.click()
         return self

@@ -84,3 +84,14 @@ class Element(ElementInterface):
         )
 
         return self.web_element.is_displayed()
+
+    def scroll_to_element(self):
+        """Scroll to the element"""
+        logger.info("Element.scroll_to_element() - Scroll to this element")
+
+        self._page.webdriver.execute_script(
+            "arguments[0].scrollIntoView({block: \"end\"});",
+            self.web_element
+        )
+
+        return self

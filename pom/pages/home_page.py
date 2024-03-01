@@ -108,6 +108,7 @@ class HomePage(BasePage):
     @allure.step('Checking that the URL of the page is "{expected_url}"')
     def check_page_url(self, expected_url: str, errors: list = None):
         self.page.check_page_url(expected_url, errors)
+        self.page.check_response_status_code()
 
     # @allure.step('Checking that Type in the Search form has a value "{expected_type_name}"')
     # def check_search_type(self, expected_type_name: str):
@@ -156,4 +157,3 @@ class HomePage(BasePage):
         menu_element.click()
         self.page.sub_menu_navigate(sub_menu)
         self.check_page_url(expected_url)
-        self.logo.should_be_visible()
