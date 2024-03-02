@@ -22,7 +22,7 @@ class BasePage:
             with allure.step(f'Opening the url "{self.page.config.base_url}{url}"'):
                 self.page.get(url)
 
-            self.page.check_web_element_located(HomePageLocators.SEARCH_FORM)
+            self.page.check_web_element_located(HomePageLocators.LOGO)
 
             with allure.step(f'Measuring performance metrics: '
                              f'TTFB, LCP, Page Load Time, End-to-End Response Time"'):
