@@ -42,3 +42,7 @@ class ElementShouldInterface(ABC):
     def have_attribute_value(self, attribute: str, value: str, case_sensitive=True, raise_error=True,
                              errors=None) -> "ElementInterface":
         ...
+
+    @abstractmethod
+    def have_attribute(self, attribute: str) -> "ElementInterface":
+        ...

@@ -105,3 +105,16 @@ class ElementShould(ElementShouldInterface):
             raise error
         else:
             errors.append(str(error))
+
+    def have_attribute(self, attribute) -> "ElementInterface":
+        """An expectation that the element has the given attribute"""
+        logger.info("Element should have an attribute '%s'", attribute)
+        try:
+            result = self._wait.until(lambda e: "" in e.get_attribute(attribute))
+        except TimeoutException:
+            result = False
+
+        if result:
+            return self._element
+
+        raise AssertionError(f"Expected attribute '{attribute}' was not found")

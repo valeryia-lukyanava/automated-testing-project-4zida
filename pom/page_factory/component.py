@@ -75,4 +75,12 @@ class Component:
                 element = self.get_element(**kwargs)
                 element.should().have_attribute_value(attribute, value)
             except StaleElementReferenceException:
-                self.should_have_text(attribute, value, **kwargs)
+                self.should_have_attribute_value(attribute, value, **kwargs)
+
+    def should_have_attribute(self, attribute, **kwargs):
+        with allure.step(f'Checking that {self.type_of} has an attribute "{attribute}"'):
+            try:
+                element = self.get_element(**kwargs)
+                element.should().have_attribute(attribute)
+            except StaleElementReferenceException:
+                self.should_have_attribute(attribute, **kwargs)

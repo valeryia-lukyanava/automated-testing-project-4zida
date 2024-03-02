@@ -1,25 +1,25 @@
 import allure
 
-from locators.locators import HomePageLocators
-from constants.navigation_menu import NavigationMenu
-from constants.tags import Tags
+from locators.home_page_locators import HomePageLocators
+from constants.titles.navigation_menu import NavigationMenu
+from constants.web_elements.tags import Tags
 from pom.page_factory.button import Button
-from pom.page_factory.form import Form
 from pom.page_factory.component import Component
 from pom.page_factory.title import Title
 from pom.pages.base_page import BasePage
 from pom.models.page import Page
+from pom.pages.forms.search_form import SearchForm
 from utils.logger import logger
 
 
 class HomePage(BasePage):
     def __init__(self, page: Page) -> None:
         super().__init__(page)
+        self.search_form = SearchForm(page)
 
         self.meta_description = Component(
             page, locator=HomePageLocators.META_DESCRIPTION, name="Meta tag"
         )
-
         self.meta_robots = Component(
             page, locator=HomePageLocators.META_ROBOTS, name="Meta tag"
         )
@@ -28,9 +28,6 @@ class HomePage(BasePage):
         )
         self.logo = Component(
             page, locator=HomePageLocators.LOGO, name="Logo"
-        )
-        self.search_form = Form(
-            page, locator=HomePageLocators.SEARCH_FORM, name='Search Form'
         )
         self.page_title = Title(
             page, locator=HomePageLocators.HEADER_H1, name='Title'
@@ -57,22 +54,22 @@ class HomePage(BasePage):
             page, locator=HomePageLocators.MAIN_MENU_BUTTON, name="Main Menu Button"
         )
         self.menu_sale = Button(
-            page, locator=HomePageLocators.MENU_SALE, name="Menu Button"
+            page, locator=HomePageLocators.MENU_SALE, name="Menu Button 'Prodaja'"
         )
         self.menu_rent = Button(
-            page, locator=HomePageLocators.MENU_RENT, name="Menu Button"
+            page, locator=HomePageLocators.MENU_RENT, name="Menu Button 'Izdavanje'"
         )
         self.menu_new = Button(
-            page, locator=HomePageLocators.MENU_NEW, name="Menu Button"
+            page, locator=HomePageLocators.MENU_NEW, name="Menu Button 'Novogradnja'"
         )
         self.menu_advertisement = Button(
-            page, locator=HomePageLocators.MENU_ADVERTISEMENT, name="Menu Button"
+            page, locator=HomePageLocators.MENU_ADVERTISEMENT, name="Menu Button 'Oglašavanje'"
         )
         self.login = Button(
             page, locator=HomePageLocators.LOGIN, name="Login Button"
         )
         self.login_dialog = Component(
-            page, locator=HomePageLocators.LOGIN_DIALOG, name="Login Button"
+            page, locator=HomePageLocators.LOGIN_DIALOG, name="Login Dialog"
         )
         self.menu_elements = {
             NavigationMenu.MENU_SALE: self.menu_sale,
@@ -88,10 +85,6 @@ class HomePage(BasePage):
     @allure.step('Checking Link canonical')
     def check_link_canonical(self, attribute: str, expected_value: str):
         self.link_canonical.should_have_attribute_value(attribute, expected_value)
-
-    @allure.step('Checking the Search Form is visible')
-    def check_search_form_is_visible(self):
-        self.search_form.should_be_visible()
 
     @allure.step('Checking that the title of the browser page is "{expected_title_text}"')
     def check_browser_title(self, expected_title_text: str):
@@ -121,7 +114,7 @@ class HomePage(BasePage):
 
     @allure.step('Checking that Search form is visible')
     def check_search_form_is_visible(self):
-        self.search_form.should_be_visible()
+        self.search_form.form.should_be_visible()
 
     @allure.step('Checking Footer links')
     def check_footer_links(self):
@@ -167,3 +160,12 @@ class HomePage(BasePage):
     def login_via_email(self):
         self.login.click()
         self.login_dialog.should_be_visible()
+
+    @allure.step('Check Tabs "Prodaja/Izdavanje" are working')
+    def check_tabs_are_working(self):
+        self.search_form.click_rent_tab_and_check_attributes()
+        self.search_form.click_sale_tab_and_check_attributes()
+
+    @allure.step('Check Dropdowm "Tip" is working')
+    def check_combobox_type(self):
+        self.search_form.check_combobox_type()

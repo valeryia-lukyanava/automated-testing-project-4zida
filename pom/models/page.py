@@ -10,10 +10,10 @@ from selenium.webdriver.support.wait import WebDriverWait
 from urllib3.exceptions import MaxRetryError
 
 from config import UIConfig
-from constants.attributes import Attributes
+from constants.web_elements.attributes import Attributes
 from constants.js_scripts import JS
-from locators.locators import HomePageLocators
-from constants.routes import UIRoutes
+from locators.home_page_locators import HomePageLocators
+from constants.urls.routes import UIRoutes
 from utils.bowser_log_parser import get_lcp_from_logs
 from utils.logger import logger
 from pom.interfaces.page import PageInterface

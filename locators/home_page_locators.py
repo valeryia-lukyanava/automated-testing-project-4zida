@@ -1,4 +1,4 @@
-from constants.navigation_menu import NavigationMenu
+from constants.titles.navigation_menu import NavigationMenu
 
 
 class HomePageLocators(str):
@@ -11,7 +11,6 @@ class HomePageLocators(str):
     META_DESCRIPTION = '//meta[@name="description"]'
     META_ROBOTS = '//meta[@name="robots"]'
     LINK_CANONICAL = '//link[@rel="canonical"]'
-    SEARCH_FORM = '//div[@test-data="search-form"]'
     FOOTER_LINKS = '//footer//a'
     MAIN_MENU_BUTTON = '//header/button'
     MENU_SALE = f'//header//nav//div[text()="{NavigationMenu.MENU_SALE}"]'
@@ -19,5 +18,5 @@ class HomePageLocators(str):
     MENU_NEW = f'//header//nav//div[text()="{NavigationMenu.MENU_NEW}"]'
     MENU_ADVERTISEMENT = f'//header//nav//div[text()="{NavigationMenu.MENU_ADVERTISEMENT}"]'
     SUB_MENU = '//header//nav/a[text()='
-    LOGIN = '//header/a[@href="?dialog=prijava"]'
+    LOGIN = '//header/a[@href="?modal=prijava"]'
     LOGIN_DIALOG = '//div[@role="dialog"]'

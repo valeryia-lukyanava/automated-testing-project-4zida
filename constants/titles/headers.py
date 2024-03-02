@@ -1,4 +1,4 @@
-from constants.titles import Titles
+from constants.titles.titles import Titles
 
 
 class Headers(tuple):

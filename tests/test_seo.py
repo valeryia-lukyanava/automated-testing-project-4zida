@@ -2,18 +2,19 @@ import allure
 import pytest
 from flaky import flaky
 
-from constants.attributes import Attributes
-from constants.external_links import ExternalLinks
-from constants.headers import Headers
-from constants.tags import Tags
+from constants.web_elements.attributes import Attributes
+from constants.urls.external_links import ExternalLinks
+from constants.titles.headers import Headers
+from constants.web_elements.tags import Tags
 from pom.pages.home_page import HomePage
-from constants.titles import Titles
+from constants.titles.titles import Titles
 from constants.suites import Suite
 
 
 @pytest.mark.ui
+@pytest.mark.chrome_mobile
 @pytest.mark.seo
-@allure.severity(allure.severity_level.CRITICAL)
+@allure.severity(allure.severity_level.NORMAL)
 @allure.suite(Suite.SEO)
 class TestSEO:
     @allure.id('1')

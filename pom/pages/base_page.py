@@ -1,6 +1,6 @@
 import allure
 
-from locators.locators import HomePageLocators
+from locators.home_page_locators import HomePageLocators
 from pom.components.cookies_modal import CookiesModal
 from pom.models.page import Page
 

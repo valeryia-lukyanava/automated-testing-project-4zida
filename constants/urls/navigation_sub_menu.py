@@ -81,7 +81,7 @@ class NavigationSubMenu(list):
     ]
     SUB_MENU_ADVERTISEMENT = [
         (1, "Cenovnik oglašavanja", f"{ui_config.base_url}/cenovnik"),
-        (2, "Cenovnik oglašavanja za vlasnike -fizička lica", f"{ui_config.base_url}/cenovnik-za-vlasnike"),
+        (2, "Cenovnik oglašavanja za vlasnike - fizička lica", f"{ui_config.base_url}/cenovnik-za-vlasnike"),
         (3, "Cenovnik oglašavanja za vlasnike - pravna lica", f"{ui_config.base_url}/cenovnik-za-pravna-lica"),
         (4, "Cenovnik oglašavanja za agencije", f"{ui_config.base_url}/cenovnik-za-agencije"),
         (5, "Cenovnik oglašavanja za novogradnju", f"{ui_config.base_url}/cenovnik-za-investitore"),

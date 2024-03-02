@@ -11,6 +11,7 @@ from utils.calculate_median_values import get_median_values_for_metrics
 
 
 @pytest.mark.ui
+@pytest.mark.chrome_mobile
 @pytest.mark.performance
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.PERFORMANCE)

@@ -1,13 +1,14 @@
 import allure
 import pytest
 
-from constants.navigation_menu import NavigationMenu
-from data.navigation_sub_menu import NavigationSubMenu
+from constants.titles.navigation_menu import NavigationMenu
+from constants.urls.navigation_sub_menu import NavigationSubMenu
 from pom.pages.home_page import HomePage
 from constants.suites import Suite
 
 
 @pytest.mark.ui
+@pytest.mark.chrome_mobile
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.UI)
 class TestUINavigationMenu:
