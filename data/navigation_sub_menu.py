@@ -79,4 +79,17 @@ class NavigationSubMenu(list):
         (24, "Vodič za stambeni kredit", f"{ui_config.base_url}/blog/sta-mi-je-potrebno-za-stambeni-kredit"),
         (25, "Lista investitora", f"{ui_config.base_url}/investitori")
     ]
-    SUB_MENU_ADVERTISEMENT = []
+    SUB_MENU_ADVERTISEMENT = [
+        (1, "Cenovnik oglašavanja", f"{ui_config.base_url}/cenovnik"),
+        (2, "Cenovnik oglašavanja za vlasnike -fizička lica", f"{ui_config.base_url}/cenovnik-za-vlasnike"),
+        (3, "Cenovnik oglašavanja za vlasnike - pravna lica", f"{ui_config.base_url}/cenovnik-za-pravna-lica"),
+        (4, "Cenovnik oglašavanja za agencije", f"{ui_config.base_url}/cenovnik-za-agencije"),
+        (5, "Cenovnik oglašavanja za novogradnju", f"{ui_config.base_url}/cenovnik-za-investitore"),
+        (6, "Cenovnik promocije projekata i oglašivača putem banera", f"{ui_config.base_url}/baneri"),
+        (7, "Pitaj pravnika", f"{ui_config.base_url}/pitaj-pravnika"),
+        (8, "Kretanje cena kvadrata u Srbiji", f"{ui_config.base_url}/prosecna-cena-kvadrata-nekretnine"),
+        (9, "Procena vrednosti nekretnine", f"{ui_config.base_url}/izracunaj-vrednost-nekretnine"),
+        (10, "Isplativost", f"{ui_config.base_url}/isplativost-kupovina-ili-iznajmljivanje"),
+        (11, "Kalkulator kredita", f"{ui_config.base_url}/kalkulator-stambenih-i-kes-kredita"),
+        (12, "Kalkulator kreditne sposobnosti", f"{ui_config.base_url}/kreditna-sposobnost")
+    ]
