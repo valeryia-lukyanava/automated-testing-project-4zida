@@ -19,3 +19,5 @@ class HomePageLocators(str):
     MENU_NEW = f'//header//nav//div[text()="{NavigationMenu.MENU_NEW}"]'
     MENU_ADVERTISEMENT = f'//header//nav//div[text()="{NavigationMenu.MENU_ADVERTISEMENT}"]'
     SUB_MENU = '//header//nav/a[text()='
+    LOGIN = '//header/a[@href="?dialog=prijava"]'
+    LOGIN_DIALOG = '//div[@role="dialog"]'

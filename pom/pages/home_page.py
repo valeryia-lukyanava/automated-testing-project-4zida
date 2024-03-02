@@ -1,6 +1,6 @@
 import allure
 
-from constants.locators import HomePageLocators
+from locators.locators import HomePageLocators
 from constants.navigation_menu import NavigationMenu
 from constants.tags import Tags
 from pom.page_factory.button import Button
@@ -68,7 +68,12 @@ class HomePage(BasePage):
         self.menu_advertisement = Button(
             page, locator=HomePageLocators.MENU_ADVERTISEMENT, name="Menu Button"
         )
-
+        self.login = Button(
+            page, locator=HomePageLocators.LOGIN, name="Login Button"
+        )
+        self.login_dialog = Component(
+            page, locator=HomePageLocators.LOGIN_DIALOG, name="Login Button"
+        )
         self.menu_elements = {
             NavigationMenu.MENU_SALE: self.menu_sale,
             NavigationMenu.MENU_RENT: self.menu_rent,
@@ -157,3 +162,8 @@ class HomePage(BasePage):
         menu_element.click()
         self.page.sub_menu_navigate(sub_menu)
         self.check_page_url(expected_url)
+
+    @allure.step('Login via email')
+    def login_via_email(self):
+        self.login.click()
+        self.login_dialog.should_be_visible()

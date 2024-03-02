@@ -12,7 +12,7 @@ from urllib3.exceptions import MaxRetryError
 from config import UIConfig
 from constants.attributes import Attributes
 from constants.js_scripts import JS
-from constants.locators import HomePageLocators
+from locators.locators import HomePageLocators
 from constants.routes import UIRoutes
 from utils.bowser_log_parser import get_lcp_from_logs
 from utils.logger import logger
@@ -325,7 +325,7 @@ class Page(PageInterface):
         if value:
             return self.url()
         else:
-            raise AssertionError(f"Expected status code should be < 400. Actual status code: '{response_status_code}'")
+            raise AssertionError(f"Expected status code should be < 400. Actual status code: {response_status_code}")
 
     def check_web_element_located(self, xpath: str, timeout: int = None) -> bool:
         """Check the web element is located"""

@@ -22,6 +22,13 @@ class TestUIHomePage:
         home_page.check_search_form_is_visible()
 
     @allure.id('2')
+    @allure.title('Check Login via email')
+    def test_login_via_email(self, home_page: HomePage):
+        # Login via email is successful
+        home_page.visit()
+        home_page.login_via_email()
+
+    @allure.id('3')
     @allure.title('Check Footer Links')
     def test_footer_links(self, home_page: HomePage):
         # Footer Links
