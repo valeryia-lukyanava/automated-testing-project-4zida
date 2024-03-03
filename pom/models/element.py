@@ -90,7 +90,7 @@ class Element(ElementInterface):
         logger.info("Element.scroll_to_element() - Scroll to this element")
 
         self._page.webdriver.execute_script(
-            "arguments[0].scrollIntoView({block: \"end\"});",
+            "arguments[0].scrollIntoView({block: \"center\"});",
             self.web_element
         )
 

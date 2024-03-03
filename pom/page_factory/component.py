@@ -39,6 +39,7 @@ class Component:
         with allure.step(f'Checking that {self.type_of} "{self.name}" is visible'):
             try:
                 element = self.get_element(**kwargs)
+                element.scroll_to_element()
                 element.should().be_visible()
             except StaleElementReferenceException:
                 self.should_be_visible(**kwargs)

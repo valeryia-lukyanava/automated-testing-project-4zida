@@ -28,7 +28,7 @@ class TestUIHomePage:
     @allure.id('2')
     @allure.title('Check Login via Email')
     def test_login_via_email(self, home_page: HomePage):
-        # Login via email is successful
+        # TODO: not completed
         home_page.visit()
         home_page.login_via_email()
 
@@ -57,6 +57,24 @@ class TestUIHomePage:
         home_page.check_the_search_returns_no_error(path=expected_path)
 
     @allure.id('5')
+    @allure.title('Check "Popularni gradovi" Quick Links')
+    def test_place_suggestions(self, home_page: HomePage):
+        home_page.visit()
+        home_page.check_place_suggestions()
+
+    @allure.id('6')
+    @allure.title('Check "Service offerings" Carousel')
+    def test_carousel_added_values(self, home_page: HomePage):
+        home_page.visit()
+        home_page.check_carousel_service_offerings()
+
+    @allure.id('7')
+    @allure.title('Check "Najnoviji blog postovi" Widget')
+    def test_blog_post_widget(self, home_page: HomePage):
+        home_page.visit()
+        home_page.check_blog_post_widget()
+
+    @allure.id('8')
     @allure.title('Check Footer Links')
     def test_footer_links(self, home_page: HomePage):
         # Footer Links

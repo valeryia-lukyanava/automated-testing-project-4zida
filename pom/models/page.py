@@ -4,6 +4,7 @@ from datetime import datetime
 import allure
 import requests
 from selenium.common.exceptions import TimeoutException, StaleElementReferenceException
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver, WebElement
 from selenium.webdriver.support.wait import WebDriverWait
@@ -287,8 +288,10 @@ class Page(PageInterface):
             f"Expected title: '{title_name}' - Actual text: '{self.title()}'"
         )
 
-    def check_page_url(self, url, errors):
+    def check_page_url(self, url, errors=None):
         """Check the URL of the page"""
+        if errors is None:
+            errors = []
         try:
             value = self._wait.until(lambda e: e.current_url == url)
             actual_url = self.url()
@@ -368,7 +371,6 @@ class Page(PageInterface):
         )
 
     def check_footer_link(self, index, locator, errors):
-
         link = self.find_xpath(locator).list[index]
         url = link.web_element.get_attribute(Attributes.HREF)
         text = link.web_element.text
@@ -416,6 +418,38 @@ class Page(PageInterface):
                     # To avoid Error 429
                     time.sleep(2)
 
+    def check_link(self, index, locator):
+        link = self.find_xpath(locator).list[index]
+        url = link.web_element.get_attribute(Attributes.HREF)
+        text = link.web_element.text
+
+        with allure.step(f"Checking link #{index+1} '{text}' (href = '{url}')"):
+            logger.info(f"Link #{index+1} '{text}' (href = '{url}')")
+            link.should().be_clickable()
+            if self.config.api_check_links:
+                response = requests.get(url=url, timeout=10)
+                response_status_code = response.status_code
+                logger.info(f"GET '{url}'. Response status code: {response_status_code}")
+
+                if int(response_status_code) >= 400:
+                    raise AssertionError(f"Link #{index+1} '{text}', GET '{url}'. "
+                                         f"Expected status code should be < 400. "
+                                         f"Actual status code: '{response_status_code}'")
+            else:
+                try:
+                    link.click()
+                except StaleElementReferenceException:
+                    link.click()
+                logger.info(f"Clicked link #{index+1} '{text}', 'href'={url}")
+
+                window_handlers = self.webdriver.window_handles
+                if len(window_handlers) > 1:
+                    self.webdriver.switch_to.window(window_handlers[len(window_handlers) - 1])
+                self.check_page_url(url=url)
+                self.get(self.config.base_url)
+                # To avoid Error 429
+                time.sleep(2)
+
     def check_external_link(self, index: int, locator: str, expected_external_links: list, attribute: str,
                             expected_value: str, errors: list):
         link = self.find_xpath(locator).list[index]
@@ -430,10 +464,18 @@ class Page(PageInterface):
                     logger.info(errors[-1])
                 expected_external_links.remove(url)
 
-    def sub_menu_navigate(self, sub_menu: str):
+    def navigate_through_sub_menu(self, sub_menu: str):
         sub_menu_element = self.get_xpath(f'{HomePageLocators.SUB_MENU}"{sub_menu}"]')
         with allure.step(f'Checking Sub Menu navigation: "{sub_menu}"'):
             sub_menu_element.scroll_to_element()
             sub_menu_element.should().be_clickable()
             sub_menu_element.click()
+        return self
+
+    def navigate_to_carousel_item(self, xpath):
+        item = self.webdriver.find_element(By.XPATH, xpath)
+        with allure.step(f'Navigate to Carousel Item"'):
+            ActionChains(self.webdriver) \
+                .move_to_element(item) \
+                .perform()
         return self

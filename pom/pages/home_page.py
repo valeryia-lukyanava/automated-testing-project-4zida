@@ -1,5 +1,10 @@
-import allure
+import time
 
+import allure
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
+
+from constants.urls.routes import UIRoutes
 from locators.home_page_locators import HomePageLocators
 from constants.titles.navigation_menu import NavigationMenu
 from constants.web_elements.tags import Tags
@@ -71,6 +76,15 @@ class HomePage(BasePage):
         self.login_dialog = Component(
             page, locator=HomePageLocators.LOGIN_DIALOG, name="Login Dialog"
         )
+        self.blog_post_widget = Component(
+            page, locator=HomePageLocators.BLOG_POST_WIDGET, name="Widget 'Najnoviji blog postovi'"
+        )
+        self.place_suggestions = Component(
+            page, locator=HomePageLocators.PLACE_SUGGESTIONS, name="'Popularni gradovi' Quick Links"
+        )
+        self.carousel_service_offerings = Component(
+            page, locator=HomePageLocators.CAROUSEL_SERVICE_OFFERINGS, name="Carousel 'Service Offerings'"
+        )
         self.menu_elements = {
             NavigationMenu.MENU_SALE: self.menu_sale,
             NavigationMenu.MENU_RENT: self.menu_rent,
@@ -107,10 +121,6 @@ class HomePage(BasePage):
     def check_page_url(self, expected_url: str, errors: list = None):
         self.page.check_page_url(expected_url, errors)
         self.page.check_response_status_code()
-
-    # @allure.step('Checking that Type in the Search form has a value "{expected_type_name}"')
-    # def check_search_type(self, expected_type_name: str):
-    #     self.search_form_type.should_have_text(expected_type_name)
 
     @allure.step('Checking that Search form is visible')
     def check_search_form_is_visible(self):
@@ -153,7 +163,7 @@ class HomePage(BasePage):
         menu_element = self.menu_elements[menu]
         menu_element.should_be_visible()
         menu_element.click()
-        self.page.sub_menu_navigate(sub_menu)
+        self.page.navigate_through_sub_menu(sub_menu)
         self.check_page_url(expected_url)
 
     @allure.step('Login via email')
@@ -178,3 +188,33 @@ class HomePage(BasePage):
     def check_the_search_returns_no_error(self, path: str):
         self.page.check_page_url_has_path(path)
         self.page.check_response_status_code()
+
+    @allure.step('Check Widget "Najnoviji blog postovi" links')
+    def check_blog_post_widget(self):
+        self.blog_post_widget.should_be_visible()
+        widget_links = self.page.find_xpath(HomePageLocators.BLOG_POST_WIDGET_LINKS)
+        for index in range(widget_links.length()):
+            self.page.check_link(index, HomePageLocators.BLOG_POST_WIDGET_LINKS)
+
+    @allure.step('Check "Popularni gradovi" Quick Links')
+    def check_place_suggestions(self):
+        self.place_suggestions.should_be_visible()
+        place_suggestions_buttons = self.page.find_xpath(HomePageLocators.PLACE_SUGGESTIONS_BUTTONS)
+        for index in range(place_suggestions_buttons.length()):
+            place_suggestions_button = self.page.find_xpath(HomePageLocators.PLACE_SUGGESTIONS_BUTTONS).list[index]
+            place_suggestions_button.should().be_clickable()
+            place_suggestions_button.click()
+            self.page.check_page_url_has_path(UIRoutes.SALE_HOUSES)
+
+    @allure.step('Check "Service offerings" Carousel Items')
+    def check_carousel_service_offerings(self):
+        self.carousel_service_offerings.should_be_visible()
+        carousel_links = self.page.find_xpath(HomePageLocators.CAROUSEL_SERVICE_OFFERINGS_LINKS)
+        for index in range(carousel_links.length()):
+            xpath = f"({HomePageLocators.CAROUSEL_SERVICE_OFFERINGS_LINKS})[{index + 1}]"
+            self.page.navigate_to_carousel_item(xpath)
+            self.page.get_xpath(xpath).scroll_to_element()
+            carousel_service_offerings_link = \
+                self.page.find_xpath(HomePageLocators.CAROUSEL_SERVICE_OFFERINGS_LINKS).list[index]
+            carousel_service_offerings_link.should().be_clickable()
+            self.page.check_link(index, HomePageLocators.CAROUSEL_SERVICE_OFFERINGS_LINKS)
