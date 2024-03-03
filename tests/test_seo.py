@@ -14,6 +14,7 @@ from constants.suites import Suite
 @pytest.mark.ui
 @pytest.mark.chrome_mobile
 @pytest.mark.seo
+@pytest.mark.order(3)
 @allure.severity(allure.severity_level.NORMAL)
 @allure.suite(Suite.SEO)
 class TestSEO:

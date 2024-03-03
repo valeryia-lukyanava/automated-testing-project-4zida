@@ -81,8 +81,21 @@ class SearchForm(BasePage):
             page, locator=SearchFormLocators.SEARCH_FORM_SUBCATEGORY_TITLE,
             name="Search Form Subcategory Title"
         )
+        self.price_to = Input(
+            page, locator=SearchFormLocators.SEARCH_FORM_PRICE_TO_INPUT,
+            name="Search Form Input 'Cena do'"
+        )
+        self.m2_from = Input(
+            page, locator=SearchFormLocators.SEARCH_FORM_M2_FROM_INPUT,
+            name="Search Form Input 'm2 od'"
+        )
+        self.search = Button(
+            page, locator=SearchFormLocators.SEARCH_FORM_SEARCH_BUTTON,
+            name="Search Form Button 'Traži'"
+        )
+
         self.type_options = {
-            DropdownType.APARTMENT: (self.type_apartment, self.type_apartment_option, ),
+            DropdownType.APARTMENT: (self.type_apartment, self.type_apartment_option),
             DropdownType.HOUSE: (self.type_house, self.type_house_option),
             DropdownType.OFFICE: (self.type_office, self.type_office_option),
             DropdownType.LOT: (self.type_lot, self.type_lot_option),
@@ -113,3 +126,13 @@ class SearchForm(BasePage):
         for value in self.type_options:
             self.select_type_and_check_value(type_button=self.type_options[value][0],
                                              type_option=self.type_options[value][1], value=value)
+
+    @allure.step('Fill in Search Form')
+    def fill_in_search_form_and_click_search(self, property_type: str, price_to: str, m2_from: str):
+        self.select_type_and_check_value(type_button=self.type_options[property_type][0],
+                                         type_option=self.type_options[property_type][1], value=property_type)
+        self.price_to.should_be_visible()
+        self.price_to.fill(price_to)
+        self.m2_from.should_be_visible()
+        self.m2_from.fill(m2_from)
+        self.search.click()

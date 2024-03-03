@@ -15,3 +15,6 @@ class SearchFormLocators(str):
     SEARCH_FORM_TYPE_LOT = '//div[@data-radix-popper-content-wrapper]//span[text()="Placevi"]'
     SEARCH_FORM_TYPE_VEHICLESPOT = '//div[@data-radix-popper-content-wrapper]//span[text()="Garaže/parking"]'
     SEARCH_FORM_SUBCATEGORY_TITLE = f'({SEARCH_FORM}//button/span)[4]'
+    SEARCH_FORM_PRICE_TO_INPUT = f'{SEARCH_FORM}//input[@name="priceTo"]'
+    SEARCH_FORM_M2_FROM_INPUT = f'{SEARCH_FORM}//input[@name="m2From"]'
+    SEARCH_FORM_SEARCH_BUTTON = f'{SEARCH_FORM}/button'

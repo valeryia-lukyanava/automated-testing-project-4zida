@@ -169,3 +169,12 @@ class HomePage(BasePage):
     @allure.step('Check Dropdowm "Tip" is working')
     def check_combobox_type(self):
         self.search_form.check_combobox_type()
+
+    @allure.step('Search with parameters: "Cena do"={price_to}, "m2 od"={m2_from}')
+    def search_with_parameters(self, property_type: str, price_to: str, m2_from: str):
+        self.search_form.fill_in_search_form_and_click_search(property_type, price_to, m2_from)
+
+    @allure.step('Check the Search returns no errors')
+    def check_the_search_returns_no_error(self, path: str):
+        self.page.check_page_url_has_path(path)
+        self.page.check_response_status_code()

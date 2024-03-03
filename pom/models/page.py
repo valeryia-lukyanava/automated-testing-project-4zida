@@ -308,6 +308,22 @@ class Page(PageInterface):
                 errors.append()
             logger.error(str(assertion_error))
 
+    def check_page_url_has_path(self, path):
+        """Check the URL of the page has a path"""
+        try:
+            value = self._wait.until(lambda e: path in e.current_url)
+            actual_url = self.url()
+            logger.info("The URL of the page is '%s'", actual_url)
+            if path in actual_url:
+                value = True
+        except TimeoutException:
+            value = False
+
+        if value:
+            return self.url()
+        else:
+            raise AssertionError(f"Expected that URL has the path: '{path}' - Actual URL: '{self.url()}'")
+
     def check_response_status_code(self):
         """Check response status code when GET current url"""
         response_status_code = ""

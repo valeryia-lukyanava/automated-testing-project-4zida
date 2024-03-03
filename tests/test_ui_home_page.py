@@ -1,7 +1,9 @@
 import allure
 import pytest
 
+from constants.titles.dropdown_type import DropdownType
 from constants.titles.headers import Headers
+from constants.urls.routes import UIRoutes
 from constants.web_elements.tags import Tags
 from pom.pages.home_page import HomePage
 from constants.titles.titles import Titles
@@ -10,6 +12,7 @@ from constants.suites import Suite
 
 @pytest.mark.ui
 @pytest.mark.chrome_mobile
+@pytest.mark.order(1)
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.UI)
 class TestUIHomePage:
@@ -38,6 +41,22 @@ class TestUIHomePage:
         home_page.check_combobox_type()
 
     @allure.id('4')
+    @allure.sub_suite('Search From Inputs "Cena do" and "m2 od"')
+    @allure.title('Check Search From Inputs "Cena do" and "m2 od"')
+    @pytest.mark.parametrize("property_type,price_to,m2_from,expected_path", [
+        (DropdownType.HOUSE, "0", "0", UIRoutes.SALE_HOUSES),
+        (DropdownType.HOUSE, "100000", "50", UIRoutes.SALE_HOUSES),
+        (DropdownType.HOUSE, "-100000", "50", UIRoutes.SALE_HOUSES),
+        (DropdownType.HOUSE, "100000", "-50", UIRoutes.SALE_HOUSES)
+    ])
+    def test_check_search_form_inputs(self, home_page: HomePage, property_type: str, price_to: str, m2_from: str,
+                                      expected_path: str):
+        home_page.visit()
+        home_page.check_search_form_is_visible()
+        home_page.search_with_parameters(property_type=property_type, price_to=price_to, m2_from=m2_from)
+        home_page.check_the_search_returns_no_error(path=expected_path)
+
+    @allure.id('5')
     @allure.title('Check Footer Links')
     def test_footer_links(self, home_page: HomePage):
         # Footer Links

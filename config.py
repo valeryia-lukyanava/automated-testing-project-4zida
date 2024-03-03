@@ -19,7 +19,8 @@ class DriverConfig(BaseSettings):
     browser: Browser = Field(default=Browser.CHROME, env="BROWSER")
     remote_url: str = Field(default="", env="REMOTE_URL")
     wait_time: int = Field(default=5, env="MAX_WAIT_TIME")
-    page_load_wait_time: int = 0
+    local_path: str = Field(default="D:/Python/Project4zida/chromedriver-win64/chromedriver.exe", env="LOCAL_PATH")
+    page_load_wait_time: int = 10
     options: list[str] = [
         "ignore-certificate-errors",
         "--no-sandbox",
@@ -36,7 +37,6 @@ class DriverConfig(BaseSettings):
     extension_paths: list[str] | None = None
     webdriver_kwargs: dict | None = None
     version: str | None
-    local_path: str = "D:/Python/Project4zida/chromedriver-win64/chromedriver.exe"
 
     class Config:
         env_file = '.env'

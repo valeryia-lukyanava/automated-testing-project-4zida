@@ -9,6 +9,7 @@ from constants.suites import Suite
 
 @pytest.mark.ui
 @pytest.mark.chrome_mobile
+@pytest.mark.order(2)
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.UI)
 class TestUINavigationMenu:

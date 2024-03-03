@@ -1,7 +1,4 @@
-from enum import Enum
-
-
-class UIRoutes(str, Enum):
+class UIRoutes(str):
     SALE_APARTMENTS = '/prodaja-stanova'
     SALE_HOUSES = '/prodaja-kuca'
     RENT_APARTMENTS = '/izdavanje-stanova'

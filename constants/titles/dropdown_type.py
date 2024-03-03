@@ -1,7 +1,4 @@
-from enum import Enum
-
-
-class DropdownType(str, Enum):
+class DropdownType(str):
     APARTMENT = "Stanovi"
     HOUSE = "Kuće"
     OFFICE = "Poslovni prostori"
