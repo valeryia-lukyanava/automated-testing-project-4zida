@@ -107,6 +107,7 @@ class Page(PageInterface):
         try:
             normalized_url = url if url.startswith('http') else (self.config.base_url + url)
             logger.info("Page.visit() - Get URL: '%s'", normalized_url)
+            time.sleep(0.5)
             self.webdriver.get(f"{normalized_url}{url_suffix}")
             logger.info(f"Client window width: {self._webdriver.execute_script(JS.CLIENT_WINDOW_WIDTH)}, "
                         f"window height: {self._webdriver.execute_script(JS.CLIENT_WINDOW_HEIGHT)}")
@@ -336,11 +337,15 @@ class Page(PageInterface):
         value = False
         try:
             actual_url = self.url()
-            response = requests.get(url=actual_url, timeout=10)
+            response = requests.get(url=actual_url,
+                                    headers={"IC-Bypass-Throttling": "8f190c31363e1d3a08ec0ccd0eed4be4"}, timeout=10)
             response_status_code = response.status_code
             logger.info(f"GET '{actual_url}'. Response status code: {response_status_code}")
             if int(response_status_code) < 400:
                 value = True
+            elif response_status_code == 429:
+                time.sleep(1)
+                self.check_response_status_code()
         except TimeoutException:
             value = False
 
@@ -393,7 +398,7 @@ class Page(PageInterface):
                 if self.config.api_check_links:
                     response = requests.get(url=url,
                                             headers={"IC-Bypass-Throttling": "8f190c31363e1d3a08ec0ccd0eed4be4"},
-                                            timeout=60)
+                                            timeout=10)
                     response_status_code = response.status_code
                     response_ulr = response.url
                     logger.info(f"GET '{url}'. Response status code: {response_status_code}")

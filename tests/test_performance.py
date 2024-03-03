@@ -14,9 +14,9 @@ from utils.calculate_median_values import get_median_values_for_metrics
 @pytest.mark.chrome_mobile
 @pytest.mark.performance
 @pytest.mark.order(4)
+@flaky(max_runs=2)
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.PERFORMANCE)
-@flaky(max_runs=2)
 class TestPerformance:
     @allure.id('1')
     @allure.title('Performance tests for Home page')

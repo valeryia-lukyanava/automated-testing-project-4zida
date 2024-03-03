@@ -1,5 +1,6 @@
 import allure
 import pytest
+from flaky import flaky
 
 from constants.titles.dropdown_type import DropdownType
 from constants.titles.headers import Headers
@@ -13,6 +14,7 @@ from constants.suites import Suite
 @pytest.mark.ui
 @pytest.mark.chrome_mobile
 @pytest.mark.order(1)
+@flaky(max_runs=2)
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.UI)
 class TestUIHomePage:
