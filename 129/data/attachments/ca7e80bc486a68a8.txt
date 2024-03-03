@@ -1,0 +1,43 @@
+INFO     Logger:page.py:123 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:233 Page.set_page_load_timeout() - Set page load timeout: '10'
+INFO     Logger:page.py:217 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:56 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:108 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:111 Client window width: 393, window height: 873
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Prodaja"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Prodaja"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header//nav/a[text()="Prodaja stanova Zrenjanin"]'
+INFO     Logger:page.py:210 Page.screenshot() - Save screenshot to: 'screenshots/test_navigation_menu_sale[7]2024-03-03T114448.png'
+INFO     Logger:conftest.py:55 Browser console logs: [{'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/image?url=https%3A%2F%2Fresizer2.4zida.rs%2Funsigned%2Frs%3Afit%3A50%3A50%2Fplain%2Flocal%3A%2F%2F%2Fagencies%2Fdc2ac575af.png%40webp&w=64&q=75 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709466284922}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/image?url=https%3A%2F%2Fresizer2.4zida.rs%2FMVHsldc_COcDCAiN5bJzHmuhbAwFhsHlAkXDgHGJ2p8%2Frs%3Afill%3A298%3A270%3A0%2FbG9jYWw6Ly8vNjU2ZWU5OTc0ZGNhNjFmNTcyMGEzYjBhL2ZhMWIyNGM5OTM.webp&w=384&q=75 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709466284923}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/image?url=https%3A%2F%2Fresizer2.4zida.rs%2Funsigned%2Frs%3Afit%3A50%3A50%2Fplain%2Flocal%3A%2F%2F%2Fagencies%2F73bc75dd8d.jpg%40webp&w=64&q=75 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709466284923}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/image?url=https%3A%2F%2Fresizer2.4zida.rs%2Funsigned%2Frs%3Afit%3A50%3A50%2Fplain%2Flocal%3A%2F%2F%2Fagencies%2F279de7b198.png%40webp&w=64&q=75 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709466284924}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/image?url=https%3A%2F%2Fresizer2.4zida.rs%2F2Nhz5kjjwLZwiplYfpey0uhnhhL63FhXCVUCHREaqTM%2Frs%3Afill%3A298%3A270%3A0%2FbG9jYWw6Ly8vNjUwOTdmYTgzNTFmMTgxYzI2MDE3YmU4L2YzMzMxNzNiYWQ.webp&w=384&q=75 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709466284924}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/image?url=https%3A%2F%2Fresizer2.4zida.rs%2Funsigned%2Frs%3Afit%3A50%3A50%2Fplain%2Flocal%3A%2F%2F%2Fagencies%2Fed20ae1aab.jpg%40webp&w=64&q=75 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709466284925}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/image?url=https%3A%2F%2Fresizer2.4zida.rs%2FpcgQKRo-v-O0kk1pqfVQIRXlEQBmQeExvooCnzhyJz0%2Frs%3Afill%3A298%3A270%3A0%2FbG9jYWw6Ly8vNjUzNTcyOWM0MzczZWM5N2RiMDM1N2Y5L2FiZDA1NzU4Mjc.webp&w=384&q=75 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709466284928}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/image?url=https%3A%2F%2Fresizer2.4zida.rs%2Funsigned%2Frs%3Afit%3A125%3A125%2Fplain%2Flocal%3A%2F%2F%2Fagencies%2F373c3b631c.jpeg%40webp&w=128&q=75 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709466284928}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/image?url=https%3A%2F%2Fresizer2.4zida.rs%2Funsigned%2Frs%3Afit%3A50%3A50%2Fplain%2Flocal%3A%2F%2F%2Fagencies%2F2951274306.jpg%40webp&w=64&q=75 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709466284929}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/image?url=https%3A%2F%2Fwww.4zida.rs%2Fblog%2Fwp-content%2Fuploads%2F2024%2F02%2F4zidaKupatilo-768x512.webp&w=384&q=75 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709466284929}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/image?url=https%3A%2F%2Fresizer2.4zida.rs%2FJcyyM7z8g1DpOnNbHmYOU9UCc495-UoTfA_rw57TiNo%2Frs%3Afill%3A298%3A270%3A0%2FbG9jYWw6Ly8vNjQ3ZGUwMmE0MmVhMjcwZWUwMDIwN2Y3L2Q3OTYyMmJjYzk.webp&w=384&q=75 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709466284930}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/image?url=https%3A%2F%2Fresizer2.4zida.rs%2Fj_i5W9Gcj1C2mNuhil9-P-azdBKEJBqq15lbAinETHE%2Frs%3Afill%3A298%3A270%3A0%2FbG9jYWw6Ly8vNjRhNDFkOTQ4NTg5OGVjM2FhMDcxZDNkLzIzMzllODY5Mzk.webp&w=384&q=75 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709466284930}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/?_rsc=tnqvz - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709466285134}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/?modal=prijava&_rsc=tnqvz - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709466285135}]
+INFO     Logger:page.py:202 Page.quit() - Quit page and close all windows from the browser session
+INFO     Logger:page.py:123 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:233 Page.set_page_load_timeout() - Set page load timeout: '10'
+INFO     Logger:page.py:217 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:56 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:108 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:111 Client window width: 393, window height: 873
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Prodaja"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Prodaja"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header//nav/a[text()="Prodaja stanova Zrenjanin"]'
+INFO     Logger:page.py:210 Page.screenshot() - Save screenshot to: 'screenshots/test_navigation_menu_sale[7]2024-03-03T114457.png'
+INFO     Logger:page.py:202 Page.quit() - Quit page and close all windows from the browser session
