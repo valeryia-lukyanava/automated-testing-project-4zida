@@ -22,18 +22,20 @@ class TestPerformance:
     def test_home_page_performance(self,
                                    performance_tests_config: PerformanceMeasurementConfig(),
                                    performance_metrics: dict):
+
         ui_config = UIConfig()
 
         for n in range(performance_tests_config.number_of_measurements):
             page_client = Page(ui_config)
-            page_client.wait_until_stable()
-            home_page = HomePage(page_client)
-            home_page.get_performance_metrics(run=n + 1, performance_metrics=performance_metrics)
+            try:
+                page_client.wait_until_stable()
+                home_page = HomePage(page_client)
+                home_page.get_performance_metrics(run=n + 1, performance_metrics=performance_metrics)
 
-            if ui_config.logging.screenshots_on:
-                attach_screenshot(page_client, f"test_home_page_performance_measurement_{n + 1}")
-
-            page_client.quit()
+                if ui_config.logging.screenshots_on:
+                    attach_screenshot(page_client, f"test_home_page_performance_measurement_{n + 1}")
+            finally:
+                page_client.quit()
 
         with allure.step(f"Comparing the median values with expected values of performance metrics"):
             median_values = get_median_values_for_metrics(performance_metrics, ui_config)
