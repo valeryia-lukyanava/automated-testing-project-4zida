@@ -1,6 +1,5 @@
 import allure
 import pytest
-from flaky import flaky
 
 from constants.titles.navigation_menu import NavigationMenu
 from constants.urls.navigation_sub_menu import NavigationSubMenu
@@ -11,7 +10,6 @@ from constants.suites import Suite
 @pytest.mark.ui
 @pytest.mark.chrome_mobile
 @pytest.mark.order(2)
-@flaky(max_runs=2)
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.UI)
 class TestUINavigationMenu:
