@@ -106,7 +106,7 @@ class Page(PageInterface):
         """Navigate to the given URL"""
         normalized_url = url if url.startswith('http') else (self.config.base_url + url)
         logger.info("Page.visit() - Get URL: '%s'", normalized_url)
-        time.sleep(0.75)
+        time.sleep(1)
         self.webdriver.get(f"{normalized_url}{url_suffix}")
         logger.info(f"Client window width: {self._webdriver.execute_script(JS.CLIENT_WINDOW_WIDTH)}, window height: "
                     f"{self._webdriver.execute_script(JS.CLIENT_WINDOW_HEIGHT)}")

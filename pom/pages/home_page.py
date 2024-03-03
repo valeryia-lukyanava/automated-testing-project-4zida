@@ -164,7 +164,7 @@ class HomePage(BasePage):
         menu_element.should_be_visible()
         menu_element.click()
         self.page.navigate_through_sub_menu(sub_menu)
-        self.check_page_url(expected_url)
+        self.check_page_url(expected_url, self.errors)
 
     @allure.step('Login via email')
     def login_via_email(self):
