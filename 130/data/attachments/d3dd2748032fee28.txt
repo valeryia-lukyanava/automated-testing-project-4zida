@@ -1,0 +1,43 @@
+INFO     Logger:page.py:123 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:233 Page.set_page_load_timeout() - Set page load timeout: '10'
+INFO     Logger:page.py:217 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:56 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:108 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:111 Client window width: 393, window height: 873
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//section[@test-data="blog-posts"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:174 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="blog-posts"]//a'
+INFO     Logger:page.py:174 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="blog-posts"]//a'
+INFO     Logger:page.py:427 Link #1 'Amater ko profesionalac: Kako kupatilu dati novi sjaj u 8 koraka?
+Koliko vam se samo puta dogodilo da nedeljama čekate majstora kako bi vam nešto popravio u domu, kako bi započeo krečenje ili kako biste uopšte dobili uvid u neke termine za njegov rad? Da, rad sa majstorima ume da bude veoma opterećujući' (href = 'https://www.4zida.rs/blog/amater-ko-profesionalac-kako-kupatilu-dati-novi-sjaj-u-8-koraka/')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:432 GET 'https://www.4zida.rs/blog/amater-ko-profesionalac-kako-kupatilu-dati-novi-sjaj-u-8-koraka/'. Response status code: 200
+INFO     Logger:page.py:174 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="blog-posts"]//a'
+INFO     Logger:page.py:427 Link #2 'Pročitaj više' (href = 'https://www.4zida.rs/blog/amater-ko-profesionalac-kako-kupatilu-dati-novi-sjaj-u-8-koraka/')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:432 GET 'https://www.4zida.rs/blog/amater-ko-profesionalac-kako-kupatilu-dati-novi-sjaj-u-8-koraka/'. Response status code: 200
+INFO     Logger:page.py:174 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="blog-posts"]//a'
+INFO     Logger:page.py:427 Link #3 'Planinski dragulj u koji vredi investirati
+Kada razmišljate o mirnom planinskom mestu dok u sećanje prizvate čist vazduh i miris borova, tišinu prirode, sliku mira i harmonije, koje vam mesto u Srbiji pada na pamet? Koji je to kraj koji pruža više od običnog turističkog iskustva, koji može' (href = 'https://www.4zida.rs/blog/planinski-dragulj-gde-vredi-investirati/')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:432 GET 'https://www.4zida.rs/blog/planinski-dragulj-gde-vredi-investirati/'. Response status code: 200
+INFO     Logger:page.py:174 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="blog-posts"]//a'
+INFO     Logger:page.py:427 Link #4 'Pročitaj više' (href = 'https://www.4zida.rs/blog/planinski-dragulj-gde-vredi-investirati/')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:432 GET 'https://www.4zida.rs/blog/planinski-dragulj-gde-vredi-investirati/'. Response status code: 200
+INFO     Logger:page.py:174 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="blog-posts"]//a'
+INFO     Logger:page.py:427 Link #5 'Iskoristi priliku – Kupi običan dobijaš super oglas
+Od 14. februara svaki naš korisnik koji uplati običan oglas za nekretninu, na poklon dobija super oglas dok traje promo akcija. Šta je običan a šta super oglas? Cena običnog oglasa  iznosi 750 dinara i taj oglas traje 30 dana. Super oglas je obojen, istaknut' (href = 'https://www.4zida.rs/blog/iskoristi-priliku-kupi-obican-dobijas-super-oglas/')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:432 GET 'https://www.4zida.rs/blog/iskoristi-priliku-kupi-obican-dobijas-super-oglas/'. Response status code: 200
+INFO     Logger:page.py:174 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="blog-posts"]//a'
+INFO     Logger:page.py:427 Link #6 'Pročitaj više' (href = 'https://www.4zida.rs/blog/iskoristi-priliku-kupi-obican-dobijas-super-oglas/')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:432 GET 'https://www.4zida.rs/blog/iskoristi-priliku-kupi-obican-dobijas-super-oglas/'. Response status code: 200
+INFO     Logger:page.py:174 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="blog-posts"]//a'
+INFO     Logger:page.py:427 Link #7 'Sve blog objave' (href = 'https://www.4zida.rs/blog/sve-objave/')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:432 GET 'https://www.4zida.rs/blog/sve-objave/'. Response status code: 200
+INFO     Logger:page.py:210 Page.screenshot() - Save screenshot to: 'screenshots/test_blog_post_widget2024-03-03T140904.png'
+INFO     Logger:page.py:202 Page.quit() - Quit page and close all windows from the browser session

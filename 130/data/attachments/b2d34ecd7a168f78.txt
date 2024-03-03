@@ -1,0 +1,99 @@
+INFO     Logger:page.py:123 Page.wait_until_stable() - Page wait until driver stable
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5ef8e0>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5ec070>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5ecf10>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+INFO     Logger:page.py:123 Page.wait_until_stable() - Page wait until driver stable
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5ec820>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5ec9a0>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5ea290>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+INFO     Logger:page.py:123 Page.wait_until_stable() - Page wait until driver stable
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5ef700>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5ef5b0>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5ef3a0>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+INFO     Logger:page.py:123 Page.wait_until_stable() - Page wait until driver stable
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5eff10>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5ee740>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5ee530>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+INFO     Logger:page.py:123 Page.wait_until_stable() - Page wait until driver stable
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5ed6f0>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5ed840>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+WARNING  urllib3.connectionpool:connectionpool.py:824 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f16cb5eda50>: Failed to establish a new connection: [Errno 111] Connection refused')': /wd/hub/session
+INFO     Logger:page.py:123 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:233 Page.set_page_load_timeout() - Set page load timeout: '10'
+INFO     Logger:page.py:217 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:56 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:108 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:111 Client window width: 393, window height: 873
+INFO     Logger:page.py:353 Page.find_xpath() - Get the elements with xpath: //header/a/img
+INFO     Logger:page.py:79 Measuring performance metrics: run №1
+INFO     Logger:page.py:80 Document Ready State: complete
+INFO     Logger:page.py:83 Page Load Time: 407
+INFO     Logger:page.py:86 TTFB: 504
+INFO     Logger:page.py:89 End-to-End Response Time: 911
+INFO     Logger:page.py:94 Largest Contentful Paint: 582
+INFO     Logger:page.py:210 Page.screenshot() - Save screenshot to: 'screenshots/test_home_page_performance_measurement_12024-03-03T140716.png'
+INFO     Logger:page.py:202 Page.quit() - Quit page and close all windows from the browser session
+INFO     Logger:page.py:123 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:233 Page.set_page_load_timeout() - Set page load timeout: '10'
+INFO     Logger:page.py:217 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:56 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:108 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:111 Client window width: 393, window height: 873
+INFO     Logger:page.py:353 Page.find_xpath() - Get the elements with xpath: //header/a/img
+INFO     Logger:page.py:79 Measuring performance metrics: run №2
+INFO     Logger:page.py:80 Document Ready State: complete
+INFO     Logger:page.py:83 Page Load Time: 447
+INFO     Logger:page.py:86 TTFB: 509
+INFO     Logger:page.py:89 End-to-End Response Time: 956
+INFO     Logger:page.py:94 Largest Contentful Paint: 580
+INFO     Logger:page.py:210 Page.screenshot() - Save screenshot to: 'screenshots/test_home_page_performance_measurement_22024-03-03T140720.png'
+INFO     Logger:page.py:202 Page.quit() - Quit page and close all windows from the browser session
+INFO     Logger:page.py:123 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:233 Page.set_page_load_timeout() - Set page load timeout: '10'
+INFO     Logger:page.py:217 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:56 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:108 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:111 Client window width: 393, window height: 873
+INFO     Logger:page.py:353 Page.find_xpath() - Get the elements with xpath: //header/a/img
+INFO     Logger:page.py:79 Measuring performance metrics: run №3
+INFO     Logger:page.py:80 Document Ready State: complete
+INFO     Logger:page.py:83 Page Load Time: 421
+INFO     Logger:page.py:86 TTFB: 462
+INFO     Logger:page.py:89 End-to-End Response Time: 883
+INFO     Logger:page.py:94 Largest Contentful Paint: 560
+INFO     Logger:page.py:210 Page.screenshot() - Save screenshot to: 'screenshots/test_home_page_performance_measurement_32024-03-03T140724.png'
+INFO     Logger:page.py:202 Page.quit() - Quit page and close all windows from the browser session
+INFO     Logger:page.py:123 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:233 Page.set_page_load_timeout() - Set page load timeout: '10'
+INFO     Logger:page.py:217 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:56 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:108 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:111 Client window width: 393, window height: 873
+INFO     Logger:page.py:353 Page.find_xpath() - Get the elements with xpath: //header/a/img
+INFO     Logger:page.py:79 Measuring performance metrics: run №4
+INFO     Logger:page.py:80 Document Ready State: complete
+INFO     Logger:page.py:83 Page Load Time: 578
+INFO     Logger:page.py:86 TTFB: 491
+INFO     Logger:page.py:89 End-to-End Response Time: 1069
+INFO     Logger:page.py:94 Largest Contentful Paint: 600
+INFO     Logger:page.py:210 Page.screenshot() - Save screenshot to: 'screenshots/test_home_page_performance_measurement_42024-03-03T140728.png'
+INFO     Logger:page.py:202 Page.quit() - Quit page and close all windows from the browser session
+INFO     Logger:page.py:123 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:233 Page.set_page_load_timeout() - Set page load timeout: '10'
+INFO     Logger:page.py:217 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:56 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:108 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:111 Client window width: 393, window height: 873
+INFO     Logger:page.py:353 Page.find_xpath() - Get the elements with xpath: //header/a/img
+INFO     Logger:page.py:79 Measuring performance metrics: run №5
+INFO     Logger:page.py:80 Document Ready State: complete
+INFO     Logger:page.py:83 Page Load Time: 435
+INFO     Logger:page.py:86 TTFB: 451
+INFO     Logger:page.py:89 End-to-End Response Time: 886
+INFO     Logger:page.py:94 Largest Contentful Paint: 556
+INFO     Logger:page.py:210 Page.screenshot() - Save screenshot to: 'screenshots/test_home_page_performance_measurement_52024-03-03T140732.png'
+INFO     Logger:page.py:202 Page.quit() - Quit page and close all windows from the browser session
+INFO     Logger:calculate_median_values.py:9 Median value for the metric 'TTFB': 491
+INFO     Logger:calculate_median_values.py:9 Median value for the metric 'LCP': 580
+INFO     Logger:calculate_median_values.py:9 Median value for the metric 'PageLoadTime': 435
+INFO     Logger:calculate_median_values.py:9 Median value for the metric 'EndToEndResponseTime': 911
