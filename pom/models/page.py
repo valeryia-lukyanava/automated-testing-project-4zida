@@ -308,7 +308,7 @@ class Page(PageInterface):
             if errors is None:
                 raise assertion_error
             else:
-                errors.append()
+                errors.append(assertion_error)
             logger.error(str(assertion_error))
 
     def check_page_url_has_path(self, path):
