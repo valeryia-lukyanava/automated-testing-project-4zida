@@ -16,9 +16,10 @@ class Headers(tuple):
         "IZDAVANJE STANOVA",
         "POPULARNE PRETRAGE"
     )
-    H3 = (
-        "Pitaj pravnika",
+    SERVICE_OFFERINGS_H3 = (
         "Kako se kreću cene nekretnina?",
         "Kalkulator kredita i osiguranja",
-        "Vodič za ponudu i potražnju"
+        "Kalkulator kreditne sposobnosti",
+        "Vodiči za ponudu i potražnju",
+        "Pitaj pravnika",
     )

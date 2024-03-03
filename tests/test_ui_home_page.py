@@ -41,8 +41,8 @@ class TestUIHomePage:
         home_page.check_combobox_type()
 
     @allure.id('4')
-    @allure.sub_suite('Search From Inputs "Cena do" and "m2 od"')
-    @allure.title('Check Search From Inputs "Cena do" and "m2 od"')
+    @allure.sub_suite('Search Form Inputs "Cena do" and "m2 od"')
+    @allure.title('Check Search Form Inputs "Cena do" and "m2 od"')
     @pytest.mark.parametrize("property_type,price_to,m2_from,expected_path", [
         (DropdownType.HOUSE, "0", "0", UIRoutes.SALE_HOUSES),
         (DropdownType.HOUSE, "100000", "50", UIRoutes.SALE_HOUSES),
@@ -58,7 +58,7 @@ class TestUIHomePage:
 
     @allure.id('5')
     @allure.title('Check "Popularni gradovi" Quick Links')
-    def test_place_suggestions(self, home_page: HomePage):
+    def test_place_suggestions_quick_links(self, home_page: HomePage):
         home_page.visit()
         home_page.check_place_suggestions()
 
@@ -69,12 +69,24 @@ class TestUIHomePage:
         home_page.check_carousel_service_offerings()
 
     @allure.id('7')
+    @allure.title('Check "Istaknute Agencije" Carousel')
+    def test_carousel_branding_agencies(self, home_page: HomePage):
+        home_page.visit()
+        home_page.check_carousel_branding_agencies()
+
+    @allure.id('8')
+    @allure.title('Check "Premijum oglasi" Carousel')
+    def test_carousel_premium_ads(self, home_page: HomePage):
+        home_page.visit()
+        home_page.check_carousel_premium_ads()
+
+    @allure.id('9')
     @allure.title('Check "Najnoviji blog postovi" Widget')
     def test_blog_post_widget(self, home_page: HomePage):
         home_page.visit()
         home_page.check_blog_post_widget()
 
-    @allure.id('8')
+    @allure.id('10')
     @allure.title('Check Footer Links')
     def test_footer_links(self, home_page: HomePage):
         # Footer Links

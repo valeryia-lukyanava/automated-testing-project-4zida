@@ -80,6 +80,26 @@ class ElementShould(ElementShouldInterface):
             f"Expected text: '{text}' - Actual text: '{self._element.web_element.text}'"
         )
 
+    def have_accessible_name(self, accessible_name: str, case_sensitive=True) -> "ElementInterface":
+        """An expectation that the element has the given accessible name"""
+        try:
+            if case_sensitive:
+                value = self._wait.until(lambda e: e.accessible_name == accessible_name)
+            else:
+                value = self._wait.until(
+                    lambda e: e.accessible_name.strip().lower() == accessible_name.lower()
+                )
+        except TimeoutException:
+            value = False
+
+        if value:
+            return self._element
+
+        raise AssertionError(
+            f"Expected accessible name: '{accessible_name}' - Actual accessible name: "
+            f"'{self._element.web_element.accessible_name}'"
+        )
+
     def have_attribute_value(self, attribute: str, value: str, case_sensitive=True, raise_error=True,
                              errors=None) -> "ElementInterface":
         """An expectation that the element has the given value for the attribute"""

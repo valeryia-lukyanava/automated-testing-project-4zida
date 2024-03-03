@@ -3,4 +3,5 @@ class Titles(str):
     HOME_PAGE_TITLE = "Pronađi idealnu nekretninu za sebe!"
     META_DESCRIPTION = "Specijalizovani sajt za oglašavanje nekretnina 4zida.rs! Najveća ponuda aktuelnih oglasa za " \
                        "prodaju i izdavanje svih tipova nekretnina u celoj Srbiji."
-
+    QUICK_LINKS_TITLE = "Popularni gradovi"
+    WIDGET_TITLE = "Najnoviji blog postovi"

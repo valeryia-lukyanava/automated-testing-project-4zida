@@ -54,7 +54,7 @@ class Component:
 
     def should_have_values(self, values: tuple, limits: int = 0, **kwargs) -> None:
         elements = self.get_elements(**kwargs)
-        actual_text_values = [element.web_element.text for element in elements.list]
+        actual_text_values = [element.web_element.accessible_name for element in elements.list]
         n = limits if limits > 0 else len(elements.list)
         logger.info(f"Actual headers text: {actual_text_values[0:n]}")
         for i in range(0, n):
@@ -64,6 +64,19 @@ class Component:
                     elements.list[i].should().have_text(values[i])
                 except StaleElementReferenceException:
                     elements.list[i].should().have_text(values[i])
+
+    def should_have_accessible_names(self, values: tuple, limits: int = 0, **kwargs) -> None:
+        elements = self.get_elements(**kwargs)
+        actual_accessible_name_values = [element.web_element.accessible_name for element in elements.list]
+        n = limits if limits > 0 else len(elements.list)
+        logger.info(f"Actual accessible names: {actual_accessible_name_values[0:n]}")
+        for i in range(0, n):
+            with allure.step(f'Checking that header tag "{elements.list[i].web_element.tag_name}" has accessible name: '
+                             f'"{values[i]}"'):
+                try:
+                    elements.list[i].should().have_accessible_name(values[i])
+                except StaleElementReferenceException:
+                    elements.list[i].should().have_accessible_name(values[i])
 
     def is_displayed(self, **kwargs) -> bool:
         with allure.step(f'Checking if {self.type_of} "{self.name}" is visible'):

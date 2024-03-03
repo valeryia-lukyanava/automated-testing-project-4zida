@@ -104,12 +104,15 @@ class Page(PageInterface):
 
     def get_page_by_url(self, url, url_suffix):
         """Navigate to the given URL"""
-        normalized_url = url if url.startswith('http') else (self.config.base_url + url)
-        logger.info("Page.visit() - Get URL: '%s'", normalized_url)
-        time.sleep(1)
-        self.webdriver.get(f"{normalized_url}{url_suffix}")
-        logger.info(f"Client window width: {self._webdriver.execute_script(JS.CLIENT_WINDOW_WIDTH)}, window height: "
-                    f"{self._webdriver.execute_script(JS.CLIENT_WINDOW_HEIGHT)}")
+        try:
+            normalized_url = url if url.startswith('http') else (self.config.base_url + url)
+            logger.info("Page.visit() - Get URL: '%s'", normalized_url)
+            self.webdriver.get(f"{normalized_url}{url_suffix}")
+            logger.info(f"Client window width: {self._webdriver.execute_script(JS.CLIENT_WINDOW_WIDTH)}, "
+                        f"window height: {self._webdriver.execute_script(JS.CLIENT_WINDOW_HEIGHT)}")
+        except TimeoutException:
+            time.sleep(1)
+            self.get_page_by_url(url, url_suffix)
 
     def reload(self) -> "Page":
         """Reload (aka refresh) the current window"""
@@ -371,6 +374,8 @@ class Page(PageInterface):
         )
 
     def check_footer_link(self, index, locator, errors):
+        xpath = f"({locator})[{index + 1}]"
+        self.get_xpath(xpath).scroll_to_element()
         link = self.find_xpath(locator).list[index]
         url = link.web_element.get_attribute(Attributes.HREF)
         text = link.web_element.text
@@ -419,12 +424,14 @@ class Page(PageInterface):
                     time.sleep(2)
 
     def check_link(self, index, locator):
+        xpath = f"({locator})[{index + 1}]"
+        self.get_xpath(xpath).scroll_to_element()
         link = self.find_xpath(locator).list[index]
         url = link.web_element.get_attribute(Attributes.HREF)
         text = link.web_element.text
 
-        with allure.step(f"Checking link #{index+1} '{text}' (href = '{url}')"):
-            logger.info(f"Link #{index+1} '{text}' (href = '{url}')")
+        with allure.step(f"Checking link #{index + 1} '{text}' (href = '{url}')"):
+            logger.info(f"Link #{index + 1} '{text}' (href = '{url}')")
             link.should().be_clickable()
             if self.config.api_check_links:
                 response = requests.get(url=url, timeout=10)
@@ -432,7 +439,7 @@ class Page(PageInterface):
                 logger.info(f"GET '{url}'. Response status code: {response_status_code}")
 
                 if int(response_status_code) >= 400:
-                    raise AssertionError(f"Link #{index+1} '{text}', GET '{url}'. "
+                    raise AssertionError(f"Link #{index + 1} '{text}', GET '{url}'. "
                                          f"Expected status code should be < 400. "
                                          f"Actual status code: '{response_status_code}'")
             else:
@@ -440,7 +447,7 @@ class Page(PageInterface):
                     link.click()
                 except StaleElementReferenceException:
                     link.click()
-                logger.info(f"Clicked link #{index+1} '{text}', 'href'={url}")
+                logger.info(f"Clicked link #{index + 1} '{text}', 'href'={url}")
 
                 window_handlers = self.webdriver.window_handles
                 if len(window_handlers) > 1:
@@ -479,3 +486,13 @@ class Page(PageInterface):
                 .move_to_element(item) \
                 .perform()
         return self
+
+    def check_carousel_items(self, carousel_items_xpath: str):
+        carousel_items = self.find_xpath(carousel_items_xpath)
+        carousel_items.should().not_be_empty()
+        for index in range(carousel_items.length()):
+            xpath = f"({carousel_items_xpath})[{index + 1}]"
+            self.navigate_to_carousel_item(xpath)
+            self.get_xpath(xpath).scroll_to_element()
+            self.find_xpath(carousel_items_xpath).list[index].should().be_clickable()
+            self.check_link(index, carousel_items_xpath)

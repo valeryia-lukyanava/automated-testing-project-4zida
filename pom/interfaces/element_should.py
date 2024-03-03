@@ -39,6 +39,10 @@ class ElementShouldInterface(ABC):
         ...
 
     @abstractmethod
+    def have_accessible_name(self, text: str, case_sensitive=True) -> "ElementInterface":
+        ...
+
+    @abstractmethod
     def have_attribute_value(self, attribute: str, value: str, case_sensitive=True, raise_error=True,
                              errors=None) -> "ElementInterface":
         ...

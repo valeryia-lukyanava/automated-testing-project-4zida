@@ -4,6 +4,7 @@ import allure
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 
+from constants.titles.titles import Titles
 from constants.urls.routes import UIRoutes
 from locators.home_page_locators import HomePageLocators
 from constants.titles.navigation_menu import NavigationMenu
@@ -43,14 +44,14 @@ class HomePage(BasePage):
         self.page_header_h2 = Title(
             page, locator=HomePageLocators.HEADER_H2, name='Tag h2'
         )
-        self.page_header_h3 = Title(
-            page, locator=HomePageLocators.HEADER_H3, name='Tag h3'
+        self.service_offerings_h3 = Title(
+            page, locator=HomePageLocators.CAROUSEL_SERVICE_OFFERINGS_H3, name='Tag h3 Carousel service offerings'
         )
         self.page_header_h3_quick_link = Title(
-            page, locator=HomePageLocators.HEADER_H3_QUICK_LINK, name='Tag h3 Quick Link'
+            page, locator=HomePageLocators.HEADER_H3_QUICK_LINK, name='Tag h3 Quick Links'
         )
         self.page_header_h3_widget = Title(
-            page, locator=HomePageLocators.HEADER_H3_WIDGET, name='Tag h3 Widget'
+            page, locator=HomePageLocators.HEADER_H3_WIDGET, name='Tag h3 Widget "Najnoviji blog postovi"'
         )
         self.footer_links = Component(
             page, locator=HomePageLocators.FOOTER_LINKS, name="Footer Links"
@@ -85,6 +86,12 @@ class HomePage(BasePage):
         self.carousel_service_offerings = Component(
             page, locator=HomePageLocators.CAROUSEL_SERVICE_OFFERINGS, name="Carousel 'Service Offerings'"
         )
+        self.carousel_branding_agencies = Component(
+            page, locator=HomePageLocators.CAROUSEL_BRANDING_AGENCIES, name="Carousel 'Istaknute Agencije'"
+        )
+        self.carousel_premium_ads = Component(
+            page, locator=HomePageLocators.CAROUSEL_PREMIUM_ADS, name="Carousel 'Premijum oglasi'"
+        )
         self.menu_elements = {
             NavigationMenu.MENU_SALE: self.menu_sale,
             NavigationMenu.MENU_RENT: self.menu_rent,
@@ -105,15 +112,24 @@ class HomePage(BasePage):
         self.page.check_browser_title(expected_title_text)
 
     @allure.step('Checking that the header tag/tags <{header_tag}> has/have text {expected_values}')
-    def check_page_headers(self, header_tag: str, expected_values: tuple):
+    def check_page_headers(self, header_tag: str, expected_values: tuple = (), expected_number: int = 0,
+                           section: str = ""):
         if header_tag == Tags.H1:
+            self.page_header_h1.should_be_visible()
             self.page_header_h1.should_have_values(expected_values)
         elif header_tag == Tags.H2:
+            self.page_header_h2.should_be_visible()
             self.page_header_h2.should_have_values(expected_values)
         elif header_tag == Tags.H3:
-            self.page_header_h3.should_have_values(expected_values, limits=4)
-            self.page_header_h3_quick_link.get_elements().should().have_length(20)
-            self.page_header_h3_widget.get_elements().should().have_length(3)
+            if section == Titles.QUICK_LINKS_TITLE:
+                self.page_header_h3_quick_link.should_be_visible()
+                self.page_header_h3_quick_link.get_elements().should().have_length(expected_number)
+            elif section == Titles.WIDGET_TITLE:
+                self.page_header_h3_widget.should_be_visible()
+                self.page_header_h3_widget.get_elements().should().have_length(expected_number)
+            elif section == "":
+                self.service_offerings_h3.should_be_visible()
+                self.service_offerings_h3.should_have_accessible_names(expected_values)
         else:
             logger.warning(f"No verification of the header {header_tag} is provided")
 
@@ -193,6 +209,7 @@ class HomePage(BasePage):
     def check_blog_post_widget(self):
         self.blog_post_widget.should_be_visible()
         widget_links = self.page.find_xpath(HomePageLocators.BLOG_POST_WIDGET_LINKS)
+        widget_links.should().not_be_empty()
         for index in range(widget_links.length()):
             self.page.check_link(index, HomePageLocators.BLOG_POST_WIDGET_LINKS)
 
@@ -209,12 +226,14 @@ class HomePage(BasePage):
     @allure.step('Check "Service offerings" Carousel Items')
     def check_carousel_service_offerings(self):
         self.carousel_service_offerings.should_be_visible()
-        carousel_links = self.page.find_xpath(HomePageLocators.CAROUSEL_SERVICE_OFFERINGS_LINKS)
-        for index in range(carousel_links.length()):
-            xpath = f"({HomePageLocators.CAROUSEL_SERVICE_OFFERINGS_LINKS})[{index + 1}]"
-            self.page.navigate_to_carousel_item(xpath)
-            self.page.get_xpath(xpath).scroll_to_element()
-            carousel_service_offerings_link = \
-                self.page.find_xpath(HomePageLocators.CAROUSEL_SERVICE_OFFERINGS_LINKS).list[index]
-            carousel_service_offerings_link.should().be_clickable()
-            self.page.check_link(index, HomePageLocators.CAROUSEL_SERVICE_OFFERINGS_LINKS)
+        self.page.check_carousel_items(carousel_items_xpath=HomePageLocators.CAROUSEL_SERVICE_OFFERINGS_LINKS)
+
+    @allure.step('Check "Istaknute Agencije" Carousel Items')
+    def check_carousel_branding_agencies(self):
+        self.carousel_branding_agencies.should_be_visible()
+        self.page.check_carousel_items(carousel_items_xpath=HomePageLocators.CAROUSEL_BRANDING_AGENCIES_LINKS)
+
+    @allure.step('Check "Premijum oglasi" Carousel Items')
+    def check_carousel_premium_ads(self):
+        self.carousel_premium_ads.should_be_visible()
+        self.page.check_carousel_items(carousel_items_xpath=HomePageLocators.CAROUSEL_PREMIUM_ADS_LINKS)

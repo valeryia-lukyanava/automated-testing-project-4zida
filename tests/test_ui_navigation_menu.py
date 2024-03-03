@@ -1,6 +1,5 @@
 import allure
 import pytest
-from flaky import flaky
 
 from constants.titles.navigation_menu import NavigationMenu
 from constants.urls.navigation_sub_menu import NavigationSubMenu

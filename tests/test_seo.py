@@ -15,22 +15,21 @@ from constants.suites import Suite
 @pytest.mark.chrome_mobile
 @pytest.mark.seo
 @pytest.mark.order(3)
+@flaky(max_runs=2)
 @allure.severity(allure.severity_level.NORMAL)
 @allure.suite(Suite.SEO)
 class TestSEO:
     @allure.id('1')
     @allure.title('Check Browser Page Title')
-    @flaky(max_runs=2)
-    def test_browser_title(self, home_page: HomePage, url_suffix: str):
+    def test_browser_title(self, home_page: HomePage):
         home_page.visit()
         # Assert page title
         home_page.check_browser_title(expected_title_text=Titles.HOME_PAGE_BROWSER_TITLE)
 
     @allure.id('2')
     @allure.title('Check Meta Tags')
-    @flaky(max_runs=2)
-    def test_meta_tags(self, home_page: HomePage, url_suffix: str):
-        home_page.visit(url_suffix=url_suffix)
+    def test_meta_tags(self, home_page: HomePage):
+        home_page.visit()
         # Assert meta tags
         home_page.check_meta_tag_description(attribute="content",
                                              expected_value=Titles.META_DESCRIPTION)
@@ -52,13 +51,30 @@ class TestSEO:
                                      expected_values=Headers.H2)
 
     @allure.id('5')
-    @allure.title('Check Page Header Tags <h3>')
-    @pytest.mark.skip("Changes are needed")
-    def test_h3_tags(self, home_page: HomePage):
+    @allure.title('Check Page Header Tags <h3> in Carousel Added Values')
+    def test_h3_tags_carousel_added_values(self, home_page: HomePage):
         home_page.visit()
         # Expected h3 tags
         home_page.check_page_headers(header_tag=Tags.H3,
-                                     expected_values=Headers.H3)
+                                     expected_values=Headers.SERVICE_OFFERINGS_H3)
+
+    @allure.id('5')
+    @allure.title('Check Page Header Tags <h3> in section "Popularni gradovi" Quick Links')
+    def test_h3_tags_quick_links(self, home_page: HomePage):
+        home_page.visit()
+        # Expected h3 tags
+        home_page.check_page_headers(header_tag=Tags.H3,
+                                     section=Titles.QUICK_LINKS_TITLE,
+                                     expected_number=7)
+
+    @allure.id('5')
+    @allure.title('Check Page Header Tags <h3> in section "Najnoviji blog postovi" Widget')
+    def test_h3_tags_widget(self, home_page: HomePage):
+        home_page.visit()
+        # Expected h3 tags
+        home_page.check_page_headers(header_tag=Tags.H3,
+                                     section=Titles.WIDGET_TITLE,
+                                     expected_number=3)
 
     @allure.id('6')
     @allure.title('Check if external links have an attribute rel="nofollow"')
