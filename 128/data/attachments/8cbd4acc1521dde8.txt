@@ -1,0 +1,26 @@
+INFO     Logger:page.py:123 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:233 Page.set_page_load_timeout() - Set page load timeout: '10'
+INFO     Logger:page.py:217 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:56 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:108 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:111 Client window width: 393, window height: 873
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Prodaja"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Prodaja"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:139 Page.get_xpath() - Get the element with xpath: '//header//nav/a[text()="Prodaja stanova Novi Sad"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:298 The URL of the page is 'https://next.4zida.rs/prodaja-stanova/novi-sad'
+INFO     Logger:page.py:338 GET 'https://next.4zida.rs/prodaja-stanova/novi-sad'. Response status code: 200
+INFO     Logger:page.py:210 Page.screenshot() - Save screenshot to: 'screenshots/test_navigation_menu_sale[3]2024-03-03T110134.png'
+INFO     Logger:page.py:202 Page.quit() - Quit page and close all windows from the browser session
