@@ -1,0 +1,9 @@
+INFO     Logger:page.py:122 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:232 Page.set_page_load_timeout() - Set page load timeout: '10'
+INFO     Logger:page.py:216 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:55 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:107 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:110 Client window width: 393, window height: 873
+INFO     Logger:page.py:259 The title of the page is 'Pretraga Nekretnina za Prodaju i Izdavanje - 4zida'
+INFO     Logger:page.py:209 Page.screenshot() - Save screenshot to: 'screenshots/test_browser_title2024-03-03T084214.png'
+INFO     Logger:page.py:201 Page.quit() - Quit page and close all windows from the browser session

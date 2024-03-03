@@ -1,9 +1,0 @@
-INFO     Logger:page.py:120 Page.wait_until_stable() - Page wait until driver stable
-INFO     Logger:page.py:206 Page.maximize_window() - Maximize browser window
-INFO     Logger:page.py:54 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
-INFO     Logger:page.py:106 Page.visit() - Get URL: 'https://next.4zida.rs'
-INFO     Logger:page.py:108 Client window width: 393, window height: 873
-INFO     Logger:page.py:163 Page.find_xpath() - Get the elements with xpath: '//h1'
-INFO     Logger:component.py:60 Actual headers text: ['Pronađi idealnu nekretninu za sebe!']
-INFO     Logger:page.py:199 Page.screenshot() - Save screenshot to: 'screenshots/test_h1_tag2024-02-25T073438.png'
-INFO     Logger:page.py:191 Page.quit() - Quit page and close all windows from the browser session
