@@ -1,0 +1,54 @@
+INFO     Logger:page.py:127 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:237 Page.set_page_load_timeout() - Set page load timeout: '10'
+INFO     Logger:page.py:221 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:56 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:109 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:112 Client window width: 393, window height: 873
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Izdavanje"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Izdavanje"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//header//nav/a[text()="Vodič za iznajmljivanje"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:302 The URL of the page is 'https://next.4zida.rs/blog/vodic-za-iznajmljivanje-nekretnine'
+INFO     Logger:page.py:343 GET 'https://next.4zida.rs/blog/vodic-za-iznajmljivanje-nekretnine'. Response status code: 404
+INFO     Logger:page.py:214 Page.screenshot() - Save screenshot to: 'screenshots/test_navigation_menu_rent[20]2024-03-03T191413.png'
+INFO     Logger:conftest.py:55 Browser console logs: [{'level': 'SEVERE', 'message': 'https://next.4zida.rs/Izdavanje-kuca/novi-sad?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493252083}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/Izdavanje-kuca/beograd?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493252086}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/Izdavanje-kuca/nis?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493252317}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/Izdavanje-kuca/kragujevac?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493252318}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/Izdavanje-kuca/subotica?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493252320}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/blog/vodic-za-iznajmljivanje-nekretnine?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493252558}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/agencije?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493252561}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/blog/vodic-za-iznajmljivanje-nekretnine - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493252944}]
+INFO     Logger:page.py:206 Page.quit() - Quit page and close all windows from the browser session
+INFO     Logger:page.py:127 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:237 Page.set_page_load_timeout() - Set page load timeout: '10'
+INFO     Logger:page.py:221 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:56 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:109 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:112 Client window width: 393, window height: 873
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Izdavanje"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Izdavanje"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//header//nav/a[text()="Vodič za iznajmljivanje"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:302 The URL of the page is 'https://next.4zida.rs/blog/vodic-za-iznajmljivanje-nekretnine'
+INFO     Logger:page.py:343 GET 'https://next.4zida.rs/blog/vodic-za-iznajmljivanje-nekretnine'. Response status code: 404
+INFO     Logger:page.py:214 Page.screenshot() - Save screenshot to: 'screenshots/test_navigation_menu_rent[20]2024-03-03T191420.png'
+INFO     Logger:conftest.py:55 Browser console logs: [{'level': 'SEVERE', 'message': 'https://next.4zida.rs/Izdavanje-kuca/beograd?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493258637}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/Izdavanje-kuca/novi-sad?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493258639}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/Izdavanje-kuca/nis?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493258864}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/Izdavanje-kuca/kragujevac?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493258865}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/Izdavanje-kuca/subotica?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493258866}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/blog/vodic-za-iznajmljivanje-nekretnine?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493259080}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/agencije?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493259084}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/blog/vodic-za-iznajmljivanje-nekretnine - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709493259324}]
+INFO     Logger:page.py:206 Page.quit() - Quit page and close all windows from the browser session
