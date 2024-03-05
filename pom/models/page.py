@@ -16,6 +16,7 @@ from constants.js_scripts import JS
 from locators.home_page_locators import HomePageLocators
 from constants.urls.routes import UIRoutes
 from utils.bowser_log_parser import get_lcp_from_logs
+from utils.http_requests import send_get_request
 from utils.logger import logger
 from pom.interfaces.page import PageInterface
 from pom.models.element import Element
@@ -333,21 +334,12 @@ class Page(PageInterface):
 
     def check_response_status_code(self):
         """Check response status code when GET current url"""
-        response_status_code = ""
         value = False
-        try:
-            actual_url = self.url()
-            response = requests.get(url=actual_url, timeout=30)
-            response_status_code = response.status_code
-            logger.info(f"GET '{actual_url}'. Response status code: {response_status_code}")
-            if int(response_status_code) < 400:
-                value = True
-            elif response_status_code == 429:
-                time.sleep(1)
-                self.check_response_status_code()
-        except TimeoutException:
-            value = False
-
+        actual_url = self.url()
+        response = send_get_request(actual_url)
+        response_status_code = response.status_code
+        if int(response_status_code) < 400:
+            value = True
         if value:
             return self.url()
         else:
@@ -395,13 +387,9 @@ class Page(PageInterface):
                 link.should().be_clickable()
 
                 if self.config.api_check_links:
-                    response = requests.get(url=url,
-                                            headers={"IC-Bypass-Throttling": "8f190c31363e1d3a08ec0ccd0eed4be4"},
-                                            timeout=30)
+                    response = send_get_request(url)
                     response_status_code = response.status_code
                     response_ulr = response.url
-                    logger.info(f"GET '{url}'. Response status code: {response_status_code}")
-
                     if int(response_status_code) >= 400:
                         errors.append(str(AssertionError(f"Link #{index} '{text}', GET '{url}'. "
                                                          f"Expected status code should be < 400. "
@@ -438,16 +426,12 @@ class Page(PageInterface):
             logger.info(f"Link #{index + 1} '{text}' (href = '{url}')")
             link.should().be_clickable()
             if self.config.api_check_links:
-                try:
-                    response = requests.get(url=url, timeout=30)
-                    response_status_code = response.status_code
-                    logger.info(f"GET '{url}'. Response status code: {response_status_code}")
-                    if int(response_status_code) >= 400:
-                        raise AssertionError(f"Link #{index + 1} '{text}', GET '{url}'. "
-                                             f"Expected status code should be < 400. "
-                                             f"Actual status code: '{response_status_code}'")
-                except TimeoutException:
-                    self.check_link(index, locator)
+                response = send_get_request(url)
+                response_status_code = response.status_code
+                if int(response_status_code) >= 400:
+                    raise AssertionError(f"Link #{index + 1} '{text}', GET '{url}'. "
+                                         f"Expected status code should be < 400. "
+                                         f"Actual status code: '{response_status_code}'")
             else:
                 try:
                     link.click()
