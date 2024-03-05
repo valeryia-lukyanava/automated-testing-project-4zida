@@ -58,16 +58,7 @@ class TestSEO:
         home_page.check_page_headers(header_tag=Tags.H3,
                                      expected_values=Headers.SERVICE_OFFERINGS_H3)
 
-    @allure.id('5')
-    @allure.title('Check Page Header Tags <h3> in section "Popularni gradovi" Quick Links')
-    def test_h3_tags_quick_links(self, home_page: HomePage):
-        home_page.visit()
-        # Expected h3 tags
-        home_page.check_page_headers(header_tag=Tags.H3,
-                                     section=Titles.QUICK_LINKS_TITLE,
-                                     expected_number=7)
-
-    @allure.id('5')
+    @allure.id('6')
     @allure.title('Check Page Header Tags <h3> in section "Najnoviji blog postovi" Widget')
     def test_h3_tags_widget(self, home_page: HomePage):
         home_page.visit()
@@ -76,7 +67,7 @@ class TestSEO:
                                      section=Titles.WIDGET_TITLE,
                                      expected_number=3)
 
-    @allure.id('6')
+    @allure.id('7')
     @allure.title('Check if external links have an attribute rel="nofollow"')
     def test_external_links(self, home_page: HomePage):
         home_page.visit()

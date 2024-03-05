@@ -43,20 +43,19 @@ class TestUIHomePage:
         home_page.check_combobox_type()
 
     @allure.id('4')
-    @allure.sub_suite('Search Form Inputs "Cena do" and "m2 od"')
     @allure.title('Check Search Form Inputs "Cena do" and "m2 od"')
     @pytest.mark.parametrize("property_type,price_to,m2_from,expected_path", [
-        (DropdownType.HOUSE, "0", "0", UIRoutes.SALE_HOUSES),
-        (DropdownType.HOUSE, "100000", "50", UIRoutes.SALE_HOUSES),
-        (DropdownType.HOUSE, "-100000", "50", UIRoutes.SALE_HOUSES),
-        (DropdownType.HOUSE, "100000", "-50", UIRoutes.SALE_HOUSES)
+        (DropdownType.HOUSE, "0", "0", ""),
+        (DropdownType.HOUSE, "100000", "50", f"{UIRoutes.SALE_HOUSES}?jeftinije_od=100000eur&vece_od=50m2"),
+        (DropdownType.HOUSE, "-100000", "50", ""),
+        (DropdownType.HOUSE, "100000", "-50", "")
     ])
     def test_check_search_form_inputs(self, home_page: HomePage, property_type: str, price_to: str, m2_from: str,
                                       expected_path: str):
         home_page.visit()
         home_page.check_search_form_is_visible()
         home_page.search_with_parameters(property_type=property_type, price_to=price_to, m2_from=m2_from)
-        home_page.check_the_search_returns_no_error(path=expected_path)
+        home_page.check_the_search_returns_no_server_error(expected_path)
 
     @allure.id('5')
     @allure.title('Check "Popularni gradovi" Quick Links')

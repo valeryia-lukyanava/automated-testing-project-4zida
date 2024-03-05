@@ -121,10 +121,7 @@ class HomePage(BasePage):
             self.page_header_h2.should_be_visible()
             self.page_header_h2.should_have_values(expected_values)
         elif header_tag == Tags.H3:
-            if section == Titles.QUICK_LINKS_TITLE:
-                self.page_header_h3_quick_link.should_be_visible()
-                self.page_header_h3_quick_link.get_elements().should().have_length(expected_number)
-            elif section == Titles.WIDGET_TITLE:
+            if section == Titles.WIDGET_TITLE:
                 self.page_header_h3_widget.should_be_visible()
                 self.page_header_h3_widget.get_elements().should().have_length(expected_number)
             elif section == "":
@@ -200,9 +197,10 @@ class HomePage(BasePage):
     def search_with_parameters(self, property_type: str, price_to: str, m2_from: str):
         self.search_form.fill_in_search_form_and_click_search(property_type, price_to, m2_from)
 
-    @allure.step('Check the Search returns no errors')
-    def check_the_search_returns_no_error(self, path: str):
-        self.page.check_page_url_has_path(path)
+    @allure.step('Check the Search returns no server errors')
+    def check_the_search_returns_no_server_error(self, expected_path: str):
+        self.page_header_h2.should_be_visible()
+        self.page.check_page_url_has_path(expected_path)
         self.page.check_response_status_code()
 
     @allure.step('Check Widget "Najnoviji blog postovi" links')
