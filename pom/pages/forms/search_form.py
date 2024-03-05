@@ -171,8 +171,7 @@ class SearchForm(BasePage):
 
     @allure.step('Fill in Search Form')
     def fill_in_search_form_and_click_search(self, property_type: str, price_to: str, m2_from: str):
-        self.select_type(type_button=self.type_options[property_type][0],
-                         type_option=self.type_options[property_type][1])
+        self.select_type(property_type)
         self.price_to.should_be_visible()
         self.price_to.fill(price_to)
         self.m2_from.should_be_visible()

@@ -51,24 +51,20 @@ class TestUIHomePage:
 
     @allure.id('5')
     @allure.title('Check Search Form: Subcategories dropdown')
-    @pytest.mark.parametrize("category, subcategory, subcategory_values", [
-        (DropdownType.APARTMENT, list(DropdownSubtypes.NUMBER_OF_ROOMS.keys())[0],
-         list(DropdownSubtypes.NUMBER_OF_ROOMS.values())[0]),
-        (DropdownType.HOUSE, list(DropdownSubtypes.FLOORS.keys())[0],
-         list(DropdownSubtypes.FLOORS.values())[0]),
-        (DropdownType.OFFICE, list(DropdownSubtypes.PLACE_TYPE.keys())[0],
-         list(DropdownSubtypes.PLACE_TYPE.values())[0]),
-        (DropdownType.LOT, list(DropdownSubtypes.LAND_TYPE.keys())[0],
-         list(DropdownSubtypes.LAND_TYPE.values())[0]),
-        (DropdownType.VEHICLESPOT, list(DropdownSubtypes.GARAGE_PARKING_TYPE.keys())[0],
-         list(DropdownSubtypes.GARAGE_PARKING_TYPE.values())[0])
+    @pytest.mark.parametrize("category, subcategory", [
+        (DropdownType.APARTMENT, DropdownSubtypes.NUMBER_OF_ROOMS),
+        (DropdownType.HOUSE, DropdownSubtypes.FLOORS),
+        (DropdownType.OFFICE, DropdownSubtypes.PLACE_TYPE),
+        (DropdownType.LOT, DropdownSubtypes.LAND_TYPE),
+        (DropdownType.VEHICLESPOT, DropdownSubtypes.GARAGE_PARKING_TYPE)
     ])
-    def test_check_search_form_subcategory_dropdown(self, home_page: HomePage, category: str, subcategory: str,
-                                                    subcategory_values: tuple):
+    def test_check_search_form_subcategory_dropdown(self, home_page: HomePage, category: str, subcategory: dict):
         home_page.visit()
         home_page.check_search_form_is_visible()
         home_page.search_form.select_type(category)
-        home_page.search_form.check_combobox_subtype(category, subcategory, subcategory_values)
+        home_page.search_form.check_combobox_subtype(category,
+                                                     list(subcategory.keys())[0],
+                                                     list(subcategory.values())[0])
 
     @allure.id('6')
     @allure.title('Check Search Form Inputs "Cena do" and "m2 od"')
