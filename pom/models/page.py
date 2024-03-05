@@ -11,8 +11,10 @@ from selenium.webdriver.support.wait import WebDriverWait
 from urllib3.exceptions import MaxRetryError
 
 from config import UIConfig
+from constants.titles.errors import Errors
 from constants.web_elements.attributes import Attributes
 from constants.js_scripts import JS
+from constants.web_elements.tags import Tags
 from locators.home_page_locators import HomePageLocators
 from constants.urls.routes import UIRoutes
 from utils.bowser_log_parser import get_lcp_from_logs
@@ -108,8 +110,11 @@ class Page(PageInterface):
         try:
             normalized_url = url if url.startswith('http') else (self.config.base_url + url)
             logger.info("Page.visit() - Get URL: '%s'", normalized_url)
-            time.sleep(0.5)
             self.webdriver.get(f"{normalized_url}")
+            if self.get_xpath(f"//{Tags.H2}").web_element.text == Errors.CLIENT_SIDE_EXCEPTION:
+                logger.info(f"Error: {Errors.CLIENT_SIDE_EXCEPTION}")
+                time.sleep(1)
+                self.get_page_by_url(url, url_suffix)
             logger.info(f"Client window width: {self._webdriver.execute_script(JS.CLIENT_WINDOW_WIDTH)}, "
                         f"window height: {self._webdriver.execute_script(JS.CLIENT_WINDOW_HEIGHT)}")
         except TimeoutException:
