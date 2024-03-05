@@ -1,0 +1,38 @@
+INFO     Logger:page.py:127 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:237 Page.set_page_load_timeout() - Set page load timeout: '30'
+INFO     Logger:page.py:221 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:56 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:109 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:112 Client window width: 393, window height: 873
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//div[@data-radix-popper-content-wrapper]//span[text()="Kuće"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//option[@value="house"]'
+INFO     Logger:element_should.py:131 Element should have an attribute 'selected'
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]/span[2]'
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//input[@name="priceTo"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//input[@name="priceTo"]'
+INFO     Logger:element.py:65 Element.fill() - Fill value '(('-100000',),)' into this element
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//input[@name="m2From"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//input[@name="m2From"]'
+INFO     Logger:element.py:65 Element.fill() - Fill value '(('50',),)' into this element
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:143 Page.get_xpath() - Get the element with xpath: '//h2'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:323 The URL of the page is 'https://next.4zida.rs/'
+INFO     Logger:page.py:342 GET 'https://next.4zida.rs/'. Response status code: 200
+INFO     Logger:page.py:214 Page.screenshot() - Save screenshot to: 'screenshots/test_check_search_form_inputs[Ku\u0107e]2024-03-05T094506.png'
+INFO     Logger:page.py:206 Page.quit() - Quit page and close all windows from the browser session
