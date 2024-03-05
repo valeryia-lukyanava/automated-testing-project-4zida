@@ -1,0 +1,28 @@
+INFO     Logger:page.py:133 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:243 Page.set_page_load_timeout() - Set page load timeout: '30'
+INFO     Logger:page.py:227 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:59 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:112 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//h2'
+INFO     Logger:page.py:118 Client window width: 393, window height: 873
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Oglašavanje"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Oglašavanje"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//header//nav/a[text()="Cenovnik oglašavanja za novogradnju"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:308 The URL of the page is 'https://next.4zida.rs/cenovnik-za-investitore'
+INFO     Logger:http_requests.py:12 GET 'https://next.4zida.rs/cenovnik-za-investitore'. Response status code: 404
+INFO     Logger:page.py:220 Page.screenshot() - Save screenshot to: 'screenshots/test_navigation_menu_advertisement[5]2024-03-05T110031.png'
+INFO     Logger:conftest.py:55 Browser console logs: [{'level': 'SEVERE', 'message': 'https://next.4zida.rs/cenovnik-za-vlasnike?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709636430048}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/baneri?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709636430049}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/cenovnik-za-investitore?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709636430050}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/cenovnik-za-pravna-lica?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709636430051}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/cenovnik-za-agencije?_rsc=tnqvz - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709636430052}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/cenovnik-za-investitore - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1709636430552}]
+INFO     Logger:page.py:212 Page.quit() - Quit page and close all windows from the browser session
