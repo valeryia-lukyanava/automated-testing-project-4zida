@@ -1,0 +1,322 @@
+INFO     Logger:page.py:133 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:243 Page.set_page_load_timeout() - Set page load timeout: '30'
+INFO     Logger:page.py:227 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:59 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:112 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//h2'
+INFO     Logger:page.py:118 Client window width: 393, window height: 873
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//section[@test-data="branding-agencies"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:elements_should.py:53 Elements.should().not_be_empty()
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[1]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[1]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #1 'Optimist nekretnine
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/optimist-nekretnine/70716')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/optimist-nekretnine/70716'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[2]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[2]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #2 'NS group nekretnine
+Novi Sad' (href = 'https://www.4zida.rs/agencije/novi-sad/ns-group-nekretnine/8691')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/novi-sad/ns-group-nekretnine/8691'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[3]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[3]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #3 'Art nekretnine
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/Art-Nekretnine/270')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/Art-Nekretnine/270'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[4]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[4]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #4 'Family nekretnine
+Novi Sad' (href = 'https://www.4zida.rs/agencije/novi-sad/family-nekretnine/255693')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/novi-sad/family-nekretnine/255693'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[5]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[5]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #5 'Bg home real estate
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/bg-home-real-estate/127875')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/bg-home-real-estate/127875'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[6]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[6]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #6 'Sold SU nekretnine
+Subotica' (href = 'https://www.4zida.rs/agencije/subotica/sold/15301')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/subotica/sold/15301'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[7]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[7]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #7 'Imovina plus
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/imovina-plus/34630')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/imovina-plus/34630'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[8]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[8]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #8 'Beostil nekretnine
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/beostil-nekretnine/1941')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/beostil-nekretnine/1941'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[9]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[9]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #9 'N Nekretnine
+Novi Sad' (href = 'https://www.4zida.rs/agencije/novi-sad/nnekretnine/154818')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/novi-sad/nnekretnine/154818'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[10]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[10]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #10 'Simonović nekretnine d.o.o.
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/simonovic-nekretnine-doo/25414')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/simonovic-nekretnine-doo/25414'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[11]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[11]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #11 'Divis
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/Divis/35')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/Divis/35'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[12]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[12]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #12 'Zidart nekretnine
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/Zidart-Nekretnine/42')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/Zidart-Nekretnine/42'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[13]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[13]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #13 'Eminent nekretnine
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/Eminent-Nekretnine/208')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/Eminent-Nekretnine/208'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[14]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[14]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #14 'Vinson nekretnine
+Novi Sad' (href = 'https://www.4zida.rs/agencije/novi-sad/vinson-nekretnine/53018')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/novi-sad/vinson-nekretnine/53018'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[15]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[15]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #15 'Europolis nekretnine
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/europolis-nekretnine/124535')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/europolis-nekretnine/124535'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[16]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[16]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #16 'Gsigma Nekretnine
+Zrenjanin' (href = 'https://www.4zida.rs/agencije/zrenjanin/Gsigma/370')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/zrenjanin/Gsigma/370'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[17]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[17]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #17 'Svet Nekretnine
+Novi Sad' (href = 'https://www.4zida.rs/agencije/novi-sad/Svet-Nekretnine/241')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/novi-sad/Svet-Nekretnine/241'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[18]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[18]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #18 'Kvadrat nekretnine
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/Kvadrat-Nekretnine/78')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/Kvadrat-Nekretnine/78'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[19]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[19]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #19 'Sky 88 realestate
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/sky-88-realestate/32880')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/sky-88-realestate/32880'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[20]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[20]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #20 'Benefit nekretnine
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/benefit-nekretnine/122036')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/benefit-nekretnine/122036'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[21]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[21]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #21 'Berza nekretnine
+Novi Sad' (href = 'https://www.4zida.rs/agencije/novi-sad/berza-nekretnine/39108')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/novi-sad/berza-nekretnine/39108'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[22]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[22]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #22 'Lav 2020 nekretnine
+Novi Sad' (href = 'https://www.4zida.rs/agencije/novi-sad/lav-2020-nekretnine/83627')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/novi-sad/lav-2020-nekretnine/83627'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[23]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[23]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #23 'Ikat nekretnine
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/ikat-nekretnine-zemun/338')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/ikat-nekretnine-zemun/338'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[24]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[24]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #24 'Raičević Nekretnine
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/Raicevic-Nekretnine/266')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/Raicevic-Nekretnine/266'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[25]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[25]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #25 'Studio 88 Nekretnine
+Zrenjanin' (href = 'https://www.4zida.rs/agencije/zrenjanin/studio-88-nekretnine/130338')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/zrenjanin/studio-88-nekretnine/130338'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[26]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[26]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #26 'Beocity nekretnine
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/Beocity-Nekretnine/361')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/Beocity-Nekretnine/361'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[27]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[27]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #27 'Gligorić nekretnine
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/gligoric-nekretnine/202405')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/gligoric-nekretnine/202405'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[28]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//section[@test-data="branding-agencies"]//a)[28]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//section[@test-data="branding-agencies"]//a'
+INFO     Logger:page.py:431 Link #28 'CITADELA NEKRETNINE DOO BEOGRAD
+Beograd' (href = 'https://www.4zida.rs/agencije/beograd/citadela-nekretnine-doo-beograd/158317')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/agencije/beograd/citadela-nekretnine-doo-beograd/158317'. Response status code: 200
+INFO     Logger:page.py:220 Page.screenshot() - Save screenshot to: 'screenshots/test_carousel_branding_agencies2024-03-05T184847.png'
+INFO     Logger:page.py:212 Page.quit() - Quit page and close all windows from the browser session
