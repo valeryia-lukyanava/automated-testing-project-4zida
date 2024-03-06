@@ -1,4 +1,4 @@
-class UIRoutes(str):
+class Paths(str):
     SALE_APARTMENTS = '/prodaja-stanova'
     SALE_HOUSES = '/prodaja-kuca'
     RENT_APARTMENTS = '/izdavanje-stanova'

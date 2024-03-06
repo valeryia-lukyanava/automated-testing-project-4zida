@@ -5,7 +5,7 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 
 from constants.titles.titles import Titles
-from constants.urls.routes import UIRoutes
+from constants.urls.paths import Paths
 from locators.home_page_locators import HomePageLocators
 from constants.titles.navigation_menu import NavigationMenu
 from constants.web_elements.tags import Tags
@@ -219,7 +219,7 @@ class HomePage(BasePage):
             place_suggestions_button = self.page.find_xpath(HomePageLocators.PLACE_SUGGESTIONS_BUTTONS).list[index]
             place_suggestions_button.should().be_clickable()
             place_suggestions_button.click()
-            self.page.check_page_url_has_path(UIRoutes.SALE_HOUSES)
+            self.page.check_page_url_has_path(Paths.SALE_HOUSES)
 
     @allure.step('Check "Service offerings" Carousel Items')
     def check_carousel_service_offerings(self):

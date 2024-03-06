@@ -5,7 +5,7 @@ from flaky import flaky
 from constants.titles.dropdown_subtypes import DropdownSubtypes
 from constants.titles.dropdown_types import DropdownType
 from constants.titles.headers import Headers
-from constants.urls.routes import UIRoutes
+from constants.urls.paths import Paths
 from constants.web_elements.tags import Tags
 from pom.pages.home_page import HomePage
 from constants.titles.titles import Titles
@@ -70,7 +70,7 @@ class TestUIHomePage:
     @allure.title('Check Search Form Inputs "Cena do" and "m2 od"')
     @pytest.mark.parametrize("property_type,price_to,m2_from,expected_path", [
         (DropdownType.HOUSE, "0", "0", ""),
-        (DropdownType.HOUSE, "100000", "50", f"{UIRoutes.SALE_HOUSES}?jeftinije_od=100000eur&vece_od=50m2"),
+        (DropdownType.HOUSE, "100000", "50", f"{Paths.SALE_HOUSES}?jeftinije_od=100000eur&vece_od=50m2"),
         (DropdownType.HOUSE, "-100000", "50", ""),
         (DropdownType.HOUSE, "100000", "-50", "")
     ])

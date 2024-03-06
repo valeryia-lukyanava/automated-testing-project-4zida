@@ -16,7 +16,7 @@ from constants.web_elements.attributes import Attributes
 from constants.js_scripts import JS
 from constants.web_elements.tags import Tags
 from locators.home_page_locators import HomePageLocators
-from constants.urls.routes import UIRoutes
+from constants.urls.paths import Paths
 from utils.bowser_log_parser import get_lcp_from_logs
 from utils.http_requests import send_get_request
 from utils.logger import logger
@@ -385,7 +385,7 @@ class Page(PageInterface):
             if len(image) > 0:
                 text = image[0].get_attribute('alt')
 
-        if url != UIRoutes.MAILTO:
+        if url != Paths.MAILTO:
             with allure.step(f"Checking Footer link #{index} '{text}' (href = '{url}')"):
 
                 logger.info(f"Link #{index} '{text}' (href = '{url}')")

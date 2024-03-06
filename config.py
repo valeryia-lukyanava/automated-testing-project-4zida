@@ -60,6 +60,7 @@ class LoggingConfig(BaseSettings):
 
 class UIConfig(BaseSettings):
     base_url: str = Field(env="BASE_URL")
+    production_base_url: str = Field(env="PRODUCTION_BASE_URL")
     api_check_links: bool = Field(env="API_CHECK_LINKS")
     viewport: ViewportConfig = ViewportConfig()
     driver: DriverConfig = DriverConfig()
