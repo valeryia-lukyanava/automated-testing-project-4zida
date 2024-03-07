@@ -12,7 +12,6 @@ class ExternalLinks(list):
         "https://autohub.rs/",
         "https://www.prodajadelova.rs/",
         "https://www.internet-prodaja-guma.com/",
-        "https://appgallery.huawei.com/app/C102423841?sharePrepath=ag&channelId=EURSMKT20200901BP&detailType=0",
         "https://play.google.com/store/apps/details?id=rs.zida4.app&utm_source=4zida&utm_campaign=footer&pcampaignid="
         "MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1",
         "https://www.facebook.com/4zida",
