@@ -11,6 +11,7 @@ from constants.titles.navigation_menu import NavigationMenu
 from constants.web_elements.tags import Tags
 from pom.page_factory.button import Button
 from pom.page_factory.component import Component
+from pom.page_factory.input import Input
 from pom.page_factory.title import Title
 from pom.pages.base_page import BasePage
 from pom.models.page import Page
@@ -76,6 +77,18 @@ class HomePage(BasePage):
         )
         self.login_dialog = Component(
             page, locator=HomePageLocators.LOGIN_DIALOG, name="Login Dialog"
+        )
+        self.login_via_email_button = Button(
+            page, locator=HomePageLocators.LOGIN_VIA_EMAIL_BUTTON, name="Button 'Nastavi sa email adresom'"
+        )
+        self.login_email_input = Input(
+            page, locator=HomePageLocators.LOGIN_EMAIL_INPUT, name="Input 'Email'"
+        )
+        self.login_password_input = Input(
+            page, locator=HomePageLocators.LOGIN_PASSWORD_INPUT, name="Input 'Lozinka'"
+        )
+        self.login_submit_button = Button(
+            page, locator=HomePageLocators.LOGIN_SUBMIT_BUTTON, name="Button 'Prijavi se'"
         )
         self.blog_post_widget = Component(
             page, locator=HomePageLocators.BLOG_POST_WIDGET, name="Widget 'Najnoviji blog postovi'"
@@ -179,10 +192,18 @@ class HomePage(BasePage):
         self.page.navigate_through_sub_menu(sub_menu)
         self.check_page_url(expected_url, self.errors)
 
-    @allure.step('Login via email')
-    def login_via_email(self):
+    @allure.step('Login via Email')
+    def login_via_email(self, login: str, password: str):
         self.login.click()
         self.login_dialog.should_be_visible()
+        self.login_via_email_button.should_be_visible()
+        self.login_via_email_button.click()
+        self.login_email_input.should_be_visible()
+        self.login_email_input.fill(login)
+        self.login_password_input.should_be_visible()
+        self.login_password_input.fill(password)
+        self.login_submit_button.should_be_visible()
+        self.login_submit_button.click()
 
     @allure.step('Check Tabs "Prodaja/Izdavanje" are working')
     def check_tabs_are_working(self):
@@ -217,9 +238,11 @@ class HomePage(BasePage):
         place_suggestions_buttons = self.page.find_xpath(HomePageLocators.PLACE_SUGGESTIONS_BUTTONS)
         for index in range(place_suggestions_buttons.length()):
             place_suggestions_button = self.page.find_xpath(HomePageLocators.PLACE_SUGGESTIONS_BUTTONS).list[index]
-            place_suggestions_button.should().be_clickable()
-            place_suggestions_button.click()
-            self.page.check_page_url_has_path(Paths.SALE_HOUSES)
+            with allure.step(f'Check Quick Button: "{place_suggestions_button.web_element.accessible_name}"'):
+                place_suggestions_button.should().be_visible()
+                place_suggestions_button.click()
+                self.page.check_page_url_has_path(Paths.SALE_APARTMENTS)
+                self.page.webdriver.back()
 
     @allure.step('Check "Service offerings" Carousel Items')
     def check_carousel_service_offerings(self):

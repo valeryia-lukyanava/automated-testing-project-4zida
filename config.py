@@ -72,6 +72,15 @@ class UIConfig(BaseSettings):
         env_file_encoding = 'utf-8'
 
 
+class QACredentials(BaseSettings):
+    qa_email: str = Field(env="QA_EMAIL")
+    qa_password: str = Field(env="QA_PASSWORD")
+
+    class Config:
+        env_file = '.env'
+        env_file_encoding = 'utf-8'
+
+
 class PerformanceMeasurementConfig(BaseSettings):
     number_of_measurements: int = Field(default=3, env="NUMBER_OF_MEASUREMENTS")
     lcp: int = Field(env="LCP")

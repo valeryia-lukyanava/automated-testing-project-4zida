@@ -2,6 +2,7 @@ import allure
 import pytest
 from flaky import flaky
 
+from config import UIConfig, QACredentials
 from constants.titles.dropdown_subtypes import DropdownSubtypes
 from constants.titles.dropdown_types import DropdownTypes
 from constants.titles.headers import Headers
@@ -30,10 +31,10 @@ class TestUIHomePage:
 
     @allure.id('2')
     @allure.title('Check Login via Email')
-    def test_login_via_email(self, home_page: HomePage):
+    def test_login_via_email(self, home_page: HomePage, credentials_config: QACredentials):
         # TODO: not completed
         home_page.visit()
-        home_page.login_via_email()
+        home_page.login_via_email(credentials_config.qa_email, credentials_config.qa_password)
 
     @allure.id('3')
     @allure.title('Check Search Form is visible and Tabs are working')
@@ -111,9 +112,9 @@ class TestUIHomePage:
         home_page.visit()
         home_page.check_blog_post_widget()
 
-    # @allure.id('12')
-    # @allure.title('Check Footer Links')
-    # def test_footer_links(self, home_page: HomePage):
-    #     # Footer Links
-    #     home_page.visit()
-    #     home_page.check_footer_links()
+    @allure.id('12')
+    @allure.title('Check Footer Links')
+    def test_footer_links(self, home_page: HomePage):
+        # Footer Links
+        home_page.visit()
+        home_page.check_footer_links()

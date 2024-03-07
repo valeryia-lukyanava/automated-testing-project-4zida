@@ -20,6 +20,10 @@ class HomePageLocators(str):
     SUB_MENU = '//header//nav/a[text()='
     LOGIN = '//header/a[@href="?modal=prijava"]'
     LOGIN_DIALOG = '//div[@role="dialog"]'
+    LOGIN_VIA_EMAIL_BUTTON = '//div[contains(@id, "login")]/button'
+    LOGIN_EMAIL_INPUT = '//input[@name="email"]'
+    LOGIN_PASSWORD_INPUT = '//input[@name="password"]'
+    LOGIN_SUBMIT_BUTTON = '//button[@type="submit"]'
     BLOG_POST_WIDGET = '//section[@test-data="blog-posts"]'
     BLOG_POST_WIDGET_LINKS = '//section[@test-data="blog-posts"]//a'
     PLACE_SUGGESTIONS = '//div[@test-data="place-suggestions"]'
@@ -31,3 +35,4 @@ class HomePageLocators(str):
     CAROUSEL_BRANDING_AGENCIES_LINKS = '//section[@test-data="branding-agencies"]//a'
     CAROUSEL_PREMIUM_ADS = '//div[@test-data="premium-ads"]'
     CAROUSEL_PREMIUM_ADS_LINKS = '//div[@test-data="premium-ads"]//a'
+

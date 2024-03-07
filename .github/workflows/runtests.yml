@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Run Tests
     env:
+      QA_EMAIL: ${{ secrets.QA_EMAIL }}
+      QA_PASSWORD: ${{ secrets.QA_PASSWORD }}
       URL_SUFFIX: ${{ secrets.URL_SUFFIX }}
     steps:
     - name: Checkout

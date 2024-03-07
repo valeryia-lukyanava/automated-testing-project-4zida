@@ -6,6 +6,8 @@ services:
     volumes:
       - .:/code
     environment:
+      - QA_EMAIL=$QA_EMAIL
+      - QA_PASSWORD=$QA_PASSWORD
       - URL_SUFFIX=$URL_SUFFIX
     env_file:
       - .env

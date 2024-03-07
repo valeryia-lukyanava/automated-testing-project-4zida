@@ -4,7 +4,7 @@ import os
 import pytest
 from datetime import datetime
 
-from config import UIConfig, PerformanceMeasurementConfig, get_ui_config
+from config import UIConfig, PerformanceMeasurementConfig, get_ui_config, QACredentials
 from pom.models.page import Page
 from utils.attach_screenshot import attach_screenshot
 from utils.logger import logger
@@ -23,6 +23,11 @@ def ui_config() -> UIConfig:
 @pytest.fixture(scope='session')
 def performance_tests_config() -> PerformanceMeasurementConfig:
     return PerformanceMeasurementConfig()
+
+
+@pytest.fixture(scope='session')
+def credentials_config() -> QACredentials:
+    return QACredentials()
 
 
 @pytest.fixture(scope='session')
