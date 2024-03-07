@@ -1,0 +1,28 @@
+INFO     Logger:page.py:133 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:243 Page.set_page_load_timeout() - Set page load timeout: '30'
+INFO     Logger:page.py:227 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:59 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:112 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//h2'
+INFO     Logger:page.py:118 Client window width: 393, window height: 873
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//header/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Oglašavanje"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//header//nav//div[text()="Oglašavanje"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//header//nav/a[text()="Cenovnik oglašavanja za agencije"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:308 The URL of the page is 'https://www.4zida.rs/cenovnik-za-agencije'
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/cenovnik-za-agencije'. Response status code: 200
+INFO     Logger:page.py:220 Page.screenshot() - Save screenshot to: 'screenshots/test_navigation_menu_advertisement[4]2024-03-07T161041.png'
+INFO     Logger:conftest.py:60 Browser console logs: [{'level': 'SEVERE', 'message': 'https://cdn.4zida.rs/assets2/main.934a63413d1750eb.js 0:658800 "ERROR" TypeError: Cannot set properties of null (setting \'__ngContext__\')\n    at go (https://cdn.4zida.rs/assets2/main.934a63413d1750eb.js:1:636537)\n    at Object.wd (https://cdn.4zida.rs/assets2/main.934a63413d1750eb.js:1:689768)\n    at x (https://cdn.4zida.rs/assets2/6222.9fd75f059bd52e01.js:1:3870)\n    at Pm (https://cdn.4zida.rs/assets2/main.934a63413d1750eb.js:1:666782)\n    at bh (https://cdn.4zida.rs/assets2/main.934a63413d1750eb.js:1:674575)\n    at y1 (https://cdn.4zida.rs/assets2/main.934a63413d1750eb.js:1:709784)\n    at E1.createEmbeddedViewImpl (https://cdn.4zida.rs/assets2/main.934a63413d1750eb.js:1:709796)\n    at vv.createEmbeddedView (https://cdn.4zida.rs/assets2/main.934a63413d1750eb.js:1:711342)\n    at https://cdn.4zida.rs/assets2/main.934a63413d1750eb.js:1:571779\n    at eM.forEachOperation (https://cdn.4zida.rs/assets2/main.934a63413d1750eb.js:1:729481)', 'source': 'console-api', 'timestamp': 1709827840170}, {'level': 'WARNING', 'message': "https://www.googleadservices.com/pagead/conversion.js 26 Failed to execute 'write' on 'Document': It isn't possible to write into a document from an asynchronously-loaded external script unless it is explicitly opened.", 'source': 'javascript', 'timestamp': 1709827840601}, {'level': 'WARNING', 'message': "https://connect.facebook.net/signals/config/1134467489977387?v=2.9.148&r=stable&domain=www.4zida.rs&hme=20c913bdcd4be51a752120153aa5caaecb3ee86c7f26cf737846e40b202aba68&ex_m=62%2C106%2C94%2C98%2C53%2C3%2C88%2C61%2C14%2C86%2C79%2C44%2C46%2C150%2C153%2C164%2C160%2C161%2C163%2C25%2C89%2C45%2C68%2C162%2C145%2C148%2C157%2C158%2C165%2C115%2C13%2C43%2C169%2C168%2C117%2C16%2C29%2C32%2C1%2C36%2C57%2C58%2C59%2C63%2C83%2C15%2C12%2C85%2C82%2C81%2C95%2C97%2C31%2C96%2C26%2C22%2C146%2C149%2C124%2C24%2C9%2C10%2C11%2C5%2C6%2C21%2C19%2C20%2C49%2C54%2C56%2C66%2C90%2C23%2C67%2C8%2C7%2C71%2C41%2C18%2C92%2C91%2C17%2C4%2C73%2C80%2C72%2C78%2C40%2C39%2C77%2C33%2C35%2C76%2C48%2C74%2C28%2C37%2C65%2C0%2C84%2C75%2C2%2C30%2C55%2C34%2C93%2C38%2C70%2C60%2C99%2C52%2C51%2C27%2C87%2C50%2C47%2C42%2C69%2C64%2C100 105 Unrecognized feature: 'attribution-reporting'.", 'source': 'other', 'timestamp': 1709827840675}]
+INFO     Logger:page.py:212 Page.quit() - Quit page and close all windows from the browser session
