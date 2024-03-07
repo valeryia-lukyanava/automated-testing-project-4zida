@@ -1,0 +1,289 @@
+INFO     Logger:page.py:133 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:243 Page.set_page_load_timeout() - Set page load timeout: '30'
+INFO     Logger:page.py:227 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:59 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:112 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//h2'
+INFO     Logger:page.py:118 Client window width: 393, window height: 873
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '//div[@test-data="premium-ads"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:elements_should.py:53 Elements.should().not_be_empty()
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[1]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[1]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #1 'Delta, Bulevar Nemanjića, Medijana, Gradske lokacije, Niš, 4.0 stan
+Blagoja Parovića
+195.940 €
+97m²
+prodaja' (href = 'https://www.4zida.rs/novogradnja/delta-bulevar-nemanjica-medijana-gradske-lokacije-nis/planet-capital/planet-residence/stambene-jedinice/10115')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/novogradnja/delta-bulevar-nemanjica-medijana-gradske-lokacije-nis/planet-capital/planet-residence/stambene-jedinice/10115'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[2]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[2]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #2 'Vračar, Beograd, 3.0 stan
+Hadži Melentijeva
+273.600 €
+68m²
+prodaja' (href = 'https://www.4zida.rs/novogradnja/vracar-beograd/homesvillas-one-doo-beograd/homes-and-villas/stambene-jedinice/11390')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/novogradnja/vracar-beograd/homesvillas-one-doo-beograd/homes-and-villas/stambene-jedinice/11390'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[3]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[3]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #3 'Grbavica, Gradske lokacije, Novi Sad, gars.
+Trg Komenskog, Novi Sad
+93.330 €
+27m²
+prodaja' (href = 'https://www.4zida.rs/novogradnja/grbavica-gradske-lokacije-novi-sad/prezident-doo/palata-komenski/stambene-jedinice/5319')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/novogradnja/grbavica-gradske-lokacije-novi-sad/prezident-doo/palata-komenski/stambene-jedinice/5319'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[4]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[4]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #4 'Palilula, Gradske lokacije, Niš, 1.5 stan
+72.000 €
+47m²
+prodaja' (href = 'https://next.4zida.rs/prodaja-stanova/palilula-gradske-lokacije-nis/jednoiposoban-stan/654b9c2ac5d691c7fc0ecc92')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://next.4zida.rs/prodaja-stanova/palilula-gradske-lokacije-nis/jednoiposoban-stan/654b9c2ac5d691c7fc0ecc92'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[5]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[5]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #5 'Grbavica, Gradske lokacije, Novi Sad, 3.5 stan
+Trg Komenskog, Novi Sad
+271.746 €
+87m²
+prodaja' (href = 'https://www.4zida.rs/novogradnja/grbavica-gradske-lokacije-novi-sad/prezident-doo/palata-komenski/stambene-jedinice/5323')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/novogradnja/grbavica-gradske-lokacije-novi-sad/prezident-doo/palata-komenski/stambene-jedinice/5323'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[6]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[6]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #6 'Mirijevo IV, Mirijevo, Zvezdara opština, Beograd, 1.5 stan
+Dva bela goluba
+85.701 €
+44m²
+prodaja' (href = 'https://www.4zida.rs/novogradnja/mirijevo-iv-mirijevo-zvezdara-opstina-beograd/gp-napred/stambeni-kompleks-oaza/stambene-jedinice/14518')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/novogradnja/mirijevo-iv-mirijevo-zvezdara-opstina-beograd/gp-napred/stambeni-kompleks-oaza/stambene-jedinice/14518'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[7]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[7]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #7 'Misa, Gradske lokacije, Pančevo, 3.0 stan
+Novoseljanski put
+64.792 €
+49m²
+prodaja' (href = 'https://www.4zida.rs/novogradnja/misa-gradske-lokacije-pancevo/doo-kutko-pancevo/novogradnja-kutko-novoseljanski-put-39/stambene-jedinice/11807')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/novogradnja/misa-gradske-lokacije-pancevo/doo-kutko-pancevo/novogradnja-kutko-novoseljanski-put-39/stambene-jedinice/11807'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[8]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[8]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #8 'Rakovica - Centar, Rakovica, Rakovica opština, Beograd, 1.5 stan
+Janković Stojana
+88.000 €
+42m²
+prodaja' (href = 'https://next.4zida.rs/prodaja-stanova/rakovica-centar-rakovica-rakovica-opstina-beograd/jednoiposoban-stan/65ae615cef0954775805c644')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://next.4zida.rs/prodaja-stanova/rakovica-centar-rakovica-rakovica-opstina-beograd/jednoiposoban-stan/65ae615cef0954775805c644'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[9]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[9]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #9 'Labudovo Brdo, Rakovica opština, Beograd, 1.5 stan
+Pavla Vujevića
+60.500 €
+37m²
+prodaja' (href = 'https://next.4zida.rs/prodaja-stanova/labudovo-brdo-rakovica-opstina-beograd/jednoiposoban-stan/65d9364100d686b04409d940')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://next.4zida.rs/prodaja-stanova/labudovo-brdo-rakovica-opstina-beograd/jednoiposoban-stan/65d9364100d686b04409d940'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[10]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[10]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #10 'Centar, Gradske lokacije, Pančevo, 4.0 stan
+Vojvode Radomira Putnika br.
+210.000 €
+143m²
+prodaja' (href = 'https://www.4zida.rs/novogradnja/centar-gradske-lokacije-pancevo/probanat-izgradnja-doo-beograd/central/stambene-jedinice/3209')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/novogradnja/centar-gradske-lokacije-pancevo/probanat-izgradnja-doo-beograd/central/stambene-jedinice/3209'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[11]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[11]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #11 'Kelebija, Okolne lokacije, Subotica, dvoetažna
+90.000 €
+246m²
+prodaja' (href = 'https://next.4zida.rs/prodaja-kuca/kelebija-okolne-lokacije-subotica/dvoetazna/65c50fdc9f730f9a7c045244')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://next.4zida.rs/prodaja-kuca/kelebija-okolne-lokacije-subotica/dvoetazna/65c50fdc9f730f9a7c045244'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[12]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[12]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #12 'Prozivka, Gradske lokacije, Subotica, dvoetažna
+Braće Radić
+350.000 €
+500m²
+prodaja' (href = 'https://next.4zida.rs/prodaja-kuca/prozivka-gradske-lokacije-subotica/dvoetazna/65ba4b70b6ecd196a108da30')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://next.4zida.rs/prodaja-kuca/prozivka-gradske-lokacije-subotica/dvoetazna/65ba4b70b6ecd196a108da30'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[13]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[13]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #13 'Đeram, Zvezdara opština, Beograd, 3.0 stan
+Bulevar Kralja Aleksandra
+290.000 €
+68m²
+prodaja' (href = 'https://next.4zida.rs/prodaja-stanova/djeram-zvezdara-opstina-beograd/trosoban-stan/651b2dbf7d619cd1c103dca6')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://next.4zida.rs/prodaja-stanova/djeram-zvezdara-opstina-beograd/trosoban-stan/651b2dbf7d619cd1c103dca6'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[14]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[14]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #14 'Bežanijska kosa 1, Bežanijska kosa, Novi Beograd, Beograd, 3.0 stan
+Ugao Magelanove i Kolumbove ulice
+222.851 €
+77m²
+prodaja' (href = 'https://www.4zida.rs/novogradnja/bezanijska-kosa-1-bezanijska-kosa-novi-beograd-beograd/energoprojekt-visokogradnja-ad/kosa-kvart/stambene-jedinice/13027')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/novogradnja/bezanijska-kosa-1-bezanijska-kosa-novi-beograd-beograd/energoprojekt-visokogradnja-ad/kosa-kvart/stambene-jedinice/13027'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[15]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[15]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #15 'Voždovac, Voždovac opština, Beograd, 4.0 stan
+495.000 €
+157m²
+prodaja' (href = 'https://next.4zida.rs/prodaja-stanova/vozdovac-vozdovac-opstina-beograd/cetvorosoban-stan/65ca121b69476a78d1063663')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://next.4zida.rs/prodaja-stanova/vozdovac-vozdovac-opstina-beograd/cetvorosoban-stan/65ca121b69476a78d1063663'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[16]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[16]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #16 'Čubura, Vračar, Beograd, 4.0 stan
+Šumatovačka
+325.017 €
+98m²
+prodaja' (href = 'https://www.4zida.rs/novogradnja/cubura-vracar-beograd/in-project-doo/sumatovacka-130/stambene-jedinice/14251')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/novogradnja/cubura-vracar-beograd/in-project-doo/sumatovacka-130/stambene-jedinice/14251'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[17]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[17]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #17 'Gradske lokacije, Žabalj, kuća
+230.000 €
+147m²
+prodaja' (href = 'https://next.4zida.rs/prodaja-kuca/gradske-lokacije-zabalj/kuca/651589d0512c6354cb07494f')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://next.4zida.rs/prodaja-kuca/gradske-lokacije-zabalj/kuca/651589d0512c6354cb07494f'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[18]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[18]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #18 'Centar, Gradske lokacije, Vrnjačka Banja, 2.0 stan
+Beogradska
+90.743 €
+45m²
+prodaja' (href = 'https://www.4zida.rs/novogradnja/centar-gradske-lokacije-vrnjacka-banja/banja-nekretnine-investitor/vila-radan/stambene-jedinice/4497')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://www.4zida.rs/novogradnja/centar-gradske-lokacije-vrnjacka-banja/banja-nekretnine-investitor/vila-radan/stambene-jedinice/4497'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[19]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[19]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #19 'Zemun, Zemun opština, Beograd, 3.0 stan
+Marija Bursać
+133.900 €
+74m²
+prodaja' (href = 'https://next.4zida.rs/prodaja-stanova/zemun-zemun-opstina-beograd/trosoban-stan/6586b0f34da425e5c905933a')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://next.4zida.rs/prodaja-stanova/zemun-zemun-opstina-beograd/trosoban-stan/6586b0f34da425e5c905933a'. Response status code: 200
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[20]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:page.py:149 Page.get_xpath() - Get the element with xpath: '(//div[@test-data="premium-ads"]//a)[20]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:page.py:184 Page.find_xpath() - Get the elements with xpath: '//div[@test-data="premium-ads"]//a'
+INFO     Logger:page.py:431 Link #20 'Novi Sad - Centar, Stari Grad, Gradske lokacije, Novi Sad, gars.
+60.500 €
+23m²
+prodaja' (href = 'https://next.4zida.rs/prodaja-stanova/novi-sad-centar-stari-grad-gradske-lokacije-novi-sad/garsonjera/65d337e562604aba250d1339')
+INFO     Logger:element_should.py:35 Element is displayed and enabled (clickable)
+INFO     Logger:http_requests.py:12 GET 'https://next.4zida.rs/prodaja-stanova/novi-sad-centar-stari-grad-gradske-lokacije-novi-sad/garsonjera/65d337e562604aba250d1339'. Response status code: 200
+INFO     Logger:page.py:220 Page.screenshot() - Save screenshot to: 'screenshots/test_carousel_premium_ads2024-03-07T143507.png'
+INFO     Logger:page.py:212 Page.quit() - Quit page and close all windows from the browser session
