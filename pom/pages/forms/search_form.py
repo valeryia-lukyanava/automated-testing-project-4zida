@@ -1,14 +1,11 @@
-import time
-
 import allure
 
 from constants.titles.dropdown_subtypes import DropdownSubtypes
-from constants.titles.dropdown_types import DropdownType
+from constants.titles.dropdown_types import DropdownTypes
 from constants.web_elements.attributes import Attributes
 from constants.web_elements.tags import Tags
 from locators.search_form_locators import SearchFormLocators
 from pom.page_factory.button import Button
-from pom.page_factory.component import Component
 from pom.page_factory.form import Form
 from pom.page_factory.input import Input
 from pom.page_factory.option import Option
@@ -110,27 +107,27 @@ class SearchForm(BasePage):
         )
 
         self.type_options = {
-            DropdownType.APARTMENT: (
+            DropdownTypes.APARTMENT: (
                 self.type_apartment,
                 self.type_apartment_option,
                 list(DropdownSubtypes.NUMBER_OF_ROOMS.keys())[0]
             ),
-            DropdownType.HOUSE: (
+            DropdownTypes.HOUSE: (
                 self.type_house,
                 self.type_house_option,
                 list(DropdownSubtypes.FLOORS.keys())[0]
             ),
-            DropdownType.OFFICE: (
+            DropdownTypes.OFFICE: (
                 self.type_office,
                 self.type_office_option,
                 list(DropdownSubtypes.PLACE_TYPE.keys())[0]
             ),
-            DropdownType.LOT: (
+            DropdownTypes.LOT: (
                 self.type_lot,
                 self.type_lot_option,
                 list(DropdownSubtypes.LAND_TYPE.keys())[0]
             ),
-            DropdownType.VEHICLESPOT: (
+            DropdownTypes.VEHICLESPOT: (
                 self.type_vehiclespot,
                 self.type_vehiclespot_option,
                 list(DropdownSubtypes.GARAGE_PARKING_TYPE.keys())[0]

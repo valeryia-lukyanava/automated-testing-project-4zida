@@ -1,4 +1,4 @@
-class DropdownType(str):
+class DropdownTypes(str):
     APARTMENT = "Stanovi"
     HOUSE = "Kuće"
     OFFICE = "Poslovni prostori"

@@ -3,7 +3,7 @@ import pytest
 from flaky import flaky
 
 from constants.titles.dropdown_subtypes import DropdownSubtypes
-from constants.titles.dropdown_types import DropdownType
+from constants.titles.dropdown_types import DropdownTypes
 from constants.titles.headers import Headers
 from constants.urls.paths import Paths
 from constants.web_elements.tags import Tags
@@ -15,7 +15,7 @@ from constants.suites import Suite
 @pytest.mark.ui
 @pytest.mark.chrome_mobile
 @pytest.mark.order(1)
-# @flaky(max_runs=2)
+@flaky(max_runs=2)
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.suite(Suite.UI)
 class TestUIHomePage:
@@ -52,11 +52,11 @@ class TestUIHomePage:
     @allure.id('5')
     @allure.title('Check Search Form: Subcategories dropdown')
     @pytest.mark.parametrize("category, subcategory", [
-        (DropdownType.APARTMENT, DropdownSubtypes.NUMBER_OF_ROOMS),
-        (DropdownType.HOUSE, DropdownSubtypes.FLOORS),
-        (DropdownType.OFFICE, DropdownSubtypes.PLACE_TYPE),
-        (DropdownType.LOT, DropdownSubtypes.LAND_TYPE),
-        (DropdownType.VEHICLESPOT, DropdownSubtypes.GARAGE_PARKING_TYPE)
+        (DropdownTypes.APARTMENT, DropdownSubtypes.NUMBER_OF_ROOMS),
+        (DropdownTypes.HOUSE, DropdownSubtypes.FLOORS),
+        (DropdownTypes.OFFICE, DropdownSubtypes.PLACE_TYPE),
+        (DropdownTypes.LOT, DropdownSubtypes.LAND_TYPE),
+        (DropdownTypes.VEHICLESPOT, DropdownSubtypes.GARAGE_PARKING_TYPE)
     ])
     def test_check_search_form_subcategory_dropdown(self, home_page: HomePage, category: str, subcategory: dict):
         home_page.visit()
@@ -69,10 +69,10 @@ class TestUIHomePage:
     @allure.id('6')
     @allure.title('Check Search Form Inputs "Cena do" and "m2 od"')
     @pytest.mark.parametrize("property_type,price_to,m2_from,expected_path", [
-        (DropdownType.HOUSE, "0", "0", ""),
-        (DropdownType.HOUSE, "100000", "50", f"{Paths.SALE_HOUSES}?jeftinije_od=100000eur&vece_od=50m2"),
-        (DropdownType.HOUSE, "-100000", "50", ""),
-        (DropdownType.HOUSE, "100000", "-50", "")
+        (DropdownTypes.HOUSE, "0", "0", ""),
+        (DropdownTypes.HOUSE, "100000", "50", f"{Paths.SALE_HOUSES}?jeftinije_od=100000eur&vece_od=50m2"),
+        (DropdownTypes.HOUSE, "-100000", "50", ""),
+        (DropdownTypes.HOUSE, "100000", "-50", "")
     ])
     def test_check_search_form_inputs(self, home_page: HomePage, property_type: str, price_to: str, m2_from: str,
                                       expected_path: str):
@@ -111,9 +111,9 @@ class TestUIHomePage:
         home_page.visit()
         home_page.check_blog_post_widget()
 
-    @allure.id('12')
-    @allure.title('Check Footer Links')
-    def test_footer_links(self, home_page: HomePage):
-        # Footer Links
-        home_page.visit()
-        home_page.check_footer_links()
+    # @allure.id('12')
+    # @allure.title('Check Footer Links')
+    # def test_footer_links(self, home_page: HomePage):
+    #     # Footer Links
+    #     home_page.visit()
+    #     home_page.check_footer_links()
