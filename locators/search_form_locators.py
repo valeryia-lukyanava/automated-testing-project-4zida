@@ -14,6 +14,14 @@ class SearchFormLocators(str):
     SEARCH_FORM_TYPE_OFFICE = '//div[@data-radix-popper-content-wrapper]//span[text()="Poslovni prostori"]'
     SEARCH_FORM_TYPE_LOT = '//div[@data-radix-popper-content-wrapper]//span[text()="Placevi"]'
     SEARCH_FORM_TYPE_VEHICLESPOT = '//div[@data-radix-popper-content-wrapper]//span[text()="Garaže/parking"]'
+    SEARCH_FORM_LOCATION_INPUT = f'{SEARCH_FORM}/div[4]//input'
+    SEARCH_FORM_LOCATION_AUTOCOMPLETE_DRAWER = f'{SEARCH_FORM}//div[@id="AutoCompleteDrawer"]'
+    SEARCH_FORM_LOCATION_AUTOCOMPLETE_DRAWER_OPTION = \
+        f'{SEARCH_FORM}//div[@id="AutoCompleteDrawer"]//div[contains(@class,"text")]'
+    SEARCH_FORM_LOCATION_AUTOCOMPLETE_DRAWER_OPTION_BY_TEXT = \
+        f'{SEARCH_FORM}//div[@id="AutoCompleteDrawer"]//div[text()'
+    SEARCH_FORM_SELECTED_LOCATIONS_NUMBER = f'{SEARCH_FORM}//div[@class="text-xs"]'
+    SEARCH_FORM_SELECTED_LOCATIONS_TITLE = f'{SEARCH_FORM}//div[text()'
     SEARCH_FORM_PRICE_TO_INPUT = f'{SEARCH_FORM}//input[@name="priceTo"]'
     SEARCH_FORM_M2_FROM_INPUT = f'{SEARCH_FORM}//input[@name="m2From"]'
     SEARCH_FORM_SEARCH_BUTTON = f'{SEARCH_FORM}/button'
