@@ -8,6 +8,8 @@ services:
     environment:
       - QA_EMAIL=$QA_EMAIL
       - QA_PASSWORD=$QA_PASSWORD
+      - GOOGLE_QA_EMAIL=$GOOGLE_QA_EMAIL
+      - GOOGLE_QA_PASSWORD=$GOOGLE_QA_PASSWORD
       - URL_SUFFIX=$URL_SUFFIX
     env_file:
       - .env

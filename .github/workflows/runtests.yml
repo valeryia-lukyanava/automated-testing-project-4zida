@@ -11,6 +11,8 @@ jobs:
     env:
       QA_EMAIL: ${{ secrets.QA_EMAIL }}
       QA_PASSWORD: ${{ secrets.QA_PASSWORD }}
+      GOOGLE_QA_EMAIL: ${{ secrets.GOOGLE_QA_EMAIL }}
+      GOOGLE_QA_PASSWORD: ${{ secrets.GOOGLE_QA_PASSWORD }}
       URL_SUFFIX: ${{ secrets.URL_SUFFIX }}
     steps:
     - name: Checkout
@@ -65,6 +67,10 @@ jobs:
         PERSONAL_TOKEN: ${{ secrets.GH_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
+
+#    - name: Trigger Slack notification
+#      if: always()
+#      run: ./slack-report.sh "${{ secrets.SLACK_WEBHOOK }}"
 
   commit_results:
     runs-on: ubuntu-latest
