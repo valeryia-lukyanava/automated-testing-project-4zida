@@ -1,0 +1,63 @@
+INFO     Logger:page.py:132 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:241 Page.set_page_load_timeout() - Set page load timeout: '30'
+INFO     Logger:page.py:225 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:58 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:111 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//h2'
+INFO     Logger:page.py:117 Client window width: 393, window height: 873
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@data-radix-popper-content-wrapper]//span[text()="Stanovi"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//option[@value="apartment"]'
+INFO     Logger:element_should.py:131 Element should have an attribute 'selected'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]/span[2]'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//div[3]//button/span[2]'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@data-radix-popper-content-wrapper]//span[text()="Kuće"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//option[@value="house"]'
+INFO     Logger:element_should.py:131 Element should have an attribute 'selected'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]/span[2]'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//div[3]//button/span[2]'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@data-radix-popper-content-wrapper]//span[text()="Poslovni prostori"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//option[@value="office"]'
+INFO     Logger:element_should.py:131 Element should have an attribute 'selected'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]/span[2]'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//div[3]//button/span[2]'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@data-radix-popper-content-wrapper]//span[text()="Placevi"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//option[@value="lot"]'
+INFO     Logger:element_should.py:131 Element should have an attribute 'selected'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]/span[2]'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//div[3]//button/span[2]'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@data-radix-popper-content-wrapper]//span[text()="Garaže/parking"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//option[@value="vehiclespot"]'
+INFO     Logger:element_should.py:131 Element should have an attribute 'selected'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]/span[2]'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//div[3]//button/span[2]'
+INFO     Logger:page.py:218 Page.screenshot() - Save screenshot to: 'screenshots/test_check_search_form_type_dropdown2024-03-09T082446.png'
+INFO     Logger:conftest.py:60 Browser console logs: [{'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fcb77f3a843.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685164}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F745644aac8.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685164}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fde5605ab4a.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685164}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F0b14ca2ee7.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685164}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fe46edb458d.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685164}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F9072b72667.jpeg@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685164}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F1c2e878b7d.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685341}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F6c5d4d92e4.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685341}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F062a9e2c6f.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685341}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F1ac898ec9c.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685349}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F798bd31850.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685515}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fd14fca2f83.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685516}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fe7b8925e84.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685518}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F34c2895986.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685533}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/YYlLXpA3LjqaajoFiYqRrPn932JiqAD-sZyjjYJNlG0/rs:fill:298:270:0/bG9jYWw6Ly8vNjVkYTA1ZGRjMGQwNmVjMzhiMDVjY2QyL2RjNzAzNThiNmI.webp#384 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685736}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/JD2mEJeaeZ_adqu5U2yJVsiIvXEZ__3bbgiir9jhcGY/rs:fill:298:270:0/bG9jYWw6Ly8vNjUzNTcyMjc0MzczZWM5N2RiMDM1NGFjLzRmYjk4NjYwOTY.webp#384 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685736}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:64:0/plain/local%3A%2F%2F%2Fagencies%2Fd5cbe0e2c0.jpg@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685736}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:64:0/plain/local%3A%2F%2F%2Fagencies%2F3241cb4630.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685739}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:64:0/plain/local%3A%2F%2F%2Fagencies%2F2063a78810.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685925}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/6eoJU8wbj9ZRyOYRF8_oF55dafmxzLn6lD6sHWknENM/rs:fill:298:270:0/bG9jYWw6Ly8vNjQ3ZGUwMjI0MmVhMjcwZWUwMDIwNzZjLzg3ZDIyNmE4YWU.webp#384 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685925}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/hoRNtlNxob5iBETW9_csIpN4Nk2dYT4HeDLPcpoBy7s/rs:fill:298:270:0/bG9jYWw6Ly8vNjVjNGU4MzY2OTRmODI5OTEzMGE4MTdmL2U5ZjIxN2RkNjA.webp#384 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685925}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:384:0/plain/https%3A%2F%2Fwww.4zida.rs%2Fblog%2Fwp-content%2Fuploads%2F2024%2F03%2FMirjana-Bobic-Mojsilovic-768x719.webp@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972685926}]
+INFO     Logger:page.py:210 Page.quit() - Quit page and close all windows from the browser session

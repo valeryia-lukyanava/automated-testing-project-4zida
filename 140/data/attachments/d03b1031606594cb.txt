@@ -1,0 +1,39 @@
+INFO     Logger:page.py:132 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:241 Page.set_page_load_timeout() - Set page load timeout: '30'
+INFO     Logger:page.py:225 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:58 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:111 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//h2'
+INFO     Logger:page.py:117 Client window width: 393, window height: 873
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@data-radix-popper-content-wrapper]//span[text()="Kuće"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//option[@value="house"]'
+INFO     Logger:element_should.py:131 Element should have an attribute 'selected'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//input[@name="priceTo"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//input[@name="priceTo"]'
+INFO     Logger:element.py:65 Element.fill() - Fill value '(('0',),)' into this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//input[@name="m2From"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//input[@name="m2From"]'
+INFO     Logger:element.py:65 Element.fill() - Fill value '(('0',),)' into this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]/button'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//h2'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 Element is visible
+INFO     Logger:page.py:310 The URL of the page is 'https://next.4zida.rs/'
+INFO     Logger:http_requests.py:12 GET 'https://next.4zida.rs/'. Response status code: 200
+INFO     Logger:page.py:218 Page.screenshot() - Save screenshot to: 'screenshots/test_check_search_form_inputs[Ku\u0107e]2024-03-09T082623.png'
+INFO     Logger:conftest.py:60 Browser console logs: [{'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F798bd31850.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972781695}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/MMD4SMS-q3XmqMXz-6nCQ6c3LQfL2yN5TB5M5ts3FM0/rs:fill:298:270:0/bG9jYWw6Ly8vNjVkZjI4YjlhMTg0MjRlZWQ1MGY3ZTlmLzcwNjVkNTgzZjY.webp#384 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972781695}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/833EFvG20wto91A3NGrRmPWP1XZUF7uphnigMDoAXsQ/rs:fill:298:270:0/bG9jYWw6Ly8vNjQxZGJlODZhNGZmNmIxNjM3MDMwOTk1L2JiMTg3YjJmODY.webp#384 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972781886}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/zBqbhFuewN2fXtCwsw6jkomkDznITFGv1odzOSv5PvY/rs:fill:298:270:0/bG9jYWw6Ly8vNjVlMjY3ZGJiMTZiMjQ2OTgxMDU1NWEwLzY0MWFkYTc1MjQ.webp#384 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972781888}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/FS8IeA6veG7TmETYgaswKJ-szF4GxAMxxDv5X-xlSZc/rs:fill:298:270:0/bG9jYWw6Ly8vNjUzOTM0ZTA3NGIxNTRlMDUzMDAxYWQ5LzYzZjE3MTM0YmQ.webp#384 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972781889}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:64:0/plain/local%3A%2F%2F%2Fagencies%2F21d900f285.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972781890}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:384:0/plain/https%3A%2F%2Fwww.4zida.rs%2Fblog%2Fwp-content%2Fuploads%2F2024%2F03%2FMirjana-Bobic-Mojsilovic-768x719.webp@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972782080}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:64:0/plain/local%3A%2F%2F%2Fagencies%2F7d4659bf36.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1709972782081}]
+INFO     Logger:page.py:210 Page.quit() - Quit page and close all windows from the browser session
