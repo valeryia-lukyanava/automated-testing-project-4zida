@@ -2,7 +2,6 @@ import time
 from datetime import datetime
 
 import allure
-import requests
 from selenium.common.exceptions import TimeoutException, StaleElementReferenceException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -131,7 +130,6 @@ class Page(PageInterface):
     def wait_until_stable(self) -> WebDriver:
         """Waits until webdriver will be stable"""
         logger.info("Page.wait_until_stable() - Page wait until driver stable")
-
         try:
             return self.webdriver
         except MaxRetryError:
@@ -277,25 +275,7 @@ class Page(PageInterface):
             return self.title()
 
         raise AssertionError(
-            f"Expected title: '{title_name}' - Actual text: '{self.title()}'"
-        )
-
-    def check_page_headers(self, title_name):
-        """Check the title of the page"""
-        value = None
-        try:
-            actual_title = self.title()
-            logger.info("The title of the page is '%s'", actual_title)
-            if actual_title == title_name:
-                value = True
-        except TimeoutException:
-            value = False
-
-        if value:
-            return self.title()
-
-        raise AssertionError(
-            f"Expected title: '{title_name}' - Actual text: '{self.title()}'"
+            f"The expected title: '{title_name}' - the actual text: '{self.title()}'"
         )
 
     def check_page_url(self, url, errors=None):
@@ -314,7 +294,7 @@ class Page(PageInterface):
         if value:
             return self.url()
         else:
-            assertion_error = AssertionError(f"Expected URL: '{url}' - Actual URL: '{self.url()}'")
+            assertion_error = AssertionError(f"The expected URL: '{url}' - the actual URL: '{self.url()}'")
             if errors is None:
                 raise assertion_error
             else:
@@ -323,32 +303,36 @@ class Page(PageInterface):
 
     def check_page_url_has_path(self, path):
         """Check the URL of the page has a path"""
-        try:
-            value = self._wait.until(lambda e: path in e.current_url)
-            actual_url = self.url()
-            logger.info("The URL of the page is '%s'", actual_url)
-            if path in actual_url:
-                value = True
-        except TimeoutException:
-            value = False
+        with allure.step(f'Check the URL of the page has a path "{path}"'):
+            try:
+                value = self._wait.until(lambda e: path in e.current_url)
+                actual_url = self.url()
+                logger.info("The URL of the page is '%s'", actual_url)
+                if path in actual_url:
+                    value = True
+            except TimeoutException:
+                value = False
 
-        if value:
-            return self.url()
-        else:
-            raise AssertionError(f"Expected that URL has the path: '{path}' - Actual URL: '{self.url()}'")
+            if value:
+                return self.url()
+            else:
+                raise AssertionError(f"Expected that the URL has the path: '{path}' - the actual URL: '{self.url()}'")
 
     def check_response_status_code(self):
         """Check response status code when GET current url"""
         value = False
         actual_url = self.url()
-        response = send_get_request(actual_url)
-        response_status_code = response.status_code
-        if int(response_status_code) < 400:
-            value = True
-        if value:
-            return self.url()
-        else:
-            raise AssertionError(f"Expected status code should be < 400. Actual status code: {response_status_code}")
+        with allure.step(f'Check the response status code: GET {actual_url}'):
+            response = send_get_request(actual_url)
+            response_status_code = response.status_code
+            with allure.step(f'Check the response status code should be < 400'):
+                if int(response_status_code) < 400:
+                    value = True
+                if value:
+                    return self.url()
+                else:
+                    raise AssertionError(
+                        f"The expected status code should be < 400. The actual status code: {response_status_code}")
 
     def check_web_element_located(self, xpath: str, timeout: int = None) -> bool:
         """Check the web element is located"""
@@ -397,13 +381,13 @@ class Page(PageInterface):
                     response_ulr = response.url
                     if int(response_status_code) >= 400:
                         errors.append(str(AssertionError(f"Link #{index} '{text}', GET '{url}'. "
-                                                         f"Expected status code should be < 400. "
-                                                         f"Actual status code: '{response_status_code}'")))
+                                                         f"The expected status code should be < 400. "
+                                                         f"The actual status code: '{response_status_code}'")))
 
                     if response_ulr != url:
                         errors.append(str(AssertionError(f"Link #{index} '{text}'. "
                                                          f"Footer link attribute 'href': {url}"
-                                                         f"Response URL: '{response_ulr}'")))
+                                                         f"The target URL: '{response_ulr}'")))
                 else:
                     try:
                         link.click()
@@ -427,7 +411,7 @@ class Page(PageInterface):
         url = link.web_element.get_attribute(Attributes.HREF)
         text = link.web_element.text
 
-        with allure.step(f"Checking link #{index + 1} '{text}' (href = '{url}')"):
+        with allure.step(f"Checking the link #{index + 1} '{text}' (href = '{url}')"):
             logger.info(f"Link #{index + 1} '{text}' (href = '{url}')")
             link.should().be_clickable()
             if self.config.api_check_links:
@@ -435,14 +419,14 @@ class Page(PageInterface):
                 response_status_code = response.status_code
                 if int(response_status_code) >= 400:
                     raise AssertionError(f"Link #{index + 1} '{text}', GET '{url}'. "
-                                         f"Expected status code should be < 400. "
-                                         f"Actual status code: '{response_status_code}'")
+                                         f"The expected status code should be < 400. "
+                                         f"The actual status code: '{response_status_code}'")
             else:
                 try:
                     link.click()
                 except StaleElementReferenceException:
                     link.click()
-                logger.info(f"Clicked link #{index + 1} '{text}', 'href'={url}")
+                logger.info(f"Clicked the link #{index + 1} '{text}', 'href'={url}")
 
                 window_handlers = self.webdriver.window_handles
                 if len(window_handlers) > 1:
@@ -457,7 +441,7 @@ class Page(PageInterface):
         link = self.find_xpath(locator).list[index]
         url = link.web_element.get_attribute(Attributes.HREF)
         if url in expected_external_links:
-            with allure.step(f"Checking Footer link #{index} href = '{url}'"):
+            with allure.step(f"Checking the Footer link #{index} href = '{url}'"):
                 logger.info(f"Link #{index} href = '{url}'")
                 errors_len = len(errors)
                 link.should().have_attribute_value(attribute, expected_value, raise_error=False, errors=errors)
@@ -466,8 +450,11 @@ class Page(PageInterface):
                     logger.info(errors[-1])
                 expected_external_links.remove(url)
 
-    def navigate_through_sub_menu(self, sub_menu: str):
-        sub_menu_element = self.get_xpath(f'{HomePageLocators.SUB_MENU}"{sub_menu}"]')
+    def navigate_through_sub_menu(self, sub_menu: str, element_index: str = None):
+        if element_index is None:
+            sub_menu_element = self.get_xpath(f'{HomePageLocators.SUB_MENU}"{sub_menu}"]')
+        else:
+            sub_menu_element = self.get_xpath(f'({HomePageLocators.SUB_MENU}"{sub_menu}"])[{element_index}]')
         with allure.step(f'Checking Sub Menu navigation: "{sub_menu}"'):
             sub_menu_element.scroll_to_element()
             sub_menu_element.should().be_clickable()
@@ -491,3 +478,20 @@ class Page(PageInterface):
             self.get_xpath(xpath).scroll_to_element()
             self.find_xpath(carousel_items_xpath).list[index].should().be_clickable()
             self.check_link(index, carousel_items_xpath)
+
+    def get_xpath_and_check_visibility(self, xpath: str):
+        element = self.get_xpath(xpath)
+        element.should().be_visible()
+
+    def click_with_js(self, xpath: str):
+        element = self.webdriver.find_element(By.XPATH, xpath)
+        self.webdriver.execute_script(JS.CLICK, element)
+
+    def get_original_window_handle(self) -> str:
+        self.webdriver.switch_to.default_content()
+        return self.webdriver.window_handles[0]
+
+    def switch_to_new_window(self):
+        self.webdriver.switch_to.default_content()
+        new_window = self.webdriver.window_handles[1]
+        self.webdriver.switch_to.window(new_window)
