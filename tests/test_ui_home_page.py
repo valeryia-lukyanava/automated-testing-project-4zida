@@ -29,7 +29,7 @@ class TestUIHomePage:
         home_page.check_search_form_is_visible()
 
     @allure.id('2')
-    @allure.title('Cookie policy notification is visible and links are clickable')
+    @allure.title('Cookie Policy Notification is Visible and Links are Clickable')
     def test_cookie_policy_notification(self, home_page: HomePage):
         home_page.visit(cookie_enabled=True)
         home_page.check_search_form_is_visible()
@@ -68,14 +68,14 @@ class TestUIHomePage:
         (DropdownTypes.APARTMENT, DropdownSubtypes.NUMBER_OF_ROOMS),
         (DropdownTypes.HOUSE, DropdownSubtypes.FLOORS),
         (DropdownTypes.OFFICE, DropdownSubtypes.PLACE_TYPE),
-        (DropdownTypes.LOT, DropdownSubtypes.LAND_TYPE),
-        (DropdownTypes.VEHICLESPOT, DropdownSubtypes.GARAGE_PARKING_TYPE)
+        (DropdownTypes.LAND, DropdownSubtypes.LAND_TYPE),
+        (DropdownTypes.GARAGE, DropdownSubtypes.GARAGE_PARKING_TYPE)
     ])
     def test_check_search_form_subcategory_dropdown(self, home_page: HomePage, category: str, subcategory: dict):
         home_page.visit()
         home_page.check_search_form_is_visible()
         home_page.search_form.select_type(category)
-        home_page.search_form.check_combobox_subtype(category=category,
+        home_page.search_form.check_combobox_subtype(type_value=category,
                                                      subtype=list(subcategory.keys())[0],
                                                      subtype_values=list(subcategory.values())[0])
 
@@ -114,36 +114,55 @@ class TestUIHomePage:
         home_page.check_the_search_returns_no_server_error(expected_path)
 
     @allure.id('10')
+    @pytest.mark.parametrize("category,subcategory,checkbox_is_available,expected_url", [
+        (DropdownTypes.APARTMENT, "Troiposoban stan", True, f"{Paths.SALE_APARTMENTS}?struktura=troiposoban"),
+        (DropdownTypes.HOUSE, None, False, Paths.SALE_HOUSES),
+        (DropdownTypes.OFFICE, None, True, f"{Paths.NEW_BUILDINGS}/prodaja-poslovnih-prostora"),
+        (DropdownTypes.LAND, None, False, Paths.SALE_LANDS),
+        (DropdownTypes.GARAGE, None, True, f"{Paths.NEW_BUILDINGS}{Paths.SALE_GARAGE}")
+    ])
+    @allure.title('Check "Samo novogradnja" checkbox')
+    def test_check_checkbox_new_buildings_only(self, home_page: HomePage, category: str, subcategory: str,
+                                               checkbox_is_available: bool, expected_url: str):
+        home_page.visit()
+        home_page.check_search_form_is_visible()
+        home_page.check_checkbox_new_buildings_only(category=category, subcategory=subcategory,
+                                                    checkbox_is_available=checkbox_is_available,
+                                                    expected_url=expected_url)
+
+    # "Stan na dan" checkbox
+
+    @allure.id('11')
     @allure.title('Check "Popularni gradovi" Quick Links')
     def test_place_suggestions_quick_links(self, home_page: HomePage):
         home_page.visit()
         home_page.check_place_suggestions()
 
-    @allure.id('11')
+    @allure.id('12')
     @allure.title('Check "Service offerings" Carousel')
     def test_carousel_added_values(self, home_page: HomePage):
         home_page.visit()
         home_page.check_carousel_service_offerings()
 
-    @allure.id('12')
+    @allure.id('13')
     @allure.title('Check "Istaknute Agencije" Carousel')
     def test_carousel_branding_agencies(self, home_page: HomePage):
         home_page.visit()
         home_page.check_carousel_branding_agencies()
 
-    @allure.id('13')
+    @allure.id('14')
     @allure.title('Check "Premijum oglasi" Carousel')
     def test_carousel_premium_ads(self, home_page: HomePage):
         home_page.visit()
         home_page.check_carousel_premium_ads()
 
-    @allure.id('14')
+    @allure.id('15')
     @allure.title('Check "Najnoviji blog postovi" Widget')
     def test_blog_post_widget(self, home_page: HomePage):
         home_page.visit()
         home_page.check_blog_post_widget()
 
-    @allure.id('15')
+    @allure.id('16')
     @allure.title('Check Footer Links')
     def test_footer_links(self, home_page: HomePage):
         home_page.visit()

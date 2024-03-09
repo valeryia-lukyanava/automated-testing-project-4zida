@@ -1,3 +1,5 @@
+import time
+
 import allure
 
 from constants.titles.dropdown_subtypes import DropdownSubtypes
@@ -64,19 +66,19 @@ class SearchForm(BasePage):
             name="Search Form Select Option 'Poslovni prostori'"
         )
         self.type_lot = Button(
-            page, locator=SearchFormLocators.SEARCH_FORM_TYPE_LOT,
+            page, locator=SearchFormLocators.SEARCH_FORM_TYPE_LAND,
             name="Search Form Dropdown Option 'Placevi'"
         )
         self.type_lot_option = Option(
-            page, locator=SearchFormLocators.SEARCH_FORM_TYPE_LOT_OPTION,
+            page, locator=SearchFormLocators.SEARCH_FORM_TYPE_LAND_OPTION,
             name="Search Form Select Option 'Placevi'"
         )
         self.type_vehiclespot = Button(
-            page, locator=SearchFormLocators.SEARCH_FORM_TYPE_VEHICLESPOT,
+            page, locator=SearchFormLocators.SEARCH_FORM_TYPE_GARAGE,
             name="Search Form Dropdown Option 'Garaže/parking'"
         )
         self.type_vehiclespot_option = Option(
-            page, locator=SearchFormLocators.SEARCH_FORM_TYPE_VEHICLESPOT_OPTION,
+            page, locator=SearchFormLocators.SEARCH_FORM_TYPE_GARAGE_OPTION,
             name="Search Form Select Option 'Garaže/parking'"
         )
         self.price_to = Input(
@@ -123,6 +125,14 @@ class SearchForm(BasePage):
             page, locator=SearchFormLocators.SEARCH_FORM_SELECTED_LOCATIONS_NUMBER,
             name="Search Form 'Upiši lokaciju' Selected Locations Number"
         )
+        self.checkbox_label = Title(
+            page, locator=SearchFormLocators.SEARCH_FORM_CHECKBOX_LABEL,
+            name="Search Form Checkbox Label"
+        )
+        self.checkbox = Button(
+            page, locator=SearchFormLocators.SEARCH_FORM_CHECKBOX_BUTTON,
+            name="Search Form Checkbox"
+        )
         self.type_options = {
             DropdownTypes.APARTMENT: (
                 self.type_apartment,
@@ -139,12 +149,12 @@ class SearchForm(BasePage):
                 self.type_office_option,
                 list(DropdownSubtypes.PLACE_TYPE.keys())[0]
             ),
-            DropdownTypes.LOT: (
+            DropdownTypes.LAND: (
                 self.type_lot,
                 self.type_lot_option,
                 list(DropdownSubtypes.LAND_TYPE.keys())[0]
             ),
-            DropdownTypes.VEHICLESPOT: (
+            DropdownTypes.GARAGE: (
                 self.type_vehiclespot,
                 self.type_vehiclespot_option,
                 list(DropdownSubtypes.GARAGE_PARKING_TYPE.keys())[0]
@@ -164,12 +174,18 @@ class SearchForm(BasePage):
         self.tab_rent.should_have_attribute_value(Attributes.ARIA_SELECTED, "false")
 
     @allure.step('Select option "{value}" in dropdown "Tip"')
-    def select_type(self, value: str):
+    def select_type(self, value: str, subcategory: str = None):
         self.combobox_type.click()
         type_button = self.type_options[value][0]
         type_option = self.type_options[value][1]
         type_button.click()
         type_option.should_have_attribute(Attributes.SELECTED)
+        if subcategory is not None:
+            for option in self.page.find_xpath(SearchFormLocators.SEARCH_FORM_COMBOBOX_SUBTYPE_OPTION).list:
+                if option.web_element.text == subcategory:
+                    option.should().be_clickable()
+                    option.click()
+            self.combobox_subtype_input.click()
 
     @allure.step('Check that dropdown "Tip" has the value {value}')
     def check_type_value(self, value: str):
@@ -197,7 +213,8 @@ class SearchForm(BasePage):
         self.combobox_subtype_title.should_be_visible()
         subtype_title = self.type_options[type_value][2]
         self.combobox_subtype_title.should_have_text(subtype_title)
-        self.combobox_subtype_select.should_be_visible()
+        with allure.step('Check Subcategory Options are opened automatically'):
+            self.combobox_subtype_select.should_be_visible()
         self.check_subtype_options(subtype, subtype_values)
 
     @allure.step('Check selecting values in Combobox Subcategory "{subtype}"')
@@ -209,12 +226,12 @@ class SearchForm(BasePage):
         self.combobox_subtype_input.click()
         self.combobox_subtype_input.should_have_text(', '.join([str(x) for x in subtype_values]))
 
-    @allure.step('Check selecting locations"')
+    @allure.step('Check selecting locations: {locations}')
     def select_locations(self, input_values: list, locations: list):
         self.location_multiselect.should_be_visible()
         n = len(locations)
         for i in range(0, n):
-            with allure.step(f'User input: "'):
+            with allure.step(f'User input: {input_values[i]}'):
                 self.location_multiselect.fill(input_values[i])
                 self.location_autocomplete_drawer.should_be_visible()
                 self.location_autocomplete_drawer_option.should_be_visible()
@@ -233,3 +250,17 @@ class SearchForm(BasePage):
         self.location_multiselect.should_have_attribute_value(Attributes.PLACEHOLDER, ", ".join(locations))
         self.form.click()
         self.search.should_be_visible()
+
+    def check_checkbox_new_buildings_only(self, category, checkbox_is_available, subcategory):
+        self.tab_sale.click()
+        self.select_type(category, subcategory)
+        self.checkbox_label.should_be_visible()
+        self.checkbox_label.should_have_text(Titles.NEW_BUILDINGS_ONLY)
+        if checkbox_is_available:
+            self.checkbox.should_have_attribute_value(Attributes.DATA_STATE, Attributes.UNCHECKED)
+            self.checkbox.click()
+            self.checkbox.should_have_attribute_value(Attributes.DATA_STATE, Attributes.CHECKED)
+        else:
+            self.checkbox.should_have_attribute_value(Attributes.DATA_STATE, Attributes.CHECKED)
+            self.checkbox.should_have_attribute(Attributes.DATA_DISABLED)
+        self.search.click()

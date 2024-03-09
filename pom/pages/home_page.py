@@ -2,6 +2,7 @@ import allure
 
 from constants.titles.titles import Titles
 from constants.urls.paths import Paths
+from constants.web_elements.attributes import Attributes
 from locators.home_page_locators import HomePageLocators
 from constants.titles.navigation_menu import NavigationMenu
 from constants.web_elements.tags import Tags
@@ -203,11 +204,11 @@ class HomePage(BasePage):
         self.check_page_url(expected_url, self.errors)
 
     @allure.step('Login via Email')
-    def login_via_email(self, login: str, password: str):
+    def login_via_email(self, email: str, password: str):
         self.login_via_email_button.should_be_visible()
         self.login_via_email_button.click()
         self.login_email_input.should_be_visible()
-        self.login_email_input.fill(login)
+        self.login_email_input.fill(email)
         self.login_password_input.should_be_visible()
         self.login_password_input.fill(password)
         self.login_submit_button.should_be_visible()
@@ -293,4 +294,11 @@ class HomePage(BasePage):
         self.search_form.select_type(category)
         self.search_form.search.click()
         self.page.check_page_url_has_path(expected_path)
+        self.page.check_response_status_code()
+
+    @allure.step('Check "Samo novogradnja" checkbox for "Tip" = "{category}" can be selected: {checkbox_is_available}')
+    def check_checkbox_new_buildings_only(self, category: str, subcategory: str, checkbox_is_available: bool,
+                                          expected_url: str):
+        self.search_form.check_checkbox_new_buildings_only(category, checkbox_is_available, subcategory)
+        self.page.check_page_url_has_path(expected_url)
         self.page.check_response_status_code()

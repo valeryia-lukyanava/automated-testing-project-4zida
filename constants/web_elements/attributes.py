@@ -4,3 +4,7 @@ class Attributes(str):
     ARIA_SELECTED = "aria-selected"
     SELECTED = "selected"
     PLACEHOLDER = "placeholder"
+    DATA_STATE = "data-state"
+    DATA_DISABLED = "data-disabled"
+    CHECKED = "checked"
+    UNCHECKED = "unchecked"

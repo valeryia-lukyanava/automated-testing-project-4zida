@@ -14,7 +14,7 @@ def attach_screenshot(page: Page, test_name: str):
         os.mkdir(ui_config.logging.screenshots_dir)
 
     if "[" in test_name:
-        test_name = test_name.split("-")[0] + "]"
+        test_name = test_name[:test_name.find('[')] + test_name[test_name.find(']') + 1:]
 
     screenshot = page.screenshot(f'screenshots/{test_name}{datetime.now().strftime("%Y-%m-%dT%H%M%S")}.png')
 
