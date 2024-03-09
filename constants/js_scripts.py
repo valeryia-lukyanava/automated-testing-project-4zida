@@ -17,3 +17,4 @@ class JS(str, Enum):
     USER_AGENT = "return navigator.userAgent;"
     CLIENT_WINDOW_WIDTH = "return document.documentElement.clientWidth;"
     CLIENT_WINDOW_HEIGHT = "return document.documentElement.clientHeight;"
+    CLICK = "arguments[0].click();"
