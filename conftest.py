@@ -26,7 +26,7 @@ def performance_tests_config() -> PerformanceMeasurementConfig:
 
 
 @pytest.fixture(scope='session')
-def credentials_config() -> QACredentials:
+def credentials() -> QACredentials:
     return QACredentials()
 
 

@@ -75,6 +75,8 @@ class UIConfig(BaseSettings):
 class QACredentials(BaseSettings):
     qa_email: str = Field(env="QA_EMAIL")
     qa_password: str = Field(env="QA_PASSWORD")
+    google_qa_email: str = Field(env="GOOGLE_QA_EMAIL")
+    google_qa_password: str = Field(env="GOOGLE_QA_PASSWORD")
 
     class Config:
         env_file = '.env'
