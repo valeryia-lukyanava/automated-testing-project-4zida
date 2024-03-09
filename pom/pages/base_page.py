@@ -11,11 +11,12 @@ class BasePage:
         self.errors = []
         self.cookies_modal = CookiesModal(page)
 
-    def visit(self, url: str = '', url_suffix: str = '') -> None:
-        # with allure.step(f'Opening the url "{self.page.config.base_url}{url}" and close cookies'):
+    def visit(self, url: str = '', url_suffix: str = '', cookie_enabled: bool = False) -> None:
         with allure.step(f'Opening the url "{self.page.config.base_url}{url}"'):
             self.page.get(url, url_suffix)
-            # self.cookies_modal.close() # TODO : remove for next env ?
+            if cookie_enabled:
+                with allure.step(f'Check and close cookies'):
+                    self.cookies_modal.close()
 
     def get_performance_metrics(self, run: int, performance_metrics: dict, url: str = '') -> None:
         with allure.step(f'Performance test run №{run}'):
