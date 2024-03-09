@@ -1,8 +1,4 @@
-import time
-
 import allure
-from selenium.webdriver import ActionChains
-from selenium.webdriver.common.by import By
 
 from constants.titles.titles import Titles
 from constants.urls.paths import Paths
@@ -16,6 +12,7 @@ from pom.page_factory.title import Title
 from pom.pages.base_page import BasePage
 from pom.models.page import Page
 from pom.pages.forms.search_form import SearchForm
+from pom.pages.google_sign_in_page import GoogleSignInPage
 from utils.logger import logger
 
 
@@ -72,11 +69,21 @@ class HomePage(BasePage):
         self.menu_advertisement = Button(
             page, locator=HomePageLocators.MENU_ADVERTISEMENT, name="Menu Button 'Oglašavanje'"
         )
+        self.avatar_image = Component(
+            page, locator=HomePageLocators.AVATAR_IMAGE, name="Avatar Image"
+        )
+
         self.login = Button(
             page, locator=HomePageLocators.LOGIN, name="Login Button"
         )
         self.login_dialog = Component(
             page, locator=HomePageLocators.LOGIN_DIALOG, name="Login Dialog"
+        )
+        self.login_google_iframe = Component(
+            page, locator=HomePageLocators.LOGIN_GOOGLE_IFRAME, name="Login Google iframe"
+        )
+        self.login_google_button = Button(
+            page, locator=HomePageLocators.LOGIN_GOOGLE_BUTTON, name="Google button"
         )
         self.login_via_email_button = Button(
             page, locator=HomePageLocators.LOGIN_VIA_EMAIL_BUTTON, name="Button 'Nastavi sa email adresom'"
@@ -189,13 +196,14 @@ class HomePage(BasePage):
         menu_element = self.menu_elements[menu]
         menu_element.should_be_visible()
         menu_element.click()
-        self.page.navigate_through_sub_menu(sub_menu)
+        if menu == NavigationMenu.MENU_RENT and sub_menu == Titles.LIST_OF_AGENCIES:
+            self.page.navigate_through_sub_menu(sub_menu, element_index='2')
+        else:
+            self.page.navigate_through_sub_menu(sub_menu)
         self.check_page_url(expected_url, self.errors)
 
     @allure.step('Login via Email')
     def login_via_email(self, login: str, password: str):
-        self.login.click()
-        self.login_dialog.should_be_visible()
         self.login_via_email_button.should_be_visible()
         self.login_via_email_button.click()
         self.login_email_input.should_be_visible()
@@ -204,6 +212,26 @@ class HomePage(BasePage):
         self.login_password_input.fill(password)
         self.login_submit_button.should_be_visible()
         self.login_submit_button.click()
+        self.avatar_image.should_be_visible()
+
+    @allure.step('Login via Google')
+    def login_via_google(self, email, password):
+        self.login_google_iframe.should_be_visible()
+        self.login_google_iframe.click()
+        self.page.webdriver.switch_to.frame(0)
+        self.page.get_xpath_and_check_visibility(HomePageLocators.LOGIN_GOOGLE_BUTTON)
+        self.page.click_with_js(HomePageLocators.LOGIN_GOOGLE_BUTTON)
+        original_window = self.page.get_original_window_handle()
+        self.page.switch_to_new_window()
+        google_sign_in_page = GoogleSignInPage(self.page)
+        google_sign_in_page.sign_in_google_account(email, password)
+        self.page.webdriver.switch_to.window(original_window)
+        self.avatar_image.should_be_visible()
+
+    @allure.step('Click Login Button and check Login Dialog is visible')
+    def login_click(self):
+        self.login.click()
+        self.login_dialog.should_be_visible()
 
     @allure.step('Check Tabs "Prodaja/Izdavanje" are working')
     def check_tabs_are_working(self):
@@ -258,3 +286,11 @@ class HomePage(BasePage):
     def check_carousel_premium_ads(self):
         self.carousel_premium_ads.should_be_visible()
         self.page.check_carousel_items(carousel_items_xpath=HomePageLocators.CAROUSEL_PREMIUM_ADS_LINKS)
+
+    @allure.step('Check "Upiši lokaciju" Autocomplete Multiselect')
+    def check_location_multiselect(self, input_values: list, locations: list, category: str, expected_path: str):
+        self.search_form.select_locations(input_values, locations)
+        self.search_form.select_type(category)
+        self.search_form.search.click()
+        self.page.check_page_url_has_path(expected_path)
+        self.page.check_response_status_code()

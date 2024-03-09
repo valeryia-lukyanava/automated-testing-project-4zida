@@ -2,15 +2,17 @@ import allure
 
 from constants.titles.dropdown_subtypes import DropdownSubtypes
 from constants.titles.dropdown_types import DropdownTypes
+from constants.titles.titles import Titles
 from constants.web_elements.attributes import Attributes
-from constants.web_elements.tags import Tags
 from locators.search_form_locators import SearchFormLocators
 from pom.page_factory.button import Button
+from pom.page_factory.component import Component
 from pom.page_factory.form import Form
 from pom.page_factory.input import Input
 from pom.page_factory.option import Option
 from pom.page_factory.select import Select
 from pom.page_factory.text import Text
+from pom.page_factory.title import Title
 from pom.pages.base_page import BasePage
 from pom.models.page import Page
 
@@ -105,7 +107,22 @@ class SearchForm(BasePage):
             page, locator=SearchFormLocators.SEARCH_FORM_COMBOBOX_SUBTYPE_INPUT,
             name="Search Form Dropdown Subcategoty Input"
         )
-
+        self.location_multiselect = Input(
+            page, locator=SearchFormLocators.SEARCH_FORM_LOCATION_INPUT,
+            name="Search Form 'Upiši lokaciju' Multiselect"
+        )
+        self.location_autocomplete_drawer = Component(
+            page, locator=SearchFormLocators.SEARCH_FORM_LOCATION_AUTOCOMPLETE_DRAWER,
+            name="Search Form 'Upiši lokaciju' AutoComplete Drawer"
+        )
+        self.location_autocomplete_drawer_option = Option(
+            page, locator=SearchFormLocators.SEARCH_FORM_LOCATION_AUTOCOMPLETE_DRAWER_OPTION,
+            name="Search Form 'Upiši lokaciju' AutoComplete Drawer Option"
+        )
+        self.location_selected_locations_number = Title(
+            page, locator=SearchFormLocators.SEARCH_FORM_SELECTED_LOCATIONS_NUMBER,
+            name="Search Form 'Upiši lokaciju' Selected Locations Number"
+        )
         self.type_options = {
             DropdownTypes.APARTMENT: (
                 self.type_apartment,
@@ -152,7 +169,7 @@ class SearchForm(BasePage):
         type_button = self.type_options[value][0]
         type_option = self.type_options[value][1]
         type_button.click()
-        type_option.should_have_attribute(Tags.SELECTED)
+        type_option.should_have_attribute(Attributes.SELECTED)
 
     @allure.step('Check that dropdown "Tip" has the value {value}')
     def check_type_value(self, value: str):
@@ -191,3 +208,28 @@ class SearchForm(BasePage):
             option.click()
         self.combobox_subtype_input.click()
         self.combobox_subtype_input.should_have_text(', '.join([str(x) for x in subtype_values]))
+
+    @allure.step('Check selecting locations"')
+    def select_locations(self, input_values: list, locations: list):
+        self.location_multiselect.should_be_visible()
+        n = len(locations)
+        for i in range(0, n):
+            with allure.step(f'User input: "'):
+                self.location_multiselect.fill(input_values[i])
+                self.location_autocomplete_drawer.should_be_visible()
+                self.location_autocomplete_drawer_option.should_be_visible()
+                location_option = self.page.get_xpath(
+                    f'{SearchFormLocators.SEARCH_FORM_LOCATION_AUTOCOMPLETE_DRAWER_OPTION_BY_TEXT}="{locations[i]}"]')
+                location_option.scroll_to_element()
+                location_option.should().be_visible()
+                location_option.click()
+                self.location_multiselect.click()
+                selected_location_title = self.page.get_xpath(
+                    f'{SearchFormLocators.SEARCH_FORM_SELECTED_LOCATIONS_TITLE}="{locations[i]}"]')
+                selected_location_title.should().be_visible()
+                self.location_multiselect.click()
+        self.location_selected_locations_number.should_be_visible()
+        self.location_selected_locations_number.should_have_text(f"{Titles.SEARCH_FORM_SELECTED_LOCATIONS_TITLE}{n}")
+        self.location_multiselect.should_have_attribute_value(Attributes.PLACEHOLDER, ", ".join(locations))
+        self.form.click()
+        self.search.should_be_visible()
