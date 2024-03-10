@@ -72,14 +72,13 @@ class NavigationSubMenu(list):
         (17, "Novogradnja u Rumi", f"{ui_config.production_base_url}/novogradnja/ruma"),
         (18, "Novogradnja u Bečeju", f"{ui_config.production_base_url}/novogradnja/becej"),
         (19, "Novogradnja u Prokuplju", f"{ui_config.production_base_url}/novogradnja/prokuplje"),
-        (20, "Novogradnja u Vršcu", f"{ui_config.production_base_url}/novogradnja/vrsac"),
-        (21, "Novogradnja u Inđiji", f"{ui_config.production_base_url}/novogradnja/indjija"),
-        (22, "Novogradnja u Sremskoj Mitrovici",
+        (20, "Novogradnja u Inđiji", f"{ui_config.production_base_url}/novogradnja/indjija"),
+        (21, "Novogradnja u Sremskoj Mitrovici",
          f"{ui_config.production_base_url}/novogradnja/gradske-lokacije-sremska-mitrovica"),
-        (23, "Novogradnja u Novim Banovcima",
+        (22, "Novogradnja u Novim Banovcima",
          f"{ui_config.production_base_url}/novogradnja/novi-banovci-okolne-lokacije-stara-pazova"),
-        (24, "Vodič za stambeni kredit", f"{ui_config.production_base_url}/blog/sta-mi-je-potrebno-za-stambeni-kredit"),
-        (25, "Lista investitora", f"{ui_config.production_base_url}/investitori")
+        (23, "Vodič za stambeni kredit", f"{ui_config.production_base_url}/blog/sta-mi-je-potrebno-za-stambeni-kredit"),
+        (24, "Lista investitora", f"{ui_config.production_base_url}/investitori")
     ]
     SUB_MENU_ADVERTISEMENT = [
         (1, "Cenovnik oglašavanja", f"{ui_config.production_base_url}/cenovnik"),
