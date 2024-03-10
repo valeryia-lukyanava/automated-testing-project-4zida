@@ -4,9 +4,11 @@ import os
 import pytest
 from datetime import datetime
 
-from config import UIConfig, PerformanceMeasurementConfig, get_ui_config, QACredentials
+from config import UIConfig, PerformanceMeasurementConfig, get_ui_config, UserCredentials
+from constants.urls.api_endpoints import APIEndpoints
 from pom.models.page import Page
 from utils.attach_screenshot import attach_screenshot
+from utils.http_requests import send_delete_request
 from utils.logger import logger
 
 
@@ -25,9 +27,11 @@ def performance_tests_config() -> PerformanceMeasurementConfig:
     return PerformanceMeasurementConfig()
 
 
-@pytest.fixture(scope='session')
-def credentials() -> QACredentials:
-    return QACredentials()
+@pytest.fixture(scope='function')
+def credentials() -> UserCredentials:
+    user_credentials = UserCredentials()
+    yield user_credentials
+    send_delete_request(f"{APIEndpoints.DELETE_USER}{user_credentials.new_user_email}", user_credentials.x_api_key)
 
 
 @pytest.fixture(scope='session')

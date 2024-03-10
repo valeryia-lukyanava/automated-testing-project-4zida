@@ -10,12 +10,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 from urllib3.exceptions import MaxRetryError
 
 from config import UIConfig
+from constants.urls.emails import Emails
 from constants.titles.errors import Errors
 from constants.web_elements.attributes import Attributes
 from constants.js_scripts import JS
 from constants.web_elements.tags import Tags
 from locators.home_page_locators import HomePageLocators
-from constants.urls.paths import Paths
 from utils.bowser_log_parser import get_lcp_from_logs
 from utils.http_requests import send_get_request
 from utils.logger import logger
@@ -369,7 +369,7 @@ class Page(PageInterface):
             if len(image) > 0:
                 text = image[0].get_attribute('alt')
 
-        if url != Paths.MAILTO:
+        if url != Emails.MAILTO:
             with allure.step(f"Checking Footer link #{index} '{text}' (href = '{url}')"):
 
                 logger.info(f"Link #{index} '{text}' (href = '{url}')")

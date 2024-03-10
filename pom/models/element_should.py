@@ -32,10 +32,10 @@ class ElementShould(ElementShouldInterface):
         except TimeoutException:
             value = False
         if value:
-            logger.info("Element is displayed and enabled (clickable)")
+            logger.info("The element is displayed and enabled (clickable)")
             return self._element
 
-        raise AssertionError("Element was not clickable")
+        raise AssertionError("The element was not clickable")
 
     def be_hidden(self) -> ElementInterface:
         """An expectation that the element is not displayed but still in the DOM (aka hidden)"""
@@ -46,7 +46,7 @@ class ElementShould(ElementShouldInterface):
 
         if value:
             return self._element
-        raise AssertionError("Element was not hidden")
+        raise AssertionError("The element was not hidden")
 
     def be_visible(self) -> ElementInterface:
         """An expectation that the element is displayed"""
@@ -56,10 +56,10 @@ class ElementShould(ElementShouldInterface):
             value = False
 
         if value:
-            logger.info("Element is visible")
+            logger.info("The element is visible")
             return self._element
 
-        raise AssertionError("Element was not visible")
+        raise AssertionError("The element was not visible")
 
     def have_text(self, text: str, case_sensitive=True) -> "ElementInterface":
         """An expectation that the element has the given text"""
@@ -77,7 +77,7 @@ class ElementShould(ElementShouldInterface):
             return self._element
 
         raise AssertionError(
-            f"Expected text: '{text}' - Actual text: '{self._element.web_element.text}'"
+            f"The expected text: '{text}' - the actual text: '{self._element.web_element.text}'"
         )
 
     def have_accessible_name(self, accessible_name: str, case_sensitive=True) -> "ElementInterface":
@@ -96,7 +96,7 @@ class ElementShould(ElementShouldInterface):
             return self._element
 
         raise AssertionError(
-            f"Expected accessible name: '{accessible_name}' - Actual accessible name: "
+            f"The expected accessible name: '{accessible_name}' - The actual accessible name: "
             f"'{self._element.web_element.accessible_name}'"
         )
 
@@ -118,8 +118,8 @@ class ElementShould(ElementShouldInterface):
             return self._element
 
         error = AssertionError(
-            f"Expected attribute value: '{value}' - "
-            f"Actual attribute value: '{self._element.web_element.get_attribute(attribute)}'"
+            f"The expected attribute value: '{value}' - "
+            f"The actual attribute value: '{self._element.web_element.get_attribute(attribute)}'"
         )
         if raise_error:
             raise error
@@ -128,7 +128,7 @@ class ElementShould(ElementShouldInterface):
 
     def have_attribute(self, attribute) -> "ElementInterface":
         """An expectation that the element has the given attribute"""
-        logger.info("Element should have an attribute '%s'", attribute)
+        logger.info("The element should have an attribute '%s'", attribute)
         try:
             result = self._wait.until(lambda e: "" in e.get_attribute(attribute))
         except TimeoutException:
@@ -137,4 +137,17 @@ class ElementShould(ElementShouldInterface):
         if result:
             return self._element
 
-        raise AssertionError(f"Expected attribute '{attribute}' was not found")
+        raise AssertionError(f"The expected attribute '{attribute}' was not found")
+
+    def not_have_attribute(self, attribute) -> "ElementInterface":
+        """An expectation that the element has not the given attribute"""
+        logger.info("Element should not have an attribute '%s'", attribute)
+        try:
+            result = not self._wait.until(lambda e: "" in e.get_attribute(attribute))
+        except TypeError:
+            result = True
+
+        if result:
+            return self._element
+
+        raise AssertionError(f"The element should not have the attribute '{attribute}', but it was found")

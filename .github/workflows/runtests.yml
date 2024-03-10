@@ -9,10 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Run Tests
     env:
-      QA_EMAIL: ${{ secrets.QA_EMAIL }}
-      QA_PASSWORD: ${{ secrets.QA_PASSWORD }}
-      GOOGLE_QA_EMAIL: ${{ secrets.GOOGLE_QA_EMAIL }}
-      GOOGLE_QA_PASSWORD: ${{ secrets.GOOGLE_QA_PASSWORD }}
+      USER_EMAIL: ${{ secrets.USER_EMAIL }}
+      USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+      USER_GOOGLE_EMAIL: ${{ secrets.USER_GOOGLE_EMAIL }}
+      USER_GOOGLE_PASSWORD: ${{ secrets.USER_GOOGLE_PASSWORD }}
+      NEW_USER_EMAIL: ${{ secrets.NEW_USER_EMAIL }}
+      NEW_USER_PASSWORD: ${{ secrets.NEW_USER_PASSWORD }}
+      X_API_KEY: ${{ secrets.X_API_KEY }}
       URL_SUFFIX: ${{ secrets.URL_SUFFIX }}
     steps:
     - name: Checkout

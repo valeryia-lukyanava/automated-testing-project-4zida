@@ -72,11 +72,14 @@ class UIConfig(BaseSettings):
         env_file_encoding = 'utf-8'
 
 
-class QACredentials(BaseSettings):
-    qa_email: str = Field(env="QA_EMAIL")
-    qa_password: str = Field(env="QA_PASSWORD")
-    google_qa_email: str = Field(env="GOOGLE_QA_EMAIL")
-    google_qa_password: str = Field(env="GOOGLE_QA_PASSWORD")
+class UserCredentials(BaseSettings):
+    registered_user_email: str = Field(env="USER_EMAIL")
+    registered_user_password: str = Field(env="USER_PASSWORD")
+    user_google_email: str = Field(env="USER_GOOGLE_EMAIL")
+    user_google_password: str = Field(env="USER_GOOGLE_PASSWORD")
+    new_user_email: str = Field(env="NEW_USER_EMAIL")
+    new_user_password: str = Field(env="NEW_USER_PASSWORD")
+    x_api_key: str = Field(env="X_API_KEY")
 
     class Config:
         env_file = '.env'

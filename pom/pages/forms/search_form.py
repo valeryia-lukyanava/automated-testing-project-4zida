@@ -174,13 +174,13 @@ class SearchForm(BasePage):
         self.tab_rent.should_have_attribute_value(Attributes.ARIA_SELECTED, "false")
 
     @allure.step('Select option "{value}" in dropdown "Tip"')
-    def select_type(self, value: str, subcategory: str = None):
+    def select_type(self, value: str, subcategory: str = ""):
         self.combobox_type.click()
         type_button = self.type_options[value][0]
         type_option = self.type_options[value][1]
         type_button.click()
         type_option.should_have_attribute(Attributes.SELECTED)
-        if subcategory is not None:
+        if subcategory != "":
             for option in self.page.find_xpath(SearchFormLocators.SEARCH_FORM_COMBOBOX_SUBTYPE_OPTION).list:
                 if option.web_element.text == subcategory:
                     option.should().be_clickable()
@@ -251,16 +251,41 @@ class SearchForm(BasePage):
         self.form.click()
         self.search.should_be_visible()
 
-    def check_checkbox_new_buildings_only(self, category, checkbox_is_available, subcategory):
-        self.tab_sale.click()
-        self.select_type(category, subcategory)
+    def check_checkbox_label(self, text: str):
         self.checkbox_label.should_be_visible()
-        self.checkbox_label.should_have_text(Titles.NEW_BUILDINGS_ONLY)
-        if checkbox_is_available:
+        self.checkbox_label.should_have_text(text)
+
+    def check_checkbox(self, checkbox_is_enabled: bool):
+        if checkbox_is_enabled:
             self.checkbox.should_have_attribute_value(Attributes.DATA_STATE, Attributes.UNCHECKED)
+            self.checkbox.should_not_have_attribute(Attributes.DATA_DISABLED)
             self.checkbox.click()
             self.checkbox.should_have_attribute_value(Attributes.DATA_STATE, Attributes.CHECKED)
         else:
             self.checkbox.should_have_attribute_value(Attributes.DATA_STATE, Attributes.CHECKED)
             self.checkbox.should_have_attribute(Attributes.DATA_DISABLED)
+
+    def check_checkbox_new_buildings_only(self, category, checkbox_is_enabled, subcategory):
+        self.tab_sale.click()
+        self.select_type(category, subcategory)
+        self.check_checkbox_label(Titles.NEW_BUILDINGS_ONLY)
+        self.check_checkbox(checkbox_is_enabled)
         self.search.click()
+
+    def check_checkbox_for_a_day(self, category, checkbox_is_enabled, subcategory, title):
+        self.tab_rent.click()
+        self.select_type(category, subcategory)
+        self.check_checkbox_label(title)
+        self.check_checkbox(checkbox_is_enabled)
+        self.search.click()
+
+    def check_visibility_of_checkbox_for_a_day(self, category, checkbox_is_visible, subcategory):
+        self.tab_rent.click()
+        self.select_type(category, subcategory)
+        checkbox_xpath = SearchFormLocators.SEARCH_FORM_CHECKBOX_BUTTON
+        if checkbox_is_visible:
+            self.checkbox.should_be_visible()
+        elif self.page.find_xpath(checkbox_xpath).length() > 0:
+            if self.page.find_xpath(checkbox_xpath).list[0].is_displayed():
+                raise AssertionError(f"Expected: the element should not be visible - Actual: the element with xpath "
+                                     f"'{checkbox_xpath}' was found on the page")

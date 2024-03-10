@@ -8,3 +8,4 @@ class Titles(str):
     SEARCH_FORM_SELECTED_LOCATIONS_TITLE = "Izabrano: "
     LIST_OF_AGENCIES = "Lista agencija"
     NEW_BUILDINGS_ONLY = "Samo novogradnja"
+    APARTMENT_FOR_A_DAY = 'Stan na dan'

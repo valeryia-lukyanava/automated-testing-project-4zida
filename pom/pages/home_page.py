@@ -1,19 +1,17 @@
 import allure
 
 from constants.titles.titles import Titles
-from constants.urls.paths import Paths
-from constants.web_elements.attributes import Attributes
+from constants.urls.routes import Routes
 from locators.home_page_locators import HomePageLocators
 from constants.titles.navigation_menu import NavigationMenu
 from constants.web_elements.tags import Tags
 from pom.page_factory.button import Button
 from pom.page_factory.component import Component
-from pom.page_factory.input import Input
 from pom.page_factory.title import Title
 from pom.pages.base_page import BasePage
 from pom.models.page import Page
+from pom.pages.forms.login_form import LoginForm
 from pom.pages.forms.search_form import SearchForm
-from pom.pages.google_sign_in_page import GoogleSignInPage
 from utils.logger import logger
 
 
@@ -21,6 +19,7 @@ class HomePage(BasePage):
     def __init__(self, page: Page) -> None:
         super().__init__(page)
         self.search_form = SearchForm(page)
+        self.login_form = LoginForm(page)
 
         self.meta_description = Component(
             page, locator=HomePageLocators.META_DESCRIPTION, name="Meta tag"
@@ -73,30 +72,8 @@ class HomePage(BasePage):
         self.avatar_image = Component(
             page, locator=HomePageLocators.AVATAR_IMAGE, name="Avatar Image"
         )
-
         self.login = Button(
             page, locator=HomePageLocators.LOGIN, name="Login Button"
-        )
-        self.login_dialog = Component(
-            page, locator=HomePageLocators.LOGIN_DIALOG, name="Login Dialog"
-        )
-        self.login_google_iframe = Component(
-            page, locator=HomePageLocators.LOGIN_GOOGLE_IFRAME, name="Login Google iframe"
-        )
-        self.login_google_button = Button(
-            page, locator=HomePageLocators.LOGIN_GOOGLE_BUTTON, name="Google button"
-        )
-        self.login_via_email_button = Button(
-            page, locator=HomePageLocators.LOGIN_VIA_EMAIL_BUTTON, name="Button 'Nastavi sa email adresom'"
-        )
-        self.login_email_input = Input(
-            page, locator=HomePageLocators.LOGIN_EMAIL_INPUT, name="Input 'Email'"
-        )
-        self.login_password_input = Input(
-            page, locator=HomePageLocators.LOGIN_PASSWORD_INPUT, name="Input 'Lozinka'"
-        )
-        self.login_submit_button = Button(
-            page, locator=HomePageLocators.LOGIN_SUBMIT_BUTTON, name="Button 'Prijavi se'"
         )
         self.blog_post_widget = Component(
             page, locator=HomePageLocators.BLOG_POST_WIDGET, name="Widget 'Najnoviji blog postovi'"
@@ -112,6 +89,10 @@ class HomePage(BasePage):
         )
         self.carousel_premium_ads = Component(
             page, locator=HomePageLocators.CAROUSEL_PREMIUM_ADS, name="Carousel 'Premijum oglasi'"
+        )
+        self.questionnaire = Component(
+            page, locator=HomePageLocators.QUESTIONNAIRE,
+            name="Form 'ODGOVORI NA PITANJA I POBOLJŠAJ SVOJE KORISNIČKO ISKUSTVO'"
         )
         self.menu_elements = {
             NavigationMenu.MENU_SALE: self.menu_sale,
@@ -205,34 +186,18 @@ class HomePage(BasePage):
 
     @allure.step('Login via Email')
     def login_via_email(self, email: str, password: str):
-        self.login_via_email_button.should_be_visible()
-        self.login_via_email_button.click()
-        self.login_email_input.should_be_visible()
-        self.login_email_input.fill(email)
-        self.login_password_input.should_be_visible()
-        self.login_password_input.fill(password)
-        self.login_submit_button.should_be_visible()
-        self.login_submit_button.click()
+        self.login_form.login_via_email(email, password)
         self.avatar_image.should_be_visible()
 
     @allure.step('Login via Google')
-    def login_via_google(self, email, password):
-        self.login_google_iframe.should_be_visible()
-        self.login_google_iframe.click()
-        self.page.webdriver.switch_to.frame(0)
-        self.page.get_xpath_and_check_visibility(HomePageLocators.LOGIN_GOOGLE_BUTTON)
-        self.page.click_with_js(HomePageLocators.LOGIN_GOOGLE_BUTTON)
-        original_window = self.page.get_original_window_handle()
-        self.page.switch_to_new_window()
-        google_sign_in_page = GoogleSignInPage(self.page)
-        google_sign_in_page.sign_in_google_account(email, password)
-        self.page.webdriver.switch_to.window(original_window)
+    def login_via_google(self, email: str, password: str):
+        self.login_form.login_via_google(email, password)
         self.avatar_image.should_be_visible()
 
     @allure.step('Click Login Button and check Login Dialog is visible')
     def login_click(self):
         self.login.click()
-        self.login_dialog.should_be_visible()
+        self.login_form.login_dialog.should_be_visible()
 
     @allure.step('Check Tabs "Prodaja/Izdavanje" are working')
     def check_tabs_are_working(self):
@@ -270,7 +235,7 @@ class HomePage(BasePage):
             with allure.step(f'Check Quick Button: "{place_suggestions_button.web_element.accessible_name}"'):
                 place_suggestions_button.should().be_visible()
                 place_suggestions_button.click()
-                self.page.check_page_url_has_path(Paths.SALE_APARTMENTS)
+                self.page.check_page_url_has_path(Routes.SALE_APARTMENTS)
                 self.page.webdriver.back()
 
     @allure.step('Check "Service offerings" Carousel Items')
@@ -296,9 +261,30 @@ class HomePage(BasePage):
         self.page.check_page_url_has_path(expected_path)
         self.page.check_response_status_code()
 
-    @allure.step('Check "Samo novogradnja" checkbox for "Tip" = "{category}" can be selected: {checkbox_is_available}')
-    def check_checkbox_new_buildings_only(self, category: str, subcategory: str, checkbox_is_available: bool,
+    @allure.step('Check "Samo novogradnja" checkbox for "Tip" = "{category}" can be selected: {checkbox_is_enabled}')
+    def check_checkbox_new_buildings_only(self, category: str, subcategory: str, checkbox_is_enabled: bool,
                                           expected_url: str):
-        self.search_form.check_checkbox_new_buildings_only(category, checkbox_is_available, subcategory)
+        self.search_form.check_checkbox_new_buildings_only(category, checkbox_is_enabled, subcategory)
         self.page.check_page_url_has_path(expected_url)
         self.page.check_response_status_code()
+
+    @allure.step('Check "{title}" checkbox for "Tip" = "{category}" can be selected: {checkbox_is_enabled}')
+    def check_checkbox_for_a_day(self, category: str, subcategory: str, checkbox_is_enabled: bool, expected_url: str,
+                                 title: str):
+        self.search_form.check_checkbox_for_a_day(category, checkbox_is_enabled, subcategory, title)
+        self.page.check_page_url_has_path(expected_url)
+        self.page.check_response_status_code()
+
+    @allure.step('Check registration via email for a new user')
+    def register_new_user(self, email, password):
+        self.login_form.register_new_user(email, password)
+        self.avatar_image.should_be_visible()
+
+    @allure.step('Check form "ODGOVORI NA PITANJA I POBOLJŠAJ SVOJE KORISNIČKO ISKUSTVO"')
+    def check_questionnaire(self):
+        self.questionnaire.should_be_visible()
+        # TODO: Questionnaire is not implemented
+
+    @allure.step('Check "... na dan" checkbox for "Tip" = "{category}" is visible: {checkbox_is_visible}')
+    def check_visibility_of_checkbox_for_a_day(self, category, subcategory, checkbox_is_visible):
+        self.search_form.check_visibility_of_checkbox_for_a_day(category, checkbox_is_visible, subcategory)

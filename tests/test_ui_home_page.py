@@ -2,11 +2,11 @@ import allure
 import pytest
 from flaky import flaky
 
-from config import QACredentials
+from config import UserCredentials
 from constants.titles.dropdown_subtypes import DropdownSubtypes
 from constants.titles.dropdown_types import DropdownTypes
 from constants.titles.headers import Headers
-from constants.urls.paths import Paths
+from constants.urls.routes import Routes
 from constants.web_elements.tags import Tags
 from pom.pages.home_page import HomePage
 from constants.titles.titles import Titles
@@ -35,18 +35,29 @@ class TestUIHomePage:
         home_page.check_search_form_is_visible()
 
     @allure.id('3')
-    @allure.title('Check Login via Google')
-    def test_login_via_google(self, home_page: HomePage, credentials: QACredentials):
+    @allure.title('Check New User Registration and Questionnaire after a Successful Registration')
+    def test_register_new_user(self, home_page: HomePage, credentials: UserCredentials):
         home_page.visit()
         home_page.login_click()
-        home_page.login_via_google(email=credentials.google_qa_email, password=credentials.google_qa_password)
+        home_page.register_new_user(email=credentials.new_user_email,
+                                    password=credentials.new_user_password)
+        home_page.check_questionnaire()
+
+    @allure.id('3')
+    @allure.title('Check Login via Google')
+    def test_login_via_google(self, home_page: HomePage, credentials: UserCredentials):
+        home_page.visit()
+        home_page.login_click()
+        home_page.login_via_google(email=credentials.user_google_email,
+                                   password=credentials.user_google_password)
 
     @allure.id('4')
     @allure.title('Check Login via Email')
-    def test_login_via_email(self, home_page: HomePage, credentials: QACredentials):
+    def test_login_via_email(self, home_page: HomePage, credentials: UserCredentials):
         home_page.visit()
         home_page.login_click()
-        home_page.login_via_email(email=credentials.qa_email, password=credentials.qa_password)
+        home_page.login_via_email(email=credentials.registered_user_email,
+                                  password=credentials.registered_user_password)
 
     @allure.id('5')
     @allure.title('Check Search Form is visible and Tabs are working')
@@ -83,14 +94,14 @@ class TestUIHomePage:
     @allure.title('Check "Upiši lokaciju" Autocomplete Multiselect')
     @pytest.mark.parametrize("input_values,locations,category,expected_path", [
         (["Beo"], ["Beograd"],
-         DropdownTypes.HOUSE, f"{Paths.SALE_HOUSES}/beograd"),
+         DropdownTypes.HOUSE, f"{Routes.SALE_HOUSES}/beograd"),
         (["Subotica"], ["Subotica (Gradske lokacije)"],
-         DropdownTypes.OFFICE, f"{Paths.SALE_OFFICES}/gradske-lokacije-subotica"),
+         DropdownTypes.OFFICE, f"{Routes.SALE_OFFICES}/gradske-lokacije-subotica"),
         (["novi sad"], ["Novi Sad (Gradske i okolne lokacije)"],
-         DropdownTypes.OFFICE, f"{Paths.SALE_OFFICES}/novi-sad"),
+         DropdownTypes.OFFICE, f"{Routes.SALE_OFFICES}/novi-sad"),
         (["Beograd", "Subotica", "Novi Sad"], ["Beograd", "Subotica (Gradske lokacije)", "Novi Sad (Gradske lokacije)"],
          DropdownTypes.HOUSE,
-         f"{Paths.SALE_HOUSES}/beograd?mesto=gradske-lokacije-subotica&mesto=gradske-lokacije-novi-sad"),
+         f"{Routes.SALE_HOUSES}/beograd?mesto=gradske-lokacije-subotica&mesto=gradske-lokacije-novi-sad"),
     ])
     def test_location_multiselect(self, home_page: HomePage, input_values: list, locations: list, category: str,
                                   expected_path: str):
@@ -102,7 +113,7 @@ class TestUIHomePage:
     @allure.title('Check Search Form Inputs "Cena do" and "m2 od"')
     @pytest.mark.parametrize("property_type,price_to,m2_from,expected_path", [
         (DropdownTypes.HOUSE, "0", "0", ""),
-        (DropdownTypes.HOUSE, "100000", "50", f"{Paths.SALE_HOUSES}?jeftinije_od=100000eur&vece_od=50m2"),
+        (DropdownTypes.HOUSE, "100000", "50", f"{Routes.SALE_HOUSES}?jeftinije_od=100000eur&vece_od=50m2"),
         (DropdownTypes.HOUSE, "-100000", "50", ""),
         (DropdownTypes.HOUSE, "100000", "-50", "")
     ])
@@ -114,23 +125,50 @@ class TestUIHomePage:
         home_page.check_the_search_returns_no_server_error(expected_path)
 
     @allure.id('10')
-    @pytest.mark.parametrize("category,subcategory,checkbox_is_available,expected_url", [
-        (DropdownTypes.APARTMENT, "Troiposoban stan", True, f"{Paths.SALE_APARTMENTS}?struktura=troiposoban"),
-        (DropdownTypes.HOUSE, None, False, Paths.SALE_HOUSES),
-        (DropdownTypes.OFFICE, None, True, f"{Paths.NEW_BUILDINGS}/prodaja-poslovnih-prostora"),
-        (DropdownTypes.LAND, None, False, Paths.SALE_LANDS),
-        (DropdownTypes.GARAGE, None, True, f"{Paths.NEW_BUILDINGS}{Paths.SALE_GARAGE}")
+    @pytest.mark.parametrize("category,subcategory,checkbox_is_enabled,expected_url", [
+        (DropdownTypes.APARTMENT, "Troiposoban stan", True, f"{Routes.SALE_APARTMENTS}?struktura=troiposoban"),
+        (DropdownTypes.HOUSE, "", False, Routes.SALE_HOUSES),
+        (DropdownTypes.OFFICE, "", True, f"{Routes.NEW_BUILDINGS}/prodaja-poslovnih-prostora"),
+        (DropdownTypes.LAND, "", False, Routes.SALE_LANDS),
+        (DropdownTypes.GARAGE, "", True, f"{Routes.NEW_BUILDINGS}{Routes.SALE_GARAGE}")
     ])
     @allure.title('Check "Samo novogradnja" checkbox')
     def test_check_checkbox_new_buildings_only(self, home_page: HomePage, category: str, subcategory: str,
-                                               checkbox_is_available: bool, expected_url: str):
+                                               checkbox_is_enabled: bool, expected_url: str):
         home_page.visit()
         home_page.check_search_form_is_visible()
         home_page.check_checkbox_new_buildings_only(category=category, subcategory=subcategory,
-                                                    checkbox_is_available=checkbox_is_available,
+                                                    checkbox_is_enabled=checkbox_is_enabled,
                                                     expected_url=expected_url)
 
-    # "Stan na dan" checkbox
+    @allure.id('10')
+    @pytest.mark.parametrize("category,subcategory,checkbox_is_enabled,expected_url,title", [
+        (DropdownTypes.APARTMENT, "Garsonjera", True,
+         f"{Routes.RENT_APARTMENTS}?struktura=garsonjera&period=na_dan", "Stan na dan"),
+        (DropdownTypes.HOUSE, "", True, f"{Routes.RENT_HOUSES}?period=na_dan", "Kuća na dan"),
+        (DropdownTypes.GARAGE, "", True, f"{Routes.RENT_GARAGE}?period=na_dan", "Garaža/parking na dan")
+    ])
+    @allure.title('Check "Stan na dan", "Kuća na dan" and "Garaža/parking na dan" checkboxes')
+    def test_check_checkbox_for_a_day(self, home_page: HomePage, category: str, subcategory: str,
+                                      checkbox_is_enabled: bool, expected_url: str, title: str):
+        home_page.visit()
+        home_page.check_search_form_is_visible()
+        home_page.check_checkbox_for_a_day(category=category, subcategory=subcategory,
+                                           checkbox_is_enabled=checkbox_is_enabled, expected_url=expected_url,
+                                           title=title)
+
+    @allure.id('10')
+    @pytest.mark.parametrize("category,subcategory,checkbox_is_visible", [
+        (DropdownTypes.OFFICE, "", False),
+        (DropdownTypes.LAND, "", False)
+    ])
+    @allure.title('Check "... na dan" checkbox is not visible for "Poslovni prostori" and "Placevi"')
+    def test_check_visibility_of_checkbox_for_a_day(self, home_page: HomePage, category: str, subcategory: str,
+                                                    checkbox_is_visible: bool):
+        home_page.visit()
+        home_page.check_search_form_is_visible()
+        home_page.check_visibility_of_checkbox_for_a_day(category=category, subcategory=subcategory,
+                                                         checkbox_is_visible=checkbox_is_visible)
 
     @allure.id('11')
     @allure.title('Check "Popularni gradovi" Quick Links')

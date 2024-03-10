@@ -5,6 +5,6 @@ class Attributes(str):
     SELECTED = "selected"
     PLACEHOLDER = "placeholder"
     DATA_STATE = "data-state"
-    DATA_DISABLED = "data-disabled"
+    DATA_DISABLED = "disabled"
     CHECKED = "checked"
     UNCHECKED = "unchecked"
