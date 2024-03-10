@@ -9,6 +9,7 @@ from pom.page_factory.input import Input
 from pom.pages.base_page import BasePage
 from pom.models.page import Page
 from pom.pages.google_sign_in_page import GoogleSignInPage
+from utils.logger import logger
 
 
 class LoginForm(BasePage):
@@ -82,6 +83,7 @@ class LoginForm(BasePage):
         time.sleep(2)
         self.login_google_iframe.should_be_visible()
         self.page.webdriver.switch_to.frame(0)
+        logger.info(f"Page Source: {self.page.webdriver.page_source}")
         time.sleep(2)
         self.page.get_xpath_and_check_visibility(LoginFormLocators.LOGIN_GOOGLE_BUTTON)
         self.page.click_with_js(LoginFormLocators.LOGIN_GOOGLE_BUTTON)

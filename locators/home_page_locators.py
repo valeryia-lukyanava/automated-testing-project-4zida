@@ -18,6 +18,7 @@ class HomePageLocators(str):
     MENU_NEW = f'//header//nav//div[text()="{NavigationMenu.MENU_NEW}"]'
     MENU_ADVERTISEMENT = f'//header//nav//div[text()="{NavigationMenu.MENU_ADVERTISEMENT}"]'
     SUB_MENU = '//header//nav/a[text()='
+    HIGHLIGHTS_SUB_MENU = '//header//nav//span[text()='
     AVATAR_IMAGE = '//header/span//img[@alt="profilna slika"]'
     LOGIN = '//header/a[@href="?modal=prijava"]'
     BLOG_POST_WIDGET = '//section[@test-data="blog-posts"]'

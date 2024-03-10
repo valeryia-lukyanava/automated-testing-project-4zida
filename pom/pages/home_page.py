@@ -186,13 +186,14 @@ class HomePage(BasePage):
     def check_menu_navigation(self, menu: str, sub_menu: str, expected_url: str):
         self.main_menu_button.should_be_visible()
         self.main_menu_button.click()
-        menu_element = self.menu_elements[menu]
-        menu_element.should_be_visible()
-        menu_element.click()
+        if menu not in [NavigationMenu.MENU_HIGHLIGHTS, NavigationMenu.MENU_BLOG]:
+            menu_element = self.menu_elements[menu]
+            menu_element.should_be_visible()
+            menu_element.click()
         if menu == NavigationMenu.MENU_RENT and sub_menu == Titles.LIST_OF_AGENCIES:
-            self.page.navigate_through_sub_menu(sub_menu, element_index='2')
+            self.page.navigate_through_sub_menu(menu, sub_menu, element_index='2')
         else:
-            self.page.navigate_through_sub_menu(sub_menu)
+            self.page.navigate_through_sub_menu(menu, sub_menu)
         self.check_page_url(expected_url, self.errors)
 
     @allure.step('Login via Email')

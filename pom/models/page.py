@@ -10,6 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from urllib3.exceptions import MaxRetryError
 
 from config import UIConfig
+from constants.titles.navigation_menu import NavigationMenu
 from constants.urls.emails import Emails
 from constants.titles.errors import Errors
 from constants.web_elements.attributes import Attributes
@@ -450,11 +451,15 @@ class Page(PageInterface):
                     logger.info(errors[-1])
                 expected_external_links.remove(url)
 
-    def navigate_through_sub_menu(self, sub_menu: str, element_index: str = None):
-        if element_index is None:
-            sub_menu_element = self.get_xpath(f'{HomePageLocators.SUB_MENU}"{sub_menu}"]')
+    def navigate_through_sub_menu(self, menu: str, sub_menu: str, element_index: str = None):
+        if menu in [NavigationMenu.MENU_HIGHLIGHTS, NavigationMenu.MENU_BLOG]:
+            locator = HomePageLocators.HIGHLIGHTS_SUB_MENU
         else:
-            sub_menu_element = self.get_xpath(f'({HomePageLocators.SUB_MENU}"{sub_menu}"])[{element_index}]')
+            locator = HomePageLocators.SUB_MENU
+        if element_index is None:
+            sub_menu_element = self.get_xpath(f'{locator}"{sub_menu}"]')
+        else:
+            sub_menu_element = self.get_xpath(f'({locator}"{sub_menu}"])[{element_index}]')
         with allure.step(f'Checking Sub Menu navigation: "{sub_menu}"'):
             sub_menu_element.scroll_to_element()
             sub_menu_element.should().be_clickable()

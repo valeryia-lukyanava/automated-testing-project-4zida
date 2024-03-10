@@ -88,11 +88,16 @@ class NavigationSubMenu(list):
          f"{ui_config.production_base_url}/cenovnik-za-pravna-lica"),
         (4, "Cenovnik oglašavanja za agencije", f"{ui_config.production_base_url}/cenovnik-za-agencije"),
         (5, "Cenovnik oglašavanja za novogradnju", f"{ui_config.production_base_url}/cenovnik-za-investitore"),
-        (6, "Cenovnik promocije projekata i oglašivača putem banera", f"{ui_config.production_base_url}/baneri"),
-        (7, "Pitaj pravnika", f"{ui_config.production_base_url}/pitaj-pravnika"),
-        (8, "Kretanje cena kvadrata u Srbiji", f"{ui_config.production_base_url}/prosecna-cena-kvadrata-nekretnine"),
-        (9, "Procena vrednosti nekretnine", f"{ui_config.production_base_url}/izracunaj-vrednost-nekretnine"),
-        (10, "Isplativost", f"{ui_config.production_base_url}/isplativost-kupovina-ili-iznajmljivanje"),
-        (11, "Kalkulator kredita", f"{ui_config.production_base_url}/kalkulator-stambenih-i-kes-kredita"),
-        (12, "Kalkulator kreditne sposobnosti", f"{ui_config.production_base_url}/kreditna-sposobnost")
+        (6, "Cenovnik promocije projekata i oglašivača putem banera", f"{ui_config.production_base_url}/baneri")
+    ]
+    HIGHLIGHTS = [
+        (1, "Pitaj pravnika", f"{ui_config.production_base_url}/pitaj-pravnika"),
+        (2, "Kretanje cena kvadrata u Srbiji", f"{ui_config.production_base_url}/prosecna-cena-kvadrata-nekretnine"),
+        (3, "Procena vrednosti nekretnine", f"{ui_config.production_base_url}/izracunaj-vrednost-nekretnine"),
+        (4, "Isplativost", f"{ui_config.production_base_url}/isplativost-kupovina-ili-iznajmljivanje"),
+        (5, "Kalkulator kredita", f"{ui_config.production_base_url}/kalkulator-stambenih-i-kes-kredita"),
+        (6, "Kalkulator kreditne sposobnosti", f"{ui_config.production_base_url}/kreditna-sposobnost")
+    ]
+    BLOG = [
+        (1, "Blog", f"{ui_config.production_base_url}/blog/"),
     ]

@@ -45,3 +45,21 @@ class TestUINavigationMenu:
         home_page.visit()
         home_page.check_menu_navigation(menu=NavigationMenu.MENU_ADVERTISEMENT, sub_menu=sub_menu,
                                         expected_url=expected_url)
+
+    @allure.id('5')
+    @allure.sub_suite('Menu Navigation: "Izdvajamo"')
+    @allure.title('Check Menu Navigation: "Izdvajamo"')
+    @pytest.mark.parametrize("index,sub_menu,expected_url", NavigationSubMenu.HIGHLIGHTS)
+    def test_navigation_menu_highlights(self, home_page: HomePage, index: int, sub_menu: str, expected_url: str):
+        home_page.visit()
+        home_page.check_menu_navigation(menu=NavigationMenu.MENU_HIGHLIGHTS, sub_menu=sub_menu,
+                                        expected_url=expected_url)
+
+    @allure.id('6')
+    @allure.sub_suite('Menu Navigation: "Blog"')
+    @allure.title('Check Menu Navigation: "Blog"')
+    @pytest.mark.parametrize("index,sub_menu,expected_url", NavigationSubMenu.BLOG)
+    def test_navigation_menu_blog(self, home_page: HomePage, index: int, sub_menu: str, expected_url: str):
+        home_page.visit()
+        home_page.check_menu_navigation(menu=NavigationMenu.MENU_BLOG, sub_menu=sub_menu,
+                                        expected_url=expected_url)
