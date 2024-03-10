@@ -1,0 +1,55 @@
+INFO     Logger:page.py:132 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:241 Page.set_page_load_timeout() - Set page load timeout: '30'
+INFO     Logger:page.py:225 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:58 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:111 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//h2'
+INFO     Logger:page.py:117 Client window width: 393, window height: 873
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 The element is visible
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[contains(@id, "rent")]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@data-radix-popper-content-wrapper]//span[text()="Kuće"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//option[@value="house"]'
+INFO     Logger:element_should.py:131 The element should have an attribute 'selected'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//label'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 The element is visible
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//label'
+INFO     Logger:page.py:218 Page.screenshot() - Save screenshot to: 'screenshots/test_check_checkbox_for_a_day2024-03-10T115506.png'
+INFO     Logger:conftest.py:64 Browser console logs: [{'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F745644aac8.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700220}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/static/media/88325a2c1fede2f4-s.woff2 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700221}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F7da69b8ca4.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700222}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/static/media/88325a2c1fede2f4-s.woff2 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700366}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fff63dc5ccf.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700367}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F798bd31850.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700378}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fcb77f3a843.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700378}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fe46edb458d.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700378}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F4ac169ec3c.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700378}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/static/media/d83fe381bb17eb77-s.woff2 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700395}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F1c2e878b7d.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700488}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fd1d00458aa.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700489}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fd14fca2f83.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700490}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fc679304942.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700491}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fe1a455d5f7.jpeg@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700493}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F062a9e2c6f.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700494}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/?_rsc=tnqvz - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700524}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/?modal=prijava&_rsc=tnqvz - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700525}, {'level': 'SEVERE', 'message': 'https://next.4zida.rs/_next/static/media/d83fe381bb17eb77-s.woff2 - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700527}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2F1ac898ec9c.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700623}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fc4507cc6fa.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700624}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fee2adb2935.jpg@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700626}, {'level': 'SEVERE', 'message': 'https://resizer2.4zida.rs/unsigned/rs:auto:128:0/plain/local%3A%2F%2F%2Fagencies%2Fde5605ab4a.png@webp - Failed to load resource: the server responded with a status of 429 ()', 'source': 'network', 'timestamp': 1710071700627}]
+INFO     Logger:page.py:210 Page.quit() - Quit page and close all windows from the browser session
+INFO     Logger:page.py:132 Page.wait_until_stable() - Page wait until driver stable
+INFO     Logger:page.py:241 Page.set_page_load_timeout() - Set page load timeout: '30'
+INFO     Logger:page.py:225 Page.maximize_window() - Maximize browser window
+INFO     Logger:page.py:58 User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+INFO     Logger:page.py:111 Page.visit() - Get URL: 'https://next.4zida.rs'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//h2'
+INFO     Logger:page.py:117 Client window width: 393, window height: 873
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 The element is visible
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[contains(@id, "rent")]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//button[@role="combobox"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@data-radix-popper-content-wrapper]//span[text()="Kuće"]'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element.py:38 Element.click() - Click this element
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//option[@value="house"]'
+INFO     Logger:element_should.py:131 The element should have an attribute 'selected'
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//label'
+INFO     Logger:element.py:90 Element.scroll_to_element() - Scroll to this element
+INFO     Logger:element_should.py:59 The element is visible
+INFO     Logger:page.py:147 Page.get_xpath() - Get the element with xpath: '//div[@test-data="search-form"]//label'
+INFO     Logger:page.py:218 Page.screenshot() - Save screenshot to: 'screenshots/test_check_checkbox_for_a_day2024-03-10T115515.png'
+INFO     Logger:page.py:210 Page.quit() - Quit page and close all windows from the browser session
