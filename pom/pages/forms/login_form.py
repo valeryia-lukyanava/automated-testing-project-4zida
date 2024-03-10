@@ -79,7 +79,7 @@ class LoginForm(BasePage):
 
     @allure.step('Login via Google')
     def login_via_google(self, email, password):
-        time.sleep(1)
+        time.sleep(2)
         self.login_google_iframe.should_be_visible()
         self.page.webdriver.switch_to.frame(0)
         time.sleep(2)
@@ -91,7 +91,8 @@ class LoginForm(BasePage):
         google_sign_in_page.sign_in_google_account(email, password)
         self.page.webdriver.switch_to.window(original_window)
 
-    def register_new_user(self, email, password):
+    @allure.step('Register a New User')
+    def register_new_user(self, email, password, first_name):
         time.sleep(2)
         self.register_new_user_button.should_be_visible()
         self.register_new_user_button.click()
@@ -107,7 +108,7 @@ class LoginForm(BasePage):
         self.login_confirm_password_input.should_be_visible()
         self.login_confirm_password_input.fill(password)
         self.first_name_input.should_be_visible()
-        self.first_name_input.fill("Name")
+        self.first_name_input.fill(first_name)
         self.user_agreement_checkbox.should_be_visible()
         self.user_agreement_checkbox.click()
         self.register_submit_button.should_be_visible()

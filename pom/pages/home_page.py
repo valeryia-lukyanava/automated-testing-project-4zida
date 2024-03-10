@@ -287,8 +287,8 @@ class HomePage(BasePage):
         self.page.check_response_status_code()
 
     @allure.step('Check registration via email for a new user')
-    def register_new_user(self, email, password):
-        self.login_form.register_new_user(email, password)
+    def register_new_user(self, email, password, first_name):
+        self.login_form.register_new_user(email, password, first_name)
         self.avatar_image.should_be_visible()
 
     @allure.step('Check form "ODGOVORI NA PITANJA I POBOLJŠAJ SVOJE KORISNIČKO ISKUSTVO"')

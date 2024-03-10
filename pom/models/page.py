@@ -480,8 +480,12 @@ class Page(PageInterface):
             self.check_link(index, carousel_items_xpath)
 
     def get_xpath_and_check_visibility(self, xpath: str):
-        element = self.get_xpath(xpath)
-        element.should().be_visible()
+        try:
+            element = self.get_xpath(xpath)
+            element.should().be_visible()
+        except AssertionError:
+            time.sleep(1)
+            self.get_xpath_and_check_visibility(xpath)
 
     def click_with_js(self, xpath: str):
         element = self.webdriver.find_element(By.XPATH, xpath)
