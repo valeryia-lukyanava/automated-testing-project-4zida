@@ -1,3 +1,5 @@
+import time
+
 import allure
 
 from constants.titles.titles import Titles
@@ -7,6 +9,7 @@ from constants.titles.navigation_menu import NavigationMenu
 from constants.web_elements.tags import Tags
 from pom.page_factory.button import Button
 from pom.page_factory.component import Component
+from pom.page_factory.text import Text
 from pom.page_factory.title import Title
 from pom.pages.base_page import BasePage
 from pom.models.page import Page
@@ -93,6 +96,14 @@ class HomePage(BasePage):
         self.questionnaire = Component(
             page, locator=HomePageLocators.QUESTIONNAIRE,
             name="Form 'ODGOVORI NA PITANJA I POBOLJŠAJ SVOJE KORISNIČKO ISKUSTVO'"
+        )
+        self.saved_searches_title = Title(
+            page, locator=HomePageLocators.SAVED_SEARCHES,
+            name="Title 'Tvoje pretrage'"
+        )
+        self.saved_searches_links = Button(
+            page, locator=HomePageLocators.SAVED_SEARCHES_LINKS,
+            name="Buttons 'Tvoje pretrage'"
         )
         self.menu_elements = {
             NavigationMenu.MENU_SALE: self.menu_sale,
@@ -288,3 +299,16 @@ class HomePage(BasePage):
     @allure.step('Check "... na dan" checkbox for "Tip" = "{category}" is visible: {checkbox_is_visible}')
     def check_visibility_of_checkbox_for_a_day(self, category, subcategory, checkbox_is_visible):
         self.search_form.check_visibility_of_checkbox_for_a_day(category, checkbox_is_visible, subcategory)
+
+    @allure.step('Check Logged in User Can See Saved Searches')
+    def check_saved_searches(self):
+        self.saved_searches_title.should_be_visible()
+        self.saved_searches_title.should_have_text(Titles.SAVED_SEARCHES)
+        saved_searches_buttons = self.page.find_xpath(HomePageLocators.SAVED_SEARCHES_LINKS)
+        for index in range(saved_searches_buttons.length()):
+            saved_searches_button = self.page.find_xpath(HomePageLocators.SAVED_SEARCHES_LINKS).list[index]
+            with allure.step(f'Check "Tvoje pretrage" Button: "{saved_searches_button.web_element.accessible_name}"'):
+                saved_searches_button.should().be_visible()
+                saved_searches_button.click()
+                self.page.check_response_status_code()
+                self.page.webdriver.back()

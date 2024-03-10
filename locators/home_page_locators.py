@@ -32,3 +32,5 @@ class HomePageLocators(str):
     CAROUSEL_PREMIUM_ADS = '//div[@test-data="premium-ads"]'
     CAROUSEL_PREMIUM_ADS_LINKS = '//div[@test-data="premium-ads"]//a'
     QUESTIONNAIRE = '//*[contains(text(),"ODGOVORI NA PITANJA")]'
+    SAVED_SEARCHES = '//h2[1]'
+    SAVED_SEARCHES_LINKS = '//div[@class="m-4"]//a'

@@ -66,8 +66,10 @@ class LoginForm(BasePage):
 
     @allure.step('Login via Email')
     def login_via_email(self, email: str, password: str):
+        time.sleep(1)
         self.login_via_email_button.should_be_visible()
         self.login_via_email_button.click()
+        time.sleep(1)
         self.login_email_input.should_be_visible()
         self.login_email_input.fill(email)
         self.login_password_input.should_be_visible()
@@ -80,7 +82,7 @@ class LoginForm(BasePage):
         time.sleep(1)
         self.login_google_iframe.should_be_visible()
         self.page.webdriver.switch_to.frame(0)
-        time.sleep(1)
+        time.sleep(2)
         self.page.get_xpath_and_check_visibility(LoginFormLocators.LOGIN_GOOGLE_BUTTON)
         self.page.click_with_js(LoginFormLocators.LOGIN_GOOGLE_BUTTON)
         original_window = self.page.get_original_window_handle()

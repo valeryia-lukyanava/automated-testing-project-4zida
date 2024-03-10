@@ -9,3 +9,4 @@ class Titles(str):
     LIST_OF_AGENCIES = "Lista agencija"
     NEW_BUILDINGS_ONLY = "Samo novogradnja"
     APARTMENT_FOR_A_DAY = 'Stan na dan'
+    SAVED_SEARCHES = 'Tvoje pretrage'

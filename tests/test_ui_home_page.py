@@ -59,6 +59,15 @@ class TestUIHomePage:
         home_page.login_via_email(email=credentials.registered_user_email,
                                   password=credentials.registered_user_password)
 
+    @allure.id('5')
+    @allure.title('Check Logged in User Can See Saved Searches')
+    def test_logged_in_user_can_see_saved_searches(self, home_page: HomePage, credentials: UserCredentials):
+        home_page.visit()
+        home_page.login_click()
+        home_page.login_via_email(email=credentials.registered_user_email,
+                                  password=credentials.registered_user_password)
+        home_page.check_saved_searches()
+
     @allure.id('6')
     @allure.title('Check Search Form is visible and Tabs are working')
     def test_check_search_form_is_visible_and_tabs_work(self, home_page: HomePage):
