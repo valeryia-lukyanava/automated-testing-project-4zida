@@ -28,10 +28,19 @@ def performance_tests_config() -> PerformanceMeasurementConfig:
 
 
 @pytest.fixture(scope='function')
-def credentials() -> UserCredentials:
+def new_user_credentials() -> UserCredentials:
     user_credentials = UserCredentials()
     yield user_credentials
-    send_delete_request(f"{APIEndpoints.DELETE_USER}{user_credentials.new_user_email}", user_credentials.x_api_key)
+    response_code = send_delete_request(f"{APIEndpoints.DELETE_USER}{user_credentials.new_user_email}",
+                                        user_credentials.x_api_key)
+    if response_code == '404':
+        send_delete_request(f"{APIEndpoints.DELETE_USER}{user_credentials.new_user_email}",
+                            user_credentials.x_api_key)
+
+
+@pytest.fixture(scope='session')
+def credentials() -> UserCredentials:
+    return UserCredentials()
 
 
 @pytest.fixture(scope='session')

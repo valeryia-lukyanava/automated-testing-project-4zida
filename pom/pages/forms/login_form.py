@@ -77,10 +77,10 @@ class LoginForm(BasePage):
 
     @allure.step('Login via Google')
     def login_via_google(self, email, password):
+        time.sleep(1)
         self.login_google_iframe.should_be_visible()
-        self.login_google_iframe.click()
         self.page.webdriver.switch_to.frame(0)
-        self.page.wait(1)
+        time.sleep(1)
         self.page.get_xpath_and_check_visibility(LoginFormLocators.LOGIN_GOOGLE_BUTTON)
         self.page.click_with_js(LoginFormLocators.LOGIN_GOOGLE_BUTTON)
         original_window = self.page.get_original_window_handle()

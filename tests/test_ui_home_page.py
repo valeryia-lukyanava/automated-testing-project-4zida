@@ -36,11 +36,11 @@ class TestUIHomePage:
 
     @allure.id('3')
     @allure.title('Check New User Registration and Questionnaire after a Successful Registration')
-    def test_register_new_user(self, home_page: HomePage, credentials: UserCredentials):
+    def test_register_new_user(self, home_page: HomePage, new_user_credentials: UserCredentials):
         home_page.visit()
         home_page.login_click()
-        home_page.register_new_user(email=credentials.new_user_email,
-                                    password=credentials.new_user_password)
+        home_page.register_new_user(email=new_user_credentials.new_user_email,
+                                    password=new_user_credentials.new_user_password)
         home_page.check_questionnaire()
 
     @allure.id('3')
