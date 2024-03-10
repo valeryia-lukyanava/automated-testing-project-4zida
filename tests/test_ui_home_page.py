@@ -43,7 +43,7 @@ class TestUIHomePage:
                                     password=new_user_credentials.new_user_password)
         home_page.check_questionnaire()
 
-    @allure.id('3')
+    @allure.id('4')
     @allure.title('Check Login via Google')
     def test_login_via_google(self, home_page: HomePage, credentials: UserCredentials):
         home_page.visit()
@@ -51,7 +51,7 @@ class TestUIHomePage:
         home_page.login_via_google(email=credentials.user_google_email,
                                    password=credentials.user_google_password)
 
-    @allure.id('4')
+    @allure.id('5')
     @allure.title('Check Login via Email')
     def test_login_via_email(self, home_page: HomePage, credentials: UserCredentials):
         home_page.visit()
@@ -59,21 +59,21 @@ class TestUIHomePage:
         home_page.login_via_email(email=credentials.registered_user_email,
                                   password=credentials.registered_user_password)
 
-    @allure.id('5')
+    @allure.id('6')
     @allure.title('Check Search Form is visible and Tabs are working')
     def test_check_search_form_is_visible_and_tabs_work(self, home_page: HomePage):
         home_page.visit()
         home_page.check_search_form_is_visible()
         home_page.check_tabs_are_working()
 
-    @allure.id('6')
+    @allure.id('7')
     @allure.title('Check Search Form: "Vrsta nekretnine"/”Tip” dropdown')
     def test_check_search_form_type_dropdown(self, home_page: HomePage):
         home_page.visit()
         home_page.check_search_form_is_visible()
         home_page.check_combobox_type()
 
-    @allure.id('7')
+    @allure.id('8')
     @allure.title('Check Search Form: Subcategories dropdown')
     @pytest.mark.parametrize("category, subcategory", [
         (DropdownTypes.APARTMENT, DropdownSubtypes.NUMBER_OF_ROOMS),
@@ -90,7 +90,7 @@ class TestUIHomePage:
                                                      subtype=list(subcategory.keys())[0],
                                                      subtype_values=list(subcategory.values())[0])
 
-    @allure.id('8')
+    @allure.id('9')
     @allure.title('Check "Upiši lokaciju" Autocomplete Multiselect')
     @pytest.mark.parametrize("input_values,locations,category,expected_path", [
         (["Beo"], ["Beograd"],
@@ -109,7 +109,7 @@ class TestUIHomePage:
         home_page.check_location_multiselect(input_values=input_values, locations=locations, category=category,
                                              expected_path=expected_path)
 
-    @allure.id('9')
+    @allure.id('10')
     @allure.title('Check Search Form Inputs "Cena do" and "m2 od"')
     @pytest.mark.parametrize("property_type,price_to,m2_from,expected_path", [
         (DropdownTypes.HOUSE, "0", "0", ""),
@@ -124,7 +124,7 @@ class TestUIHomePage:
         home_page.search_with_parameters(property_type=property_type, price_to=price_to, m2_from=m2_from)
         home_page.check_the_search_returns_no_server_error(expected_path)
 
-    @allure.id('10')
+    @allure.id('11')
     @pytest.mark.parametrize("category,subcategory,checkbox_is_enabled,expected_url", [
         (DropdownTypes.APARTMENT, "Troiposoban stan", True, f"{Routes.SALE_APARTMENTS}?struktura=troiposoban"),
         (DropdownTypes.HOUSE, "", False, Routes.SALE_HOUSES),
@@ -141,7 +141,7 @@ class TestUIHomePage:
                                                     checkbox_is_enabled=checkbox_is_enabled,
                                                     expected_url=expected_url)
 
-    @allure.id('10')
+    @allure.id('12')
     @pytest.mark.parametrize("category,subcategory,checkbox_is_enabled,expected_url,title", [
         (DropdownTypes.APARTMENT, "Garsonjera", True,
          f"{Routes.RENT_APARTMENTS}?struktura=garsonjera&period=na_dan", "Stan na dan"),
@@ -157,7 +157,7 @@ class TestUIHomePage:
                                            checkbox_is_enabled=checkbox_is_enabled, expected_url=expected_url,
                                            title=title)
 
-    @allure.id('10')
+    @allure.id('13')
     @pytest.mark.parametrize("category,subcategory,checkbox_is_visible", [
         (DropdownTypes.OFFICE, "", False),
         (DropdownTypes.LAND, "", False)
@@ -170,37 +170,37 @@ class TestUIHomePage:
         home_page.check_visibility_of_checkbox_for_a_day(category=category, subcategory=subcategory,
                                                          checkbox_is_visible=checkbox_is_visible)
 
-    @allure.id('11')
+    @allure.id('14')
     @allure.title('Check "Popularni gradovi" Quick Links')
     def test_place_suggestions_quick_links(self, home_page: HomePage):
         home_page.visit()
         home_page.check_place_suggestions()
 
-    @allure.id('12')
+    @allure.id('15')
     @allure.title('Check "Service offerings" Carousel')
     def test_carousel_added_values(self, home_page: HomePage):
         home_page.visit()
         home_page.check_carousel_service_offerings()
 
-    @allure.id('13')
+    @allure.id('16')
     @allure.title('Check "Istaknute Agencije" Carousel')
     def test_carousel_branding_agencies(self, home_page: HomePage):
         home_page.visit()
         home_page.check_carousel_branding_agencies()
 
-    @allure.id('14')
+    @allure.id('17')
     @allure.title('Check "Premijum oglasi" Carousel')
     def test_carousel_premium_ads(self, home_page: HomePage):
         home_page.visit()
         home_page.check_carousel_premium_ads()
 
-    @allure.id('15')
+    @allure.id('18')
     @allure.title('Check "Najnoviji blog postovi" Widget')
     def test_blog_post_widget(self, home_page: HomePage):
         home_page.visit()
         home_page.check_blog_post_widget()
 
-    @allure.id('16')
+    @allure.id('19')
     @allure.title('Check Footer Links')
     def test_footer_links(self, home_page: HomePage):
         home_page.visit()
