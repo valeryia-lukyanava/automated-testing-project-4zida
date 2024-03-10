@@ -82,6 +82,7 @@ class LoginForm(BasePage):
     def login_via_google(self, email, password):
         time.sleep(2)
         self.login_google_iframe.should_be_visible()
+        time.sleep(3)
         self.page.webdriver.switch_to.frame(0)
         logger.info(f"Page Source: {self.page.webdriver.page_source}")
         time.sleep(2)
