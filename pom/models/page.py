@@ -11,6 +11,7 @@ from urllib3.exceptions import MaxRetryError
 
 from config import UIConfig
 from constants.titles.navigation_menu import NavigationMenu
+from constants.titles.titles import Titles
 from constants.urls.emails import Emails
 from constants.titles.errors import Errors
 from constants.web_elements.attributes import Attributes
@@ -462,8 +463,11 @@ class Page(PageInterface):
             sub_menu_element = self.get_xpath(f'({locator}"{sub_menu}"])[{element_index}]')
         with allure.step(f'Checking Sub Menu navigation: "{sub_menu}"'):
             sub_menu_element.scroll_to_element()
-            sub_menu_element.should().be_clickable()
-            sub_menu_element.click()
+            if sub_menu != Titles.LIST_OF_INVESTORS:
+                sub_menu_element.should().be_clickable()
+                sub_menu_element.click()
+            else:
+                self.click_with_js(f'{locator}"{sub_menu}"]')
         return self
 
     def navigate_to_carousel_item(self, xpath):

@@ -7,6 +7,7 @@ class Titles(str):
     WIDGET_TITLE = "Najnoviji blog postovi"
     SEARCH_FORM_SELECTED_LOCATIONS_TITLE = "Izabrano: "
     LIST_OF_AGENCIES = "Lista agencija"
+    LIST_OF_INVESTORS = "Lista investitora"
     NEW_BUILDINGS_ONLY = "Samo novogradnja"
     APARTMENT_FOR_A_DAY = 'Stan na dan'
     SAVED_SEARCHES = 'Tvoje pretrage'
