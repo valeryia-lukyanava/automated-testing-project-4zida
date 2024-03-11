@@ -111,6 +111,7 @@ class Page(PageInterface):
         try:
             normalized_url = url if url.startswith('http') else (self.config.base_url + url)
             logger.info("Page.visit() - Get URL: '%s'", normalized_url)
+            time.sleep(0.5)
             self.webdriver.get(f"{normalized_url}")
             if self.get_xpath(f"//{Tags.H2}").web_element.text == Errors.CLIENT_SIDE_EXCEPTION:
                 logger.info(f"Error: {Errors.CLIENT_SIDE_EXCEPTION}")

@@ -1,5 +1,3 @@
-import time
-
 import allure
 
 from constants.titles.titles import Titles
@@ -9,7 +7,6 @@ from constants.titles.navigation_menu import NavigationMenu
 from constants.web_elements.tags import Tags
 from pom.page_factory.button import Button
 from pom.page_factory.component import Component
-from pom.page_factory.text import Text
 from pom.page_factory.title import Title
 from pom.pages.base_page import BasePage
 from pom.models.page import Page

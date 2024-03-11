@@ -1,6 +1,7 @@
 import time
 import allure
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
 
 from locators.login_form_locators import LoginFormLocators
 from pom.page_factory.button import Button
@@ -10,6 +11,7 @@ from pom.pages.base_page import BasePage
 from pom.models.page import Page
 from pom.pages.google_sign_in_page import GoogleSignInPage
 from utils.logger import logger
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class LoginForm(BasePage):
@@ -80,18 +82,16 @@ class LoginForm(BasePage):
 
     @allure.step('Login via Google')
     def login_via_google(self, email, password):
-        self.page.reload()
         time.sleep(2)
         self.login_google_iframe.should_be_visible()
-        time.sleep(2)
-        self.page.webdriver.switch_to.frame(0)
-        time.sleep(2)
-        self.page.webdriver.switch_to.default_content()
-        time.sleep(2)
-        self.page.webdriver.switch_to.frame(0)
-        time.sleep(2)
+        WebDriverWait(self.page.webdriver, 10).until(
+            EC.frame_to_be_available_and_switch_to_it((By.XPATH, LoginFormLocators.LOGIN_GOOGLE_IFRAME)))
+        # self.page.webdriver.switch_to.frame(0)
         logger.info(f"Page Source: {self.page.webdriver.page_source}")
-        self.page.get_xpath_and_check_visibility(LoginFormLocators.LOGIN_GOOGLE_BUTTON)
+        WebDriverWait(self.page.webdriver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, LoginFormLocators.LOGIN_GOOGLE_BUTTON)))
+        logger.info(f"Page Source: {self.page.webdriver.page_source}")
+        # self.page.get_xpath_and_check_visibility(LoginFormLocators.LOGIN_GOOGLE_BUTTON)
         self.page.click_with_js(LoginFormLocators.LOGIN_GOOGLE_BUTTON)
         original_window = self.page.get_original_window_handle()
         self.page.switch_to_new_window()
